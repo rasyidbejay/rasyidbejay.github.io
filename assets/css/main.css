@@ -987,6 +987,43 @@ section,
   background: #f3268c;
 }
 
+/* New suggested styles */
+
+.services .service-item.item-green .icon-bg i {
+  color: #28a745;
+}
+
+.services .service-item.item-green:hover .icon-bg {
+  background: #28a745;
+}
+
+.services .service-item.item-purple .icon-bg i {
+  color: #6f42c1;
+}
+
+.services .service-item.item-purple:hover .icon-bg {
+  background: #6f42c1;
+}
+/*--new code here
+/* New suggested styles */
+
+.services .service-item.item-green .icon-bg i {
+  color: #28a745;
+}
+
+.services .service-item.item-green:hover .icon-bg {
+  background: #28a745;
+}
+
+.services .service-item.item-purple .icon-bg i {
+  color: #6f42c1;
+}
+
+.services .service-item.item-purple:hover .icon-bg {
+  background: #6f42c1;
+}
+/*--- new code here
+
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
