@@ -877,12 +877,19 @@
     <!-- Footer -->
    <footer class="py-8 px-6 bg-gray-50 dark:bg-gray-900">
   <div class="max-w-6xl mx-auto text-center">
+
     <!-- Logo + Name -->
     <div class="flex justify-center items-center mb-4">
       <div class="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white dark:ring-gray-700 mr-2">
-        <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover" />
+        <!-- Light Theme Logo -->
+        <img src="assets/logo-light.png" alt="Logo Light"
+             class="w-full h-full object-cover block dark:hidden" />
+
+        <!-- Dark Theme Logo -->
+        <img src="assets/logo-dark.png" alt="Logo Dark"
+             class="w-full h-full object-cover hidden dark:block" />
       </div>
-      <span class="font-semibold text-lg">Mohammad Rashid Abdullah</span>
+      <span class="font-semibold text-lg text-gray-800 dark:text-gray-200">Mohammad Rashid Abdullah</span>
     </div>
 
     <!-- Social Icons -->
@@ -900,8 +907,10 @@
 
     <!-- Copyright -->
     <p class="text-sm text-gray-500 dark:text-gray-400">© 2025 Mohammad Rashid Abdullah</p>
+
   </div>
 </footer>
+
 
 
     <script>
