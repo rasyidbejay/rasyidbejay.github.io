@@ -199,6 +199,10 @@
         </div>
     </nav>
 
+    <!-- Glowing Cursor Element -->
+        <div id="glow-cursor"></div>
+
+
     <!-- Hero Section -->
 
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-32 relative">
@@ -860,6 +864,15 @@
     </footer>
 
     <script>
+
+
+        // Glowing Cursor Movement
+        const glowCursor = document.getElementById("glow-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+          glowCursor.style.transform = `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
+        });
+
         // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
