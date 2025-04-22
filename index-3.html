@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Rashid Abdullah | Data Analyst & Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            light: '#0071e3',
+                            dark: '#0a84ff'
+                        },
+                        secondary: {
+                            light: '#f5f5f7',
+                            dark: '#1d1d1f'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.6' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+        .dark .glass-nav {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .nav-item {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+        .nav-item:hover {
+            transform: scale(1.1);
+        }
+        .nav-item.active {
+            background: rgba(0, 113, 227, 0.15);
+        }
+        .dark .nav-item.active {
+            background: rgba(10, 132, 255, 0.15);
+        }
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #0071e3;
+            animation: pulseGlow 2s infinite;
+        }
+        .dark .nav-item.active::after {
+            background: #0a84ff;
+        }
+        .logo-circle {
+            background: linear-gradient(135deg, #0071e3 0%, #34aadc 50%, #0a84ff 100%);
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.3);
+        }
+        .dark .logo-circle {
+            box-shadow: 0 4px 20px rgba(10, 132, 255, 0.3);
+        }
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .dark .nav-divider {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .project-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .dark .project-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        .contact-input {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        .contact-input:focus {
+            border-color: #0071e3;
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+        }
+        .dark .contact-input:focus {
+            border-color: #0a84ff;
+            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0071e3;
+            border: 2px solid white;
+        }
+        .dark .timeline-item::before {
+            background: #0a84ff;
+            border-color: #1d1d1f;
+        }
+        .timeline {
+            border-left: 2px solid #e5e7eb;
+        }
+        .dark .timeline {
+            border-left: 2px solid #374151;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="glass-nav rounded-full p-1.5 flex items-center shadow-xl">
+            <!-- Logo -->
+            <div class="logo-circle w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold mx-1">
+                <span class="font-bold">MRA</span>
+            </div>
+            
+            <!-- Navigation Items -->
+            <div class="flex items-center space-x-1 mx-2">
+                <a href="#home" class="nav-item active w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-home text-lg"></i>
+                </a>
+                <a href="#about" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-lg"></i>
+                </a>
+                <a href="#resume" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-lg"></i>
+                </a>
+                <a href="#portfolio" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-briefcase text-lg"></i>
+                </a>
+                <a href="#skills" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-code text-lg"></i>
+                </a>
+                <a href="#contact" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+                    <i class="fas fa-envelope text-lg"></i>
+                </a>
+            </div>
+            
+            <!-- Divider -->
+            <div class="nav-divider mx-1"></div>
+            
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" class="nav-item w-12 h-12 rounded-full flex items-center justify-center ml-1">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20 pb-32">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-blue-300 mx-auto mb-8 flex items-center justify-center animate-float">
+                <span class="text-4xl font-bold text-white">MRA</span>
+            </div>
+            <h1 class="text-5xl font-bold mb-4">Mohammad Rashid Abdullah</h1>
+            <h2 class="text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6">Data Analyst | Web Developer | Digital Marketer</h2>
+            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">"Turning data into insights, websites into experiences, and strategies into growth. I blend data analytics, SEO, and development to drive smart decisions and digital impact."</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#portfolio" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition-colors duration-300">
+                    View Projects
+                </a>
+                <a href="#" class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full font-medium transition-colors duration-300">
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
+                    <p class="text-lg mb-6">I'm a final-year BBA (Information Systems) student at International Islamic University Malaysia (IIUM), passionate about transforming data into impactful business decisions.</p>
+                    <p class="text-lg mb-6">With a background in freelance SEO and website development, combined with professional internship experiences at RIWEI Marketing and MA Insights, I've developed a unique multidisciplinary approach to digital solutions.</p>
+                    <p class="text-lg">When I'm not analyzing data or coding websites, you can find me exploring new technologies, contributing to open-source projects, or mentoring junior developers.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6">Key Highlights</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-graduation-cap text-blue-500 dark:text-blue-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">BBA in Information Systems</h4>
+                                <p class="text-gray-600 dark:text-gray-400">International Islamic University Malaysia (2020-2024)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-briefcase text-green-500 dark:text-green-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Digital Marketing Intern</h4>
+                                <p class="text-gray-600 dark:text-gray-400">RIWEI Marketing (2023)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-chart-line text-purple-500 dark:text-purple-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Data Analytics Intern</h4>
+                                <p class="text-gray-600 dark:text-gray-400">MA Insights (2022)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-code text-yellow-500 dark:text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Freelance Developer</h4>
+                                <p class="text-gray-600 dark:text-gray-400">5+ years experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">My Resume</h2>
+            
+            <div class="flex justify-center mb-12">
+                <a href="#" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition-colors duration-300 flex items-center">
+                    <i class="fas fa-download mr-2"></i> Download Full CV
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3 text-blue-500"></i> Education
+                    </h3>
+                    <div class="timeline pl-8 relative">
+                        <div class="timeline-item mb-8 relative">
+                            <h4 class="font-bold text-lg">Bachelor of Business Administration (Information Systems)</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">International Islamic University Malaysia</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-500">2020 - 2024 (Expected)</p>
+                            <p class="mt-2">Relevant coursework: Data Analytics, Database Management, Web Development, Business Intelligence</p>
+                        </div>
+                        <div class="timeline-item mb-8 relative">
+                            <h4 class="font-bold text-lg">Diploma in Information Technology</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">Kolej Professional Mara Seri Iskandar</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-500">2017 - 2020</p>
+                            <p class="mt-2">Graduated with honors, specializing in web development and database systems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-briefcase mr-3 text-blue-500"></i> Experience
+                    </h3>
+                    <div class="timeline pl-8 relative">
+                        <div class="timeline-item mb-8 relative">
+                            <h4 class="font-bold text-lg">Digital Marketing Intern</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">RIWEI Marketing</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-500">Jan 2023 - Jun 2023</p>
+                            <ul class="mt-2 list-disc pl-5 space-y-1">
+                                <li>Developed and implemented SEO strategies resulting in 40% traffic increase</li>
+                                <li>Created data-driven marketing campaigns using Google Analytics</li>
+                                <li>Managed social media content and engagement metrics</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item mb-8 relative">
+                            <h4 class="font-bold text-lg">Data Analytics Intern</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">MA Insights</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-500">Jul 2022 - Dec 2022</p>
+                            <ul class="mt-2 list-disc pl-5 space-y-1">
+                                <li>Cleaned and analyzed large datasets using Python and SQL</li>
+                                <li>Created interactive dashboards in Power BI for client presentations</li>
+                                <li>Automated reporting processes saving 15+ hours weekly</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item relative">
+                            <h4 class="font-bold text-lg">Freelance Web Developer</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">Self-Employed</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-500">2018 - Present</p>
+                            <ul class="mt-2 list-disc pl-5 space-y-1">
+                                <li>Built 20+ websites for small businesses using WordPress and custom code</li>
+                                <li>Optimized sites for SEO, resulting in higher search rankings</li>
+                                <li>Provided ongoing maintenance and technical support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                    <i class="fas fa-certificate mr-3 text-blue-500"></i> Certifications
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <h4 class="font-bold">Google Data Analytics Professional</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Google • 2022</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <h4 class="font-bold">Microsoft Power BI Data Analyst</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Microsoft • 2022</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                        <h4 class="font-bold">SEO Fundamentals</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">SEMrush • 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white dark:bg-gray-800 overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-bicycle text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Cyclistic Bike-Share Case Study</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Analyzed 12 months of bike-share data to identify trends and recommend marketing strategies.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">R</span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">Tableau</span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">SQL</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-gray-800 overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-users text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">HR Analytics Dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Interactive Power BI dashboard tracking employee performance, attrition, and satisfaction metrics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded-full">Power BI</span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded-full">DAX</span>
+                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded-full">Excel</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-purple-500 hover:text-purple-700 dark:hover:text-purple-400">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-purple-500 hover:text-purple-700 dark:hover:text-purple-400">
+                                <i class="fas fa-external-link-alt"></i> Live
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-gray-800 overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-search text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">SEO Optimization for Scrub Squad</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Comprehensive SEO strategy implementation for cleaning service company, increasing organic traffic by 120%.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">SEO</span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">Google Analytics</span>
+                            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">SEMrush</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-green-500 hover:text-green-700 dark:hover:text-green-400">
+                                <i class="fas fa-external-link-alt"></i> Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white dark:bg-gray-800 overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center">
+                        <i class="fas fa-coffee text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Roast & Toast Website Dev</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Custom WordPress theme development for local coffee shop with online ordering system.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">WordPress</span>
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">PHP</span>
+                            <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">WooCommerce</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-yellow-500 hover:text-yellow-700 dark:hover:text-yellow-400">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-white dark:bg-gray-800 overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-money-bill-wave text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Digital Nex Fintech Web Project</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Financial technology platform with interactive data visualization and secure user dashboard.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded-full">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-red-500 hover:text-red-700 dark:hover:text-red-400">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-red-500 hover:text-red-700 dark:hover:text-red-400">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-white dark:bg-gray-800 overflow-hidden">
+                    <div class="h-48 bg-gradient-to-r from-indigo-400 to-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-chart-pie text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">E-commerce Sales Analysis</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Python script for analyzing and visualizing sales trends from multiple e-commerce platforms.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs rounded-full">Pandas</span>
+                            <span class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 text-xs rounded-full">Matplotlib</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-indigo-500 hover:text-indigo-700 dark:hover:text-indigo-400">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-indigo-500 hover:text-indigo-700 dark:hover:text-indigo-400">
+                                <i class="fas fa-file-pdf"></i> Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full font-medium transition-colors duration-300 inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i> View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Technical Skills -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-code text-blue-500 dark:text-blue-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Technical Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2">Data Analysis</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">SQL</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Python</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">R</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Power BI</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Tableau</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Excel</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">Web Development</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">HTML/CSS</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">JavaScript</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">PHP</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">WordPress</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">React</span>
+                                <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Marketing Skills -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-bullhorn text-green-500 dark:text-green-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Marketing Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2">Digital Marketing</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">SEO</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">SEM</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Google Analytics</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Google Ads</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Social Media</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Content Marketing</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">SEMrush</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Ahrefs</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Google Search Console</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Canva</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">CapCut</span>
+                                <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">SiteGiant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                            <i class="fas fa-comments text-purple-500 dark:text-purple-300"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Soft Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2">Professional</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Communication</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Problem Solving</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Teamwork</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Adaptability</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Time Management</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Leadership</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">Languages</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">English (Fluent)</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Malay (Native)</span>
+                                <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-sm rounded-full">Arabic (Basic)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">What People Say</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold mr-4">RM</div>
+                        <div>
+                            <h4 class="font-bold">Rahman Mohd</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Marketing Director, RIWEI</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic">"Rashid's SEO strategies transformed our digital presence. Within 3 months, our organic traffic increased by 120% and conversion rates improved significantly. His data-driven approach to marketing is exceptional."</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold mr-4">AS</div>
+                        <div>
+                            <h4 class="font-bold">Ahmad Syafiq</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">CEO, MA Insights</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic">"Working with Rashid on our analytics projects was a pleasure. He has an incredible ability to translate complex data into actionable business insights. His Power BI dashboards are both visually appealing and highly functional."</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-4">SS</div>
+                        <div>
+                            <h4 class="font-bold">Sarah Salleh</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Owner, Scrub Squad</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic">"Rashid completely revamped our website and SEO strategy. Not only does our site look modern and professional, but we're now ranking for all our target keywords. His communication throughout the project was excellent."</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white font-bold mr-4">RT</div>
+                        <div>
+                            <h4 class="font-bold">Roast & Toast</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Coffee Shop</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 italic">"The website Rashid built for us has been a game-changer. Online orders increased by 200% in the first month. He was patient with our many requests and delivered beyond our expectations. Highly recommended!"</p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <p class="mb-8">Feel free to reach out for collaborations, job opportunities, or just to say hello!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-500 dark:text-blue-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:rasyidbejay@gmail.com" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-400">rasyidbejay@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-green-500 dark:text-green-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p>Kuala Lumpur, Malaysia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full mr-4">
+                                <i class="fas fa-globe text-purple-500 dark:text-purple-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Online Profiles</h4>
+                                <div class="flex space-x-4 mt-2">
+                                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+                                        <i class="fab fa-linkedin-in text-xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400">
+                                        <i class="fab fa-instagram text-xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-300">
+                                        <i class="fab fa-twitter text-xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200">
+                                        <i class="fab fa-github text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Name</label>
+                            <input type="text" id="name" class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input type="email" id="email" class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="4" class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors duration-300 w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="logo-circle w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                            <span class="font-bold">MRA</span>
+                        </div>
+                        <span class="text-xl font-bold">Mohammad Rashid Abdullah</span>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400">
+                        <i class="fab fa-tableau text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-600 dark:text-gray-400">© 2023 Mohammad Rashid Abdullah. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">Built with HTML, CSS, and JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (currentTheme) {
+            html.classList.add(currentTheme);
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (anchor.classList.contains('nav-item')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // Update active nav item
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll to section
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+        
+        // Update active nav item on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + 100;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    const correspondingNav = document.querySelector(`.nav-item[href="#${sectionId}"]`);
+                    if (correspondingNav) {
+                        correspondingNav.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=rasyid95/rasyidbejay" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
