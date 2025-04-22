@@ -203,24 +203,41 @@
   is this the hero section that i need to adjust?:
 
 <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20 pb-32">
-        <div class="text-center max-w-4xl mx-auto">
-            <div class="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-blue-300 mx-auto mb-8 flex items-center justify-center animate-float">
-                <span class="text-4xl font-bold text-white">MRA</span>
-            </div>
-            <h1 class="text-5xl font-bold mb-4">Mohammad Rashid Abdullah</h1>
-            <h2 class="text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6">Data Analyst | Web Developer | Digital Marketer</h2>
-            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">"Turning data into insights, websites into experiences, and strategies into growth. I blend data analytics, SEO, and development to drive smart decisions and digital impact."</p>
-            <div class="flex justify-center space-x-4">
-                <a href="#portfolio" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition-colors duration-300">
-                    View Projects
-                </a>
-                <a href="#" class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full font-medium transition-colors duration-300">
-                    Download CV
-                </a>
-            </div>
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-32 relative">
+      <!-- Soft Blur Background (Apple-style) -->
+      <div class="absolute w-80 h-80 bg-blue-500 opacity-10 blur-[100px] rounded-full -z-10 top-12 left-1/2 -translate-x-1/2"></div>
+
+      <div class="text-center max-w-3xl mx-auto">
+        <!-- Your Photo -->
+        <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden shadow-lg ring-4 ring-blue-500/30">
+          <img src="assets/profile.jpg" alt="Mohammad Rashid Abdullah" class="object-cover w-full h-full" />
         </div>
-    </section>
+
+        <!-- Name -->
+        <h1 class="text-4xl md:text-5xl font-bold mb-3">Mohammad Rashid Abdullah</h1>
+
+        <!-- Roles -->
+        <h2 class="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-6 font-medium">
+          Data Analyst • Web Developer • Digital Marketer
+        </h2>
+
+    <!-- Quote -->
+    <p class="text-lg opacity-80 mb-8 max-w-xl mx-auto">
+      "Turning data into insights, websites into experiences, and strategies into growth. I blend data analytics, SEO, and development to drive smart decisions and digital impact."
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex justify-center space-x-4">
+      <a href="#portfolio" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition">
+        View Projects
+      </a>
+      <a href="#" class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full font-medium transition">
+        Download CV
+      </a>
+    </div>
+  </div>
+</section>
+
     
     <!-- About Section -->
     <section id="about" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
