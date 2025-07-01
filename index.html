@@ -835,7 +835,8 @@
             <!-- Contact Form -->
             <div>
                 <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-                <form action="https://formspree.io/f/xldnzogn" method="POST" class="space-y-4">
+            
+                <form id="contactForm" action="https://formspree.io/f/xldnzogn" method="POST" class="space-y-4">
                     <div>
                         <label for="name" class="block mb-2 font-medium">Name</label>
                         <input name="name" type="text" id="name"
@@ -857,13 +858,67 @@
                                   class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     </div>
             
-            
                     <button type="submit"
                             class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors duration-300 w-full">
                         Send Message
                     </button>
                 </form>
+            
+                <!-- Popup Message -->
+                <div id="thankYouPopup" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
+                    <div class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-6 rounded-xl shadow-xl text-center animate-scale-in">
+                        <div class="text-green-500 text-4xl mb-2">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
+                        <p>Your message has been sent successfully.</p>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Custom Animation -->
+            <style>
+              @keyframes scaleIn {
+                0% { transform: scale(0.9); opacity: 0; }
+                100% { transform: scale(1); opacity: 1; }
+              }
+              .animate-scale-in {
+                animation: scaleIn 0.3s ease-out forwards;
+              }
+            </style>
+            
+            <!-- Submission Script -->
+            <script>
+              const form = document.getElementById("contactForm");
+              const popup = document.getElementById("thankYouPopup");
+            
+              form.addEventListener("submit", function (e) {
+                e.preventDefault();
+            
+                const formData = new FormData(form);
+            
+                fetch(form.action, {
+                  method: form.method,
+                  body: formData,
+                  headers: { 'Accept': 'application/json' }
+                })
+                .then(response => {
+                  if (response.ok) {
+                    popup.classList.remove("hidden");
+                    form.reset();
+            
+                    setTimeout(() => {
+                      popup.classList.add("hidden");
+                    }, 4000); // 4 seconds
+                  } else {
+                    alert("Oops! Something went wrong.");
+                  }
+                })
+                .catch(() => {
+                  alert("Something went wrong. Please try again later.");
+                });
+              });
+            </script>
 
 
     <!-- Footer -->
