@@ -835,36 +835,37 @@
             <!-- Contact Form -->
             <div>
                 <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-                <form class="space-y-4">
+                <form action="https://formspree.io/f/xldnzogn" method="POST" class="space-y-4">
                     <div>
                         <label for="name" class="block mb-2 font-medium">Name</label>
-                        <input type="text" id="name"
+                        <input name="name" type="text" id="name"
                                class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label for="email" class="block mb-2 font-medium">Email</label>
-                        <input type="email" id="email"
+                        <input name="email" type="email" id="email"
                                class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label for="subject" class="block mb-2 font-medium">Subject</label>
-                        <input type="text" id="subject"
+                        <input name="subject" type="text" id="subject"
                                class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label for="message" class="block mb-2 font-medium">Message</label>
-                        <textarea id="message" rows="4"
+                        <textarea name="message" id="message" rows="4"
                                   class="contact-input w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     </div>
+            
+                    <!-- Optional: Redirect after submission -->
+                    <input type="hidden" name="_redirect" value="https://rasyidbejay.com/thank-you.html">
+            
                     <button type="submit"
                             class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors duration-300 w-full">
                         Send Message
                     </button>
                 </form>
             </div>
-        </div>
-    </div>
-</section>
 
 
     <!-- Footer -->
