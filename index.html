@@ -222,43 +222,39 @@
   <div id="glow-cursor"></div>
 
 
-
 <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-32 relative">
-  <!-- Blur Effect Background -->
+  <!-- Subtle Background Glow -->
   <div class="absolute w-[500px] h-[500px] bg-blue-500 opacity-10 blur-[120px] rounded-full -z-10 top-10 left-1/2 -translate-x-1/2"></div>
 
-  <!-- Apple-style Glass Card -->
-  <div class="w-full max-w-4xl bg-white/80 dark:bg-white/5 backdrop-blur-lg border border-white/10 dark:border-white/10 shadow-xl rounded-3xl px-10 py-12 flex flex-col items-center text-center space-y-6">
-
-    <!-- Profile Image -->
-    <div class="w-48 h-48 rounded-full overflow-hidden ring-4 ring-blue-500/30 shadow-lg">
+  <!-- Apple-style Card with Image Left, Text Right -->
+  <div class="w-full max-w-5xl bg-white/70 dark:bg-white/5 backdrop-blur-lg rounded-3xl border border-white/10 dark:border-white/10 shadow-lg px-10 py-12 flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
+    
+    <!-- Image Left -->
+    <div class="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden ring-4 ring-blue-500/30 shadow-lg flex-shrink-0">
       <img src="assets/profile.jpg" alt="Mohammad Rashid Abdullah" class="w-full h-full object-cover" />
     </div>
 
-    <!-- Name -->
-    <h1 class="text-3xl md:text-4xl font-bold">Mohammad Rashid Abdullah</h1>
-
-    <!-- Roles -->
-    <p class="text-md md:text-lg text-gray-600 dark:text-gray-400">
-      Data Analyst • Business Analyst • Web Developer • Notioner
-    </p>
-
-    <!-- Bio -->
-    <p class="text-base text-gray-700 dark:text-gray-300 max-w-2xl">
-      "Transforming raw data into strategy, business needs into solutions, and ideas into functional websites. With a foundation in Business Administration and hands-on experience in analytics and development, I help organizations make informed decisions, optimize processes, and grow through digital transformation."
-    </p>
-
-    <!-- Buttons -->
-    <div class="flex flex-wrap justify-center gap-4 pt-4">
-      <a href="#portfolio" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition">
-        View Projects
-      </a>
-      <a href="assets/Mohammad-Rashid-CV.pdf" download class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full font-medium transition-colors duration-300">
-        Download CV
-      </a>
+    <!-- Text Right -->
+    <div class="flex flex-col text-center md:text-left items-center md:items-start max-w-2xl">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">Mohammad Rashid Abdullah</h1>
+      <p class="text-md md:text-lg text-gray-600 dark:text-gray-400 mb-4">
+        Data Analyst • Business Analyst • Web Developer • Notioner
+      </p>
+      <p class="text-base text-gray-700 dark:text-gray-300 mb-6">
+        "Transforming raw data into strategy, business needs into solutions, and ideas into functional websites. With a foundation in Business Administration and hands-on experience in analytics and development, I help organizations make informed decisions, optimize processes, and grow through digital transformation."
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#portfolio" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition">
+          View Projects
+        </a>
+        <a href="assets/Mohammad-Rashid-CV.pdf" download class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full font-medium transition-colors duration-300">
+          Download CV
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
 
 
     
