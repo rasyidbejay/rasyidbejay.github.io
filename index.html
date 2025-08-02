@@ -171,60 +171,60 @@
 
 </head>
 <body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
-    <!-- Navigation -->
-    <!-- Mobile Nav Toggle Button -->
+
+    
+    <!-- ✅ Mobile Hamburger Toggle Button -->
     <button id="mobile-nav-toggle" class="fixed top-4 right-4 z-50 md:hidden bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-2 rounded-lg shadow">
-          <i class="fas fa-bars text-xl text-gray-800 dark:text-white"></i>
+      <i class="fas fa-bars text-xl text-gray-800 dark:text-white"></i>
     </button>
-
-    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div class="glass-nav rounded-full p-1.5 flex items-center shadow-xl">
-            <!-- Logo -->
-           <a href="#" id="scrollToTopBtn" class="mx-1">
-  <div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white dark:ring-gray-700 hover:scale-105 transition-transform duration-200">
-    <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover" />
-  </div>
-</a>
-
-           </a>
-
-
-            
-            <!-- Navigation Items -->
-            <div class="flex items-center space-x-1 mx-2">
-                <a href="#home" class="nav-item active w-12 h-12 rounded-full flex items-center justify-center">
-                    <i class="fas fa-home text-lg"></i>
-                </a>
-                <a href="#about" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
-                    <i class="fas fa-user text-lg"></i>
-                </a>
-                <a href="#resume" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
-                    <i class="fas fa-file-alt text-lg"></i>
-                </a>
-                <a href="#portfolio" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
-                    <i class="fas fa-briefcase text-lg"></i>
-                </a>
-                <a href="#skills" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
-                    <i class="fas fa-code text-lg"></i>
-                </a>
-                <a href="#contact" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
-                    <i class="fas fa-envelope text-lg"></i>
-                </a>
-            </div>
-            
-            <!-- Divider -->
-            <div class="nav-divider mx-1"></div>
-            
-            <!-- Theme Toggle -->
-            <button id="theme-toggle" class="nav-item w-12 h-12 rounded-full flex items-center justify-center ml-1">
-                <i class="fas fa-moon dark:hidden"></i>
-                <i class="fas fa-sun hidden dark:block"></i>
-            </button>
+    
+    <!-- ✅ Desktop Navigation Bar -->
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-40 hidden md:block">
+      <div class="glass-nav rounded-full p-1.5 flex items-center shadow-xl">
+        
+        <!-- Logo -->
+        <a href="#" id="scrollToTopBtn" class="mx-1">
+          <div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white dark:ring-gray-700 hover:scale-105 transition-transform duration-200">
+            <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover" />
+          </div>
+        </a>
+    
+        <!-- Navigation Items -->
+        <div class="flex items-center space-x-1 mx-2">
+          <a href="#home" class="nav-item active w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-home text-lg"></i>
+          </a>
+          <a href="#about" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-lg"></i>
+          </a>
+          <a href="#resume" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-file-alt text-lg"></i>
+          </a>
+          <a href="#portfolio" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-briefcase text-lg"></i>
+          </a>
+          <a href="#skills" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-code text-lg"></i>
+          </a>
+          <a href="#contact" class="nav-item w-12 h-12 rounded-full flex items-center justify-center">
+            <i class="fas fa-envelope text-lg"></i>
+          </a>
         </div>
+    
+        <!-- Divider -->
+        <div class="nav-divider mx-1"></div>
+    
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="nav-item w-12 h-12 rounded-full flex items-center justify-center ml-1">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+    
+      </div>
     </nav>
-
-    <!-- Mobile Fullscreen Nav Menu -->
-    <nav id="mobile-nav" class="fixed inset-0 bg-white dark:bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl font-medium transition-all duration-300">
+    
+    <!-- ✅ Mobile Fullscreen Navigation Menu -->
+    <nav id="mobile-nav" class="fixed inset-0 bg-white dark:bg-black z-40 hidden flex flex-col items-center justify-center space-y-8 text-2xl font-medium transition-all duration-300 md:hidden">
       <a href="#home" class="nav-item">Home</a>
       <a href="#about" class="nav-item">About</a>
       <a href="#resume" class="nav-item">Resume</a>
@@ -232,10 +232,9 @@
       <a href="#skills" class="nav-item">Skills</a>
       <a href="#contact" class="nav-item">Contact</a>
     </nav>
-
-
-    <!-- Glowing Cursor Element -->
-  <div id="glow-cursor"></div>
+    
+    <!-- ✅ Glowing Cursor Element -->
+    <div id="glow-cursor"></div>
 
     
 
@@ -991,6 +990,11 @@
 
 
     <script>
+
+                // Toggle mobile nav visibility
+        document.getElementById('mobile-nav-toggle').addEventListener('click', () => {
+          document.getElementById('mobile-nav').classList.toggle('hidden');
+        });
 
 
         // Glowing Cursor Movement
