@@ -63,17 +63,26 @@ html {
   background: rgba(255, 255, 255, 0.1);
 }
 .project-card {
-  transition: all 0.3s ease;
   border-radius: 12px;
   overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: white; /* or your light theme bg */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+
+.dark .project-card {
+  background-color: #1f2937; /* dark bg example */
+}
+
 .dark .project-card:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+
 .skill-badge {
   transition: all 0.3s ease;
 }
