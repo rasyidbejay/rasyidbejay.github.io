@@ -66,7 +66,7 @@ html {
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
-  background-color: white; /* or your light theme bg */
+  background-color: transparent; /* or your light theme bg */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
