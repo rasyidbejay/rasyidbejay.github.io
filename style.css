@@ -4,7 +4,7 @@ html {
 
 .glass-nav {
   background: rgba(255, 255, 255, 0.3); /* lighter and more transparent */
-  backdrop-filter: blur(10px); /* blur effect */
+  backdrop-filter: blur(20px); /* blur effect */
   -webkit-backdrop-filter: blur(10px); /* for Safari */
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
@@ -15,7 +15,7 @@ html {
   background: rgba(30, 30, 30, 0.4); /* a bit more transparent dark */
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(10px);
 }
 
