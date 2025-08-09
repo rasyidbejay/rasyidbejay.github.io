@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mohammad Rashid bin Abdullah — Portfolio</title>
-  <meta name="description" content="Business Administration graduate (Minor in IS). Data Analyst • Web Developer • SEO Specialist. Kuala Lumpur, Malaysia." />
+  <title>Rashid</title>
+  <meta name="description" content="Data Analyst • Web Developer • SEO Specialist in Kuala Lumpur. Minimal Apple-style portfolio with frosted glass UI." />
   <meta name="color-scheme" content="light dark">
-  <meta property="og:title" content="Mohammad Rashid bin Abdullah — Portfolio" />
+  <meta property="og:title" content="Mohammad Rashid — Portfolio" />
   <meta property="og:description" content="Data Analyst • Web Developer • SEO Specialist | Kuala Lumpur, Malaysia" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/profile.jpg" />
@@ -21,39 +21,35 @@
 
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f6f7fb;
       --fg: #0b0c0f;
-      --muted: #5c6470;
-      --card: rgba(255, 255, 255, 0.6);
-      --card-stroke: rgba(0, 0, 0, 0.06);
-      --accent: #0a84ff; /* Apple blue */
-      --accent-2: #30d158; /* Apple green */
-      --shadow: 0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
-      --radius: 24px;
-      --glass-blur: 22px;
-      --glass-sat: 130%;
-      --glass-bright: 110%;
-      --gap: clamp(14px, 2vw, 22px);
-      --maxw: 1120px;
-      --pulse-scale: 1.03;
+      --muted: #6b7280;
+      --card: rgba(255, 255, 255, 0.55);
+      --stroke: rgba(0, 0, 0, 0.06);
+      --accent: #0a84ff;
+      --shadow: 0 12px 28px rgba(0,0,0,.06);
+      --radius: 22px;
+      --blur: 18px;
+      --gap: clamp(14px, 2.4vw, 22px);
+      --maxw: 1024px;
+      --icon: currentColor;
     }
     html[data-theme="dark"]:root {
       --bg: #0b0c0f;
       --fg: #f3f5f7;
       --muted: #a6adbb;
-      --card: rgba(17, 18, 22, 0.55);
-      --card-stroke: rgba(255,255,255,0.08);
-      --accent: #0a84ff;
-      --accent-2: #30d158;
-      --shadow: 0 20px 50px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.6);
+      --card: rgba(17, 18, 22, 0.45);
+      --stroke: rgba(255,255,255,0.08);
+      --shadow: 0 24px 60px rgba(0,0,0,.45);
     }
 
-    /* Global reset */
+    /* Global: one system font, fewer weights */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial;
+      font-weight: 400;
       color: var(--fg);
       background: var(--bg);
       -webkit-font-smoothing: antialiased;
@@ -61,149 +57,86 @@
       overflow-x: hidden;
     }
 
-    /* Blurry gradient background that subtly follows scroll */
+    /* Subtle blurry gradient */
     .bg {
-      position: fixed;
-      inset: -20vmax;
-      z-index: -2;
-      filter: blur(60px) saturate(140%);
-      transform: translate3d(0, 0, 0);
-      pointer-events: none;
+      position: fixed; inset: -25vmax; z-index: -2; pointer-events: none;
+      filter: blur(64px) saturate(130%);
       background:
-        radial-gradient(35vmax 35vmax at 20% 15%, rgba(10,132,255,0.45), transparent 60%),
-        radial-gradient(30vmax 30vmax at 80% 10%, rgba(48,209,88,0.35), transparent 60%),
-        radial-gradient(45vmax 45vmax at 50% 100%, rgba(255,69,58,0.18), transparent 60%),
-        radial-gradient(40vmax 40vmax at 10% 80%, rgba(175,82,222,0.22), transparent 60%);
+        radial-gradient(36vmax 36vmax at 18% 12%, rgba(10,132,255,.35), transparent 60%),
+        radial-gradient(32vmax 32vmax at 82% 8%, rgba(48,209,88,.28), transparent 60%),
+        radial-gradient(44vmax 44vmax at 50% 100%, rgba(175,82,222,.18), transparent 60%);
+      transform: translate3d(0,0,0);
     }
+    .texture { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,.10), transparent 46%); }
 
-    .texture {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.15), transparent 40%),
-                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><g fill="none" stroke="%23ffffff0d"><path d="M0 70h140M70 0v140"/></g></svg>');
-      mix-blend-mode: overlay;
-    }
+    .container { width: min(var(--maxw), 100% - 28px); margin-inline: auto; }
 
-    .container { width: min(var(--maxw), 100% - 2*var(--gap)); margin-inline: auto; }
-
-    /* Glass navigation */
+    /* Glass nav — minimal */
     .nav {
-      position: sticky; top: 12px; z-index: 10;
-      margin: 12px auto; width: min(1020px, calc(100% - 24px));
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; gap: 8px;
-      background: var(--card);
-      border: 1px solid var(--card-stroke);
-      border-radius: 18px;
-      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
-      box-shadow: var(--shadow);
+      position: sticky; top: 12px; z-index: 10; margin: 12px auto; width: min(960px, calc(100% - 24px));
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 8px 12px; background: var(--card); border: 1px solid var(--stroke); border-radius: 16px;
+      backdrop-filter: blur(var(--blur)) saturate(130%); box-shadow: var(--shadow);
     }
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .brand img.logo { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; }
-    .brand .name { font-weight: 650; letter-spacing: .2px; }
-    .nav a { color: inherit; text-decoration: none; font-weight: 550; opacity: .85; }
-    .nav a:hover { opacity: 1; }
-    .nav .links { display: flex; gap: 10px; flex-wrap: wrap; }
-    .nav .right { display: flex; gap: 8px; align-items: center; }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .brand img { width:24px; height:24px; border-radius:7px; object-fit:cover; }
+    .brand .name { font-weight: 600; letter-spacing:.2px; }
+    .nav .links { display:flex; gap:8px; }
+    .nav a { color:inherit; text-decoration:none; padding:6px 10px; border-radius:10px; border:1px solid transparent; }
+    .nav a:hover { border-color: var(--stroke); }
 
-    .btn, button.btn {
-      appearance: none; border: 1px solid var(--card-stroke); color: var(--fg);
-      background: linear-gradient(to bottom right, rgba(255,255,255,.6), rgba(255,255,255,.35));
-      padding: 8px 12px; border-radius: 12px; font-weight: 600; cursor: pointer;
-      backdrop-filter: blur(14px) saturate(120%);
-      box-shadow: var(--shadow);
-      transition: transform .14s ease, filter .2s ease, background .2s ease;
-    }
-    html[data-theme="dark"] .btn { background: linear-gradient(to bottom right, rgba(35,37,45,.6), rgba(24,25,31,.5)); }
-    .btn:hover { transform: translateY(-1px) scale(var(--pulse-scale)); }
-    .btn:active { transform: translateY(0) scale(.98); }
-    .btn .icon { width: 18px; height: 18px; vertical-align: -3px; margin-right: 6px; }
+    .iconbtn { appearance:none; background:transparent; border:1px solid var(--stroke); color:inherit; border-radius:12px; padding:8px; display:inline-grid; place-items:center; cursor:pointer; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+    .iconbtn svg { width:18px; height:18px; }
+    .iconbtn:hover { transform: translateY(-1px); }
 
-    /* Sections */
-    section { scroll-margin-top: 100px; }
-    .grid { display: grid; gap: var(--gap); }
-    .cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    /* Cards kept airy */
+    .card { background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius); padding: clamp(18px, 2.6vw, 26px); box-shadow: var(--shadow); backdrop-filter: blur(var(--blur)) saturate(130%); }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--card-stroke);
-      border-radius: var(--radius);
-      padding: clamp(16px, 2.6vw, 24px);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
-      transition: transform .18s ease, box-shadow .3s ease, border-color .25s ease;
-    }
-    .card:hover { transform: translateY(-2px); }
-
-    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 6px 0 8px; }
-    h2 { font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 12px; }
-    h3 { font-size: clamp(16px, 2.2vw, 20px); margin: 0 0 8px; }
-    p { line-height: 1.6; color: var(--muted); margin: 6px 0 0; }
+    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 2px 0 6px; font-weight: 650; }
+    h2 { font-size: clamp(18px, 2.4vw, 26px); margin: 0 0 8px; font-weight: 650; }
+    p { line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
     .muted { color: var(--muted); }
 
     /* Hero */
-    .hero {
-      display: grid; gap: var(--gap);
-      grid-template-columns: minmax(0,1fr);
-      align-items: center; padding-top: 14px;
+    .hero { display:grid; grid-template-columns: 120px 1fr; gap: 18px; align-items:center; }
+    .avatar { width:110px; height:110px; border-radius:24px; object-fit:cover; box-shadow: 0 10px 24px rgba(0,0,0,.14), inset 0 0 0 2px rgba(255,255,255,.5); }
+    .roles { display:flex; gap:8px; flex-wrap:wrap; }
+    .role { padding:6px 10px; border-radius:999px; border: 1px solid var(--stroke); background: var(--card); font-weight:600; }
+
+    /* Dock — icon-only social row */
+    .dock { display:flex; gap: 8px; flex-wrap: wrap; }
+    .dock a { display:inline-grid; place-items:center; width:44px; height:44px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: transform .14s ease; }
+    .dock a:hover { transform: translateY(-2px) scale(1.04); }
+    .dock svg { width:20px; height:20px; color: var(--icon); }
+
+    /* Work (Experience + Projects) — minimal tiles */
+    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: var(--gap); }
+    .tile { display:grid; gap:8px; }
+    .tl { display:flex; align-items:center; gap:10px; }
+    .tl svg { width:20px; height:20px; }
+
+    /* Stacks (icon grid) */
+    .stacks { display:grid; grid-template-columns: repeat(auto-fit, minmax(56px,1fr)); gap: 10px; }
+    .stack {
+      display:grid; place-items:center; height:56px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px);
     }
-    .hero-wrap { display: grid; gap: var(--gap); grid-template-columns: 140px 1fr; align-items: center; }
-    .avatar {
-      width: 128px; height: 128px; border-radius: 28px; object-fit: cover;
-      box-shadow: 0 10px 30px rgba(0,0,0,.18), inset 0 0 0 2px rgba(255,255,255,.6);
-      transform: translateZ(0); will-change: transform;
-    }
-    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
-    .badge {
-      background: linear-gradient(to bottom right, rgba(255,255,255,.7), rgba(255,255,255,.45));
-      border: 1px solid var(--card-stroke); border-radius: 999px; padding: 6px 10px; font-weight: 600; font-size: 13px;
-      backdrop-filter: blur(12px);
-    }
-    html[data-theme="dark"] .badge { background: linear-gradient(to bottom right, rgba(35,37,45,.65), rgba(24,25,31,.45)); }
+    .stack svg { width:22px; height:22px; }
 
-    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    /* Contact */
+    .contact { display:flex; gap:10px; flex-wrap:wrap; }
+    .chip { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); }
+    .chip svg { width:18px; height:18px; }
 
-    /* Icon rows */
-    .icon-row { display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip {
-      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
-      border-radius: 999px; border: 1px solid var(--card-stroke); background: var(--card);
-      backdrop-filter: blur(10px); box-shadow: var(--shadow); font-weight: 600;
-      transition: transform .16s ease;
-    }
-    .chip:hover { transform: translateY(-1px) scale(var(--pulse-scale)); }
-    .chip svg { width: 18px; height: 18px; }
+    footer { text-align:center; color: var(--muted); padding: 28px 0 40px; }
 
-    /* Timeline */
-    .timeline { position: relative; }
-    .timeline::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--accent), transparent); opacity: .5; }
-    .tl-item { position: relative; padding-left: 32px; }
-    .tl-item::before { content: ""; position: absolute; left: 4px; top: .4rem; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 30%, transparent); }
-
-    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: var(--gap); }
-    .kpi { text-align: center; padding: 14px; }
-    .kpi .num { font-size: clamp(22px, 4vw, 32px); font-weight: 800; }
-
-    /* Projects filter */
-    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
-    .filters button { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--card-stroke); background: var(--card); font-weight: 700; cursor: pointer; }
-    .filters button.active { outline: 2px solid color-mix(in oklab, var(--accent) 40%, transparent); background: color-mix(in oklab, var(--accent) 12%, var(--card)); }
-
-    /* Footer */
-    footer { text-align: center; padding: 30px 0 40px; color: var(--muted); }
-
-    /* Utilities */
-    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-    .row { display: flex; gap: var(--gap); flex-wrap: wrap; align-items: start; }
-
-    @media (max-width: 760px) {
-      .hero-wrap { grid-template-columns: 1fr; text-align: center; }
-      .avatar { margin-inline: auto; }
-      .nav .links { display: none; }
+    @media (max-width: 760px){
+      .hero { grid-template-columns: 1fr; text-align:center; }
+      .avatar { margin-inline:auto; }
+      .nav .links { display:none; }
     }
 
-    /* Prefers-reduced-motion */
-    @media (prefers-reduced-motion: reduce) {
-      .btn, .chip, .card { transition: none !important; }
+    @media (prefers-reduced-motion: reduce){
+      .dock a, .iconbtn { transition:none !important; }
     }
   </style>
 </head>
@@ -214,426 +147,527 @@
 
   <header class="nav" role="banner">
     <div class="brand">
-      <img class="logo" src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
-      <span class="name">Rasyid • Portfolio</span>
+      <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
+      <span class="name">Rasyid</span>
     </div>
-
     <nav class="links" aria-label="Primary">
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
+      <a href="#work">Work</a>
       <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
-
     <div class="right">
-      <button id="themeToggle" class="btn" aria-label="Toggle dark/light mode" title="Toggle theme">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
-        <span class="hide-sm">Theme</span>
+      <button id="themeToggle" class="iconbtn" aria-label="Toggle dark/light">
+        <!-- Sun/Moon minimal -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
       </button>
-      <a class="btn" href="assets/Mohammad-Rashid-CV.pdf" download>
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-        CV
+      <a class="iconbtn" href="assets/Mohammad-Rashid-CV.pdf" download aria-label="Download CV">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
       </a>
     </div>
   </header>
 
-  <main id="content" class="container grid" style="gap: calc(var(--gap) * 1.2);">
+  <main id="content" class="container" style="display:grid; gap: calc(var(--gap) * 1.2);">
     <!-- HERO -->
-    <section id="hero" class="card hero" aria-labelledby="intro-heading">
-      <div class="hero-wrap">
-        <img class="avatar" src="assets/profile.jpg" alt="Profile photo of Mohammad Rashid bin Abdullah" />
-        <div>
-          <h1 id="intro-heading">Mohammad Rashid bin Abdullah</h1>
-          <div class="badges" aria-label="Primary roles">
-            <span class="badge">Data Analyst</span>
-            <span class="badge">Web Developer</span>
-            <span class="badge">SEO Specialist</span>
-          </div>
-          <p class="muted" style="margin-top:8px;">Kuala Lumpur, Malaysia</p>
-          <p style="margin-top:10px; max-width: 75ch;">“Business Administration graduate (Minor in Information Systems) with hands-on experience in business analysis, data analytics, SEO, and project coordination. Skilled in SQL, Power BI, Tableau, and Excel—turning data into decisions, improving search visibility, and streamlining operations across e‑commerce, BI, and digital marketing.”</p>
-          <div class="cta-row">
-            <a class="btn" href="#contact">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-              Contact
-            </a>
-            <button class="btn" id="copyEmail">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-              Copy Email
-            </button>
-            <button class="btn" id="saveVcf">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
-              Save Contact
-            </button>
-          </div>
+    <section id="about" class="card hero" aria-labelledby="intro-heading">
+      <img class="avatar" src="assets/profile.jpg" alt="Profile photo of Mohammad Rashid" />
+      <div>
+        <h1 id="intro-heading">Mohammad Rashid bin Abdullah</h1>
+        <div class="roles">
+          <span class="role">Data Analyst</span>
+          <span class="role">Web Developer</span>
+          <span class="role">SEO Specialist</span>
+        </div>
+        <p class="muted" style="margin-top:6px;">Kuala Lumpur, Malaysia</p>
+        <p style="max-width: 70ch; margin-top:10px;">Business Administration graduate (Minor in Information Systems). I turn data into decisions, improve search visibility, and ship fast, accessible sites.</p>
+        <div class="dock" style="margin-top:12px;">
+          <!-- icon-only social/actions -->
+          <a href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a href="mailto:rasyidbejay@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+          <a href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></a>
+          <a href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg></a>
+          <a href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 4.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm7-.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg></a>
+          <a href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 .2 2 .2 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
         </div>
       </div>
     </section>
 
-    <!-- QUICK CONTACT / LINKS -->
-    <section id="links" class="grid cards" aria-label="Quick links">
-      <a class="card chip" href="tel:+601115301464" title="Call">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.37 1.77.73 2.58a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.11-.45c.81.36 1.68.61 2.58.73A2 2 0 0 1 22 16.92z"/></svg>
-        +60 11‑1530 1464
-      </a>
-      <a class="card chip" href="mailto:rasyidbejay@gmail.com" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
-        rasyidbejay@gmail.com
-      </a>
-      <a class="card chip" href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Portfolio
-      </a>
-      <a class="card chip" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg>
-        LinkedIn
-      </a>
-      <a class="card chip" href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.9A5.1 5.1 0 1 0 17.1 12 5.1 5.1 0 0 0 12 6.9zm0 2a3.1 3.1 0 1 1-3.1 3.1A3.1 3.1 0 0 1 12 8.9zm5.6-2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg>
-        Instagram
-      </a>
-      <a class="card chip" href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 . 1.9 2 . 1.9 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
-        GitHub
-      </a>
-    </section>
-
-    <!-- ABOUT / KPI quick hits -->
-    <section id="about" class="card">
-      <h2>About</h2>
-      <p>Business Administration graduate (Minor in Information Systems) with practical experience across e‑commerce, BI and digital marketing. I turn raw data into clear decisions, optimise search visibility, and build fast, accessible sites.
-      </p>
-      <div class="kpis" style="margin-top:12px;">
-        <div class="card kpi"><div class="num">+30%</div><div class="muted">Organic traffic</div></div>
-        <div class="card kpi"><div class="num">−20%</div><div class="muted">Bounce rate</div></div>
-        <div class="card kpi"><div class="num">+15%</div><div class="muted">Conversion uplift</div></div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="card">
-      <h2>Experience</h2>
-      <div class="timeline grid" style="gap:18px;">
-        <div class="tl-item card">
-          <h3>SEO Lead — Britannia Language Centre</h3>
-          <p class="muted">Greater Kuala Lumpur, Malaysia · Jun 2025 – Present</p>
-          <ul>
-            <li>Optimised content & metadata to lift rankings and organic traffic.</li>
-            <li>Ran FB/TikTok/IG campaigns; analysed GA/Meta data.</li>
-            <li>Coordinated agents & landing page optimisation; event support.</li>
-          </ul>
+    <!-- WORK (Experience + Projects) -->
+    <section id="work" class="card">
+      <h2>Work at a glance</h2>
+      <div class="tiles">
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M8 7v14"/><path d="M16 7v14"/></svg>
+            <strong>SEO Lead — Britannia</strong>
+          </div>
+          <p class="muted">Jun 2025–Present · Rankings, metadata, GA/Meta analytics, landing pages, campaigns.</p>
         </div>
-        <div class="tl-item card">
-          <h3>Digital Marketing Intern — RIWEI Marketing</h3>
-          <p class="muted">Mar 2025 – May 2025</p>
-          <ul>
-            <li>Executed TikTok/IG/Shopee/Lazada campaigns; supported SEO & listings.</li>
-            <li>Tracked performance via GA & Meta; delivered competitor insights.</li>
-          </ul>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <strong>Digital Marketing — RIWEI</strong>
+          </div>
+          <p class="muted">Mar–May 2025 · TikTok/IG/Shopee/Lazada; reporting; competitor insights.</p>
         </div>
-        <div class="tl-item card">
-          <h3>Junior Data Analyst — MA Insights</h3>
-          <p class="muted">Remote (Doha) · Jul 2024 – Feb 2025</p>
-          <ul>
-            <li>Built Power BI/Tableau KPI dashboards; SQL/Excel data cleaning (~+20% reporting accuracy).</li>
-            <li>Delivered insight reports; coordinated technical/administrative tasks.</li>
-          </ul>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v12H3z"/><path d="M3 21h18"/><path d="M7 16v5"/><path d="M12 14v7"/><path d="M17 18v3"/></svg>
+            <strong>Junior Data Analyst — MA Insights</strong>
+          </div>
+          <p class="muted">Jul 2024–Feb 2025 · KPI dashboards (Power BI/Tableau), SQL/Excel, insights.</p>
         </div>
-        <div class="tl-item card">
-          <h3>SEO Specialist — Suave Designs</h3>
-          <p class="muted">Feb 2024 – Aug 2024</p>
-          <ul>
-            <li>+30% organic traffic, −20% bounce rate, +15% conversion; GA & GSC monitoring.</li>
-          </ul>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8"/><path d="M4 21V3"/><path d="M12 21v-6"/></svg>
+            <strong>SEO — Suave Designs</strong>
+          </div>
+          <p class="muted">Feb–Aug 2024 · +30% traffic, −20% bounce, +15% conversion; GA & GSC.</p>
         </div>
-        <div class="tl-item card">
-          <h3>Freelance Web Developer</h3>
-          <p class="muted">Jan 2023 – Present</p>
-          <ul>
-            <li>Responsive builds with performance, UX and SEO at the core.</li>
-            <li>Collaborated cross‑functionally with designers and marketing teams.</li>
-          </ul>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a5 5 0 0 1 10 0v2"/></svg>
+            <strong>ERP Webstore — RIWEI</strong>
+          </div>
+          <p class="muted">2–3 weeks · Layouts, shipping/payment, GA, sitemap, store setup.</p>
+        </div>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+            <strong>Cyclistic Case Study</strong>
+          </div>
+          <p class="muted">SQL · Excel · Tableau — end‑to‑end cleaning, analysis, visualisation.</p>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="card">
-      <div class="row" style="align-items:center; justify-content: space-between;">
-        <h2>Featured Projects</h2>
-        <div class="filters" role="tablist" aria-label="Project filters">
-          <button class="active" data-filter="all" role="tab" aria-selected="true">All</button>
-          <button data-filter="web" role="tab">Web</button>
-          <button data-filter="analytics" role="tab">Analytics</button>
-          <button data-filter="seo" role="tab">SEO</button>
-        </div>
-      </div>
-      <div class="grid cards" id="projectGrid">
-        <article class="card project" data-tags="web seo">
-          <h3>ERP Webstore for RIWEI Marketing (SiteGiant)</h3>
-          <p>Launched in ~2–3 weeks: custom layouts/banners, policy pages, shipping & payment config, GA integration, sitemap and store settings.</p>
-          <div class="icon-row">
-            <span class="chip">E‑commerce</span>
-            <span class="chip">SiteGiant</span>
-            <span class="chip">GA</span>
-          </div>
-        </article>
-        <article class="card project" data-tags="web analytics">
-          <h3>HabitFlow — Task & Habit Tracker (Python/Flask/SQLite)</h3>
-          <p>Auth, task CRUD, calendar visualisation; pandas handling; Bootstrap UI; automated progress notifications.</p>
-          <div class="icon-row">
-            <span class="chip">Flask</span>
-            <span class="chip">SQLite</span>
-            <span class="chip">pandas</span>
-          </div>
-        </article>
-        <article class="card project" data-tags="analytics">
-          <h3>Cyclistic Bike‑Share Case Study — SQL, Excel, Tableau</h3>
-          <p>End‑to‑end cleaning, analysis and visualisation. <em>Link: Tableau Public</em></p>
-          <div class="icon-row">
-            <span class="chip">SQL</span>
-            <span class="chip">Tableau</span>
-            <span class="chip">Excel</span>
-          </div>
-        </article>
-        <article class="card project" data-tags="analytics">
-          <h3>Data Analytics & Infrastructure Development (MA Insights)</h3>
-          <p>Infrastructure + custom Power BI dashboards for Yayasan Tujuh Bulir Global.</p>
-          <div class="icon-row">
-            <span class="chip">Power BI</span>
-            <span class="chip">ETL</span>
-            <span class="chip">KPI</span>
-          </div>
-        </article>
-        <article class="card project" data-tags="seo">
-          <h3>Marketing Analytics Report (University Project)</h3>
-          <p>Analysed marketing trends using SQL & Google Analytics to lift engagement.</p>
-          <div class="icon-row">
-            <span class="chip">GA</span>
-            <span class="chip">SQL</span>
-            <span class="chip">Insights</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
+    <!-- SKILLS (icon grid, labels via title) -->
     <section id="skills" class="card">
-      <h2>Skills</h2>
-      <div class="grid cards">
-        <div class="card">
-          <h3>Analytics & Visualisation</h3>
-          <div class="icon-row">
-            <span class="chip">Power BI</span>
-            <span class="chip">Tableau</span>
-            <span class="chip">Excel (Advanced)</span>
-            <span class="chip">Google Analytics</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Database & Programming</h3>
-          <div class="icon-row">
-            <span class="chip">SQL</span>
-            <span class="chip">Java</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">Python</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Design & Development</h3>
-          <div class="icon-row">
-            <span class="chip">WordPress</span>
-            <span class="chip">Figma</span>
-            <span class="chip">Adobe PS/AI/PR</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Marketing & Platforms</h3>
-          <div class="icon-row">
-            <span class="chip">SEO</span>
-            <span class="chip">Social Media Marketing</span>
-            <span class="chip">E‑commerce</span>
-            <span class="chip">Meta Business Suite</span>
-            <span class="chip">TikTok Ads</span>
-            <span class="chip">Canva</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Tools</h3>
-          <div class="icon-row">
-            <span class="chip">Microsoft 365</span>
-            <span class="chip">Google Workspace</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Soft Skills</h3>
-          <div class="icon-row">
-            <span class="chip">Data Analysis</span>
-            <span class="chip">Business Analysis</span>
-            <span class="chip">KPI Reporting</span>
-            <span class="chip">Project Coordination</span>
-            <span class="chip">Leadership</span>
-            <span class="chip">Communication</span>
-            <span class="chip">Critical Thinking</span>
-          </div>
-        </div>
+      <h2>Stacks</h2>
+      <div class="stacks" aria-label="Tool icons">
+        <!-- Analytics -->
+        <div class="stack" title="Power BI" aria-label="Power BI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="3" height="8" rx="1"/><rect x="9" y="7" width="3" height="11" rx="1"/><rect x="15" y="12" width="3" height="6" rx="1"/></svg></div>
+        <div class="stack" title="Tableau" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6 6l3 3M15 15l3 3M6 18l3-3M18 6l-3 3"/></svg></div>
+        <div class="stack" title="Excel" aria-label="Excel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M3 10h18M3 14h18"/></svg></div>
+        <!-- Data/Dev -->
+        <div class="stack" title="SQL" aria-label="SQL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v9c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div>
+        <div class="stack" title="JavaScript" aria-label="JavaScript"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg></div>
+        <div class="stack" title="Python" aria-label="Python"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h6a4 4 0 0 1 4 4v3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path d="M17 20H11a4 4 0 0 1-4-4v-3h10a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3z"/></svg></div>
+        <div class="stack" title="WordPress" aria-label="WordPress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M6 8c1.5 4 3 8 6 12 3-4 4.5-8 6-12"/></svg></div>
+        <!-- Marketing -->
+        <div class="stack" title="SEO" aria-label="SEO"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <div class="stack" title="Google Analytics" aria-label="Google Analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8"/><path d="M10 20V4"/><path d="M16 20v-6"/><path d="M22 20v-2"/></svg></div>
+        <div class="stack" title="Figma" aria-label="Figma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a3 3 0 1 1 0-6h3v6H9z"/><path d="M12 6h3a3 3 0 1 1 0 6h-3V6z"/><path d="M12 12h3a3 3 0 1 1 0 6h-3v-6z"/><circle cx="9" cy="15" r="3"/></svg></div>
+        <div class="stack" title="Adobe" aria-label="Adobe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20L10 4l7 16"/><path d="M6 20l2-5h4l2 5"/></svg></div>
       </div>
     </section>
 
-    <!-- EDUCATION / CERTS / LANGUAGES -->
-    <section id="education" class="card">
-      <h2>Education</h2>
-      <p><strong>BBA (Hons), Minor in Information Systems</strong> — International Islamic University Malaysia (IIUM), 2020–2025</p>
-      <p>Dean’s List. Relevant coursework: Strategic Management; Marketing Principles & Analytics; Organisational Behaviour; Business Intelligence & Reporting; Financial Management; Project Management; Leadership & Entrepreneurship.</p>
-
-      <h3 style="margin-top:16px;">Certifications</h3>
-      <ul>
-        <li>Google Data Analytics Professional Certificate (Coursera)</li>
-        <li>Career Essentials in Business Analysis (Microsoft × LinkedIn)</li>
-        <li>Career Essentials in Data Analysis (Microsoft × LinkedIn)</li>
-        <li>Data Visualisation using D3.js & Chart.js (FreeCodeCamp)</li>
-        <li>Learning Excel: Data Analysis (LinkedIn Learning)</li>
-        <li>Credly badge: <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">View</a></li>
-      </ul>
-
-      <h3 style="margin-top:16px;">Languages</h3>
-      <p>Malay (Native), English (Fluent)</p>
+    <!-- EDUCATION (kept concise) -->
+    <section class="card">
+      <h2>Education & Certs</h2>
+      <p><strong>BBA (Hons), Minor in Information Systems</strong> — IIUM, 2020–2025 · Dean’s List.</p>
+      <p class="muted">Certs: Google Data Analytics (Coursera); Microsoft × LinkedIn Career Essentials (BA & DA); D3.js & Chart.js; Excel Data Analysis. <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">Credly</a>.</p>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="card">
-      <h2>Contact</h2>
-      <div class="icon-row">
-        <a class="chip" href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.37 1.77.73 2.58a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.11-.45c.81.36 1.68.61 2.58.73A2 2 0 0 1 22 16.92z"/></svg> +60 11‑1530 1464</a>
-        <a class="chip" href="mailto:rasyidbejay@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> rasyidbejay@gmail.com</a>
-        <a class="chip" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg> LinkedIn</a>
-        <a class="chip" href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.9A5.1 5.1 0 1 0 17.1 12 5.1 5.1 0 0 0 12 6.9zm0 2a3.1 3.1 0 1 1-3.1 3.1A3.1 3.1 0 0 1 12 8.9zm5.6-2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg> Instagram</a>
-        <a class="chip" href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 . 1.9 2 . 1.9 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg> GitHub</a>
+      <h2>Get in touch</h2>
+      <div class="contact">
+        <a class="chip" href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg> +60 11‑1530 1464</a>
+        <button class="chip" id="copyEmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Copy email</button>
+        <button class="chip" id="saveVcf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg> Save contact</button>
       </div>
     </section>
 
     <footer>
-      <small>© <span id="year"></span> Mohammad Rashid bin Abdullah. Built with a frosted glass UI and Apple‑style design.</small>
+      <small>© <span id="year"></span> Mohammad Rashid bin Abdullah</small>
     </footer>
   </main>
 
-  <button id="toTop" class="btn" style="position: fixed; right: 16px; bottom: 16px; display:none;" aria-label="Back to top">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg> Top
-  </button>
-
   <script>
-    // ===== Theme persistence =====
-    (function() {
+    // Theme persistence
+    (function(){
       const root = document.documentElement;
       const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      function apply(theme) {
-        if (theme === 'auto') {
-          root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-        } else {
-          root.setAttribute('data-theme', theme);
-        }
-      }
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      function apply(t){ root.setAttribute('data-theme', t === 'auto' ? (prefersDark.matches ? 'dark':'light') : t); }
       apply(saved || 'auto');
-      const btn = document.getElementById('themeToggle');
-      btn.addEventListener('click', () => {
+      document.getElementById('themeToggle').addEventListener('click', ()=>{
         const current = root.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
+        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
       });
-      // Update if system changes and user hasn't forced a theme
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        const forced = localStorage.getItem('theme');
-        if (!forced || forced === 'auto') {
-          root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-        }
-      });
+      prefersDark.addEventListener('change', e=>{ if(!localStorage.getItem('theme')) apply('auto'); });
     })();
 
-    // ===== Blurry background follows scroll (parallax) =====
-    (function() {
-      const bg = document.querySelector('.bg');
-      let ticking = false;
-      function onScroll() {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const y = window.scrollY || document.documentElement.scrollTop;
-            // small, smooth movement
-            bg.style.transform = `translate3d(${y * -0.02}px, ${y * -0.06}px, 0)`;
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }
-      document.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-
-    // ===== Project filters =====
-    (function() {
-      const buttons = document.querySelectorAll('.filters button');
-      const cards = document.querySelectorAll('.project');
-      buttons.forEach(btn => btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        cards.forEach(card => {
-          const has = card.dataset.tags.includes(f);
-          card.style.display = (f === 'all' || has) ? '' : 'none';
-        });
-      }));
-    })();
-
-    // ===== Copy email & save vCard =====
-    (function() {
-      const email = 'rasyidbejay@gmail.com';
-      document.getElementById('copyEmail').addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(email);
-          toast('Email copied to clipboard');
-        } catch (e) { alert(email); }
-      });
-
-      document.getElementById('saveVcf').addEventListener('click', () => {
-        const vcf = `BEGIN:VCARD\nVERSION:3.0\nN:bin Abdullah;Mohammad;Rashid;;\nFN:Mohammad Rashid bin Abdullah\nTEL;TYPE=CELL:+60 11-1530 1464\nEMAIL;TYPE=INTERNET:${email}\nADR;TYPE=HOME:;;Kuala Lumpur;;Malaysia\nURL:https://www.rasyidbejay.com/\nEND:VCARD`;
-        const blob = new Blob([vcf], { type: 'text/vcard' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = 'Mohammad-Rashid.vcf'; a.click();
-        URL.revokeObjectURL(url);
-      });
-    })();
-
-    // ===== Back to top button =====
+    // Parallax drift — very slight, to keep things calm
     (function(){
-      const btn = document.getElementById('toTop');
-      const showAt = 300;
-      function onScroll(){
-        const y = window.scrollY || document.documentElement.scrollTop;
-        btn.style.display = y > showAt ? 'inline-flex' : 'none';
-      }
-      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      document.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      const bg = document.querySelector('.bg'); let ticking=false;
+      function onScroll(){ if(!ticking){ requestAnimationFrame(()=>{ const y = window.scrollY||0; bg.style.transform = `translate3d(${y*-0.015}px, ${y*-0.04}px, 0)`; ticking=false; }); ticking=true; } }
+      document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
     })();
 
-    // ===== Tiny toast utility =====
-    function toast(msg){
-      const t = document.createElement('div');
-      t.textContent = msg;
-      Object.assign(t.style, {
-        position:'fixed', left:'50%', bottom:'20px', transform:'translateX(-50%)',
-        background:'var(--card)', border:'1px solid var(--card-stroke)', padding:'10px 14px',
-        borderRadius:'12px', boxShadow:'var(--shadow)', zIndex: 9999
+    // Copy email & vCard
+    (function(){
+      const email = 'rasyidbejay@gmail.com';
+      const copyBtn = document.getElementById('copyEmail');
+      copyBtn.addEventListener('click', async ()=>{
+        try { await navigator.clipboard.writeText(email); toast('Email copied'); } catch { alert(email); }
       });
-      document.body.appendChild(t);
-      setTimeout(()=>{ t.style.opacity='0'; t.style.transition='opacity .3s'; }, 1400);
-      setTimeout(()=> t.remove(), 1700);
+      document.getElementById('saveVcf').addEventListener('click', ()=>{
+        const vcf = `BEGIN:VCARD
+VERSION:3.0
+N:bin Abdullah;Mohammad;Rashid;;
+FN:Mohammad Rashid bin Abdullah
+TEL;TYPE=CELL:+60 11-1530 1464
+EMAIL;TYPE=INTERNET:${email}
+ADR;TYPE=HOME:;;Kuala Lumpur;;Malaysia
+URL:https://www.rasyidbejay.com/
+END:VCARD`;
+        const blob = new Blob([vcf], {type:'text/vcard'}); const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href=url; a.download='Mohammad-Rashid.vcf'; a.click(); URL.revokeObjectURL(url);
+      });
+    })();
+
+    function toast(msg){ const t=document.createElement('div'); t.textContent=msg; Object.assign(t.style,{position:'fixed',left:'50%',bottom:'20px',transform:'translateX(-50%)',background:'var(--card)',border:'1px solid var(--stroke)',padding:'10px 14px',borderRadius:'12px',boxShadow:'var(--shadow)',zIndex:9999}); document.body.appendChild(t); setTimeout(()=>{t.style.opacity='0'; t.style.transition='opacity .3s';},1200); setTimeout(()=>t.remove(),1500); }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en-GB" data-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohammad Rashid — Minimal Portfolio</title>
+  <meta name="description" content="Data Analyst • Web Developer • SEO Specialist in Kuala Lumpur. Minimal Apple-style portfolio with frosted glass UI." />
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Mohammad Rashid — Portfolio" />
+  <meta property="og:description" content="Data Analyst • Web Developer • SEO Specialist | Kuala Lumpur, Malaysia" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile.jpg" />
+  <meta name="theme-color" content="#0b0c0f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+  <!-- Favicons / PWA (replace with your assets) -->
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --fg: #0b0c0f;
+      --muted: #6b7280;
+      --card: rgba(255, 255, 255, 0.55);
+      --stroke: rgba(0, 0, 0, 0.06);
+      --accent: #0a84ff;
+      --shadow: 0 12px 28px rgba(0,0,0,.06);
+      --radius: 22px;
+      --blur: 18px;
+      --gap: clamp(14px, 2.4vw, 22px);
+      --maxw: 1024px;
+      --icon: currentColor;
+    }
+    html[data-theme="dark"]:root {
+      --bg: #0b0c0f;
+      --fg: #f3f5f7;
+      --muted: #a6adbb;
+      --card: rgba(17, 18, 22, 0.45);
+      --stroke: rgba(255,255,255,0.08);
+      --shadow: 0 24px 60px rgba(0,0,0,.45);
     }
 
-    // Year
+    /* Global: one system font, fewer weights */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial;
+      font-weight: 400;
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Subtle blurry gradient */
+    .bg {
+      position: fixed; inset: -25vmax; z-index: -2; pointer-events: none;
+      filter: blur(64px) saturate(130%);
+      background:
+        radial-gradient(36vmax 36vmax at 18% 12%, rgba(10,132,255,.35), transparent 60%),
+        radial-gradient(32vmax 32vmax at 82% 8%, rgba(48,209,88,.28), transparent 60%),
+        radial-gradient(44vmax 44vmax at 50% 100%, rgba(175,82,222,.18), transparent 60%);
+      transform: translate3d(0,0,0);
+    }
+    .texture { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,.10), transparent 46%); }
+
+    .container { width: min(var(--maxw), 100% - 28px); margin-inline: auto; }
+
+    /* Glass nav — minimal */
+    .nav {
+      position: sticky; top: 12px; z-index: 10; margin: 12px auto; width: min(960px, calc(100% - 24px));
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 8px 12px; background: var(--card); border: 1px solid var(--stroke); border-radius: 16px;
+      backdrop-filter: blur(var(--blur)) saturate(130%); box-shadow: var(--shadow);
+    }
+    .brand { display:flex; align-items:center; gap:10px; }
+    .brand img { width:24px; height:24px; border-radius:7px; object-fit:cover; }
+    .brand .name { font-weight: 600; letter-spacing:.2px; }
+    .nav .links { display:flex; gap:8px; }
+    .nav a { color:inherit; text-decoration:none; padding:6px 10px; border-radius:10px; border:1px solid transparent; }
+    .nav a:hover { border-color: var(--stroke); }
+
+    .iconbtn { appearance:none; background:transparent; border:1px solid var(--stroke); color:inherit; border-radius:12px; padding:8px; display:inline-grid; place-items:center; cursor:pointer; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+    .iconbtn svg { width:18px; height:18px; }
+    .iconbtn:hover { transform: translateY(-1px); }
+
+    /* Cards kept airy */
+    .card { background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius); padding: clamp(18px, 2.6vw, 26px); box-shadow: var(--shadow); backdrop-filter: blur(var(--blur)) saturate(130%); }
+
+    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 2px 0 6px; font-weight: 650; }
+    h2 { font-size: clamp(18px, 2.4vw, 26px); margin: 0 0 8px; font-weight: 650; }
+    p { line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
+    .muted { color: var(--muted); }
+
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 120px 1fr; gap: 18px; align-items:center; }
+    .avatar { width:110px; height:110px; border-radius:24px; object-fit:cover; box-shadow: 0 10px 24px rgba(0,0,0,.14), inset 0 0 0 2px rgba(255,255,255,.5); }
+    .roles { display:flex; gap:8px; flex-wrap:wrap; }
+    .role { padding:6px 10px; border-radius:999px; border: 1px solid var(--stroke); background: var(--card); font-weight:600; }
+
+    /* Dock — icon-only social row */
+    .dock { display:flex; gap: 8px; flex-wrap: wrap; }
+    .dock a { display:inline-grid; place-items:center; width:44px; height:44px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: transform .14s ease; }
+    .dock a:hover { transform: translateY(-2px) scale(1.04); }
+    .dock svg { width:20px; height:20px; color: var(--icon); }
+
+    /* Work (Experience + Projects) — minimal tiles */
+    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: var(--gap); }
+    .tile { display:grid; gap:8px; }
+    .tl { display:flex; align-items:center; gap:10px; }
+    .tl svg { width:20px; height:20px; }
+
+    /* Stacks (icon grid) */
+    .stacks { display:grid; grid-template-columns: repeat(auto-fit, minmax(56px,1fr)); gap: 10px; }
+    .stack {
+      display:grid; place-items:center; height:56px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px);
+    }
+    .stack svg { width:22px; height:22px; }
+
+    /* Contact */
+    .contact { display:flex; gap:10px; flex-wrap:wrap; }
+    .chip { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); }
+    .chip svg { width:18px; height:18px; }
+
+    footer { text-align:center; color: var(--muted); padding: 28px 0 40px; }
+
+    @media (max-width: 760px){
+      .hero { grid-template-columns: 1fr; text-align:center; }
+      .avatar { margin-inline:auto; }
+      .nav .links { display:none; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .dock a, .iconbtn { transition:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="texture" aria-hidden="true"></div>
+
+  <header class="nav" role="banner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
+      <span class="name">Rasyid</span>
+    </div>
+    <nav class="links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="right">
+      <button id="themeToggle" class="iconbtn" aria-label="Toggle dark/light">
+        <!-- Sun/Moon minimal -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+      </button>
+      <a class="iconbtn" href="assets/Mohammad-Rashid-CV.pdf" download aria-label="Download CV">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="content" class="container" style="display:grid; gap: calc(var(--gap) * 1.2);">
+    <!-- HERO -->
+    <section id="about" class="card hero" aria-labelledby="intro-heading">
+      <img class="avatar" src="assets/profile.jpg" alt="Profile photo of Mohammad Rashid" />
+      <div>
+        <h1 id="intro-heading">Mohammad Rashid bin Abdullah</h1>
+        <div class="roles">
+          <span class="role">Data Analyst</span>
+          <span class="role">Web Developer</span>
+          <span class="role">SEO Specialist</span>
+        </div>
+        <p class="muted" style="margin-top:6px;">Kuala Lumpur, Malaysia</p>
+        <p style="max-width: 70ch; margin-top:10px;">Business Administration graduate (Minor in Information Systems). I turn data into decisions, improve search visibility, and ship fast, accessible sites.</p>
+        <div class="dock" style="margin-top:12px;">
+          <!-- icon-only social/actions -->
+          <a href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a href="mailto:rasyidbejay@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+          <a href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></a>
+          <a href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg></a>
+          <a href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 4.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm7-.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg></a>
+          <a href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 .2 2 .2 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK (Experience + Projects) -->
+    <section id="work" class="card">
+      <h2>Work at a glance</h2>
+      <div class="tiles">
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M8 7v14"/><path d="M16 7v14"/></svg>
+            <strong>SEO Lead — Britannia</strong>
+          </div>
+          <p class="muted">Jun 2025–Present · Rankings, metadata, GA/Meta analytics, landing pages, campaigns.</p>
+        </div>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <strong>Digital Marketing — RIWEI</strong>
+          </div>
+          <p class="muted">Mar–May 2025 · TikTok/IG/Shopee/Lazada; reporting; competitor insights.</p>
+        </div>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v12H3z"/><path d="M3 21h18"/><path d="M7 16v5"/><path d="M12 14v7"/><path d="M17 18v3"/></svg>
+            <strong>Junior Data Analyst — MA Insights</strong>
+          </div>
+          <p class="muted">Jul 2024–Feb 2025 · KPI dashboards (Power BI/Tableau), SQL/Excel, insights.</p>
+        </div>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8"/><path d="M4 21V3"/><path d="M12 21v-6"/></svg>
+            <strong>SEO — Suave Designs</strong>
+          </div>
+          <p class="muted">Feb–Aug 2024 · +30% traffic, −20% bounce, +15% conversion; GA & GSC.</p>
+        </div>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a5 5 0 0 1 10 0v2"/></svg>
+            <strong>ERP Webstore — RIWEI</strong>
+          </div>
+          <p class="muted">2–3 weeks · Layouts, shipping/payment, GA, sitemap, store setup.</p>
+        </div>
+        <div class="tile card">
+          <div class="tl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+            <strong>Cyclistic Case Study</strong>
+          </div>
+          <p class="muted">SQL · Excel · Tableau — end‑to‑end cleaning, analysis, visualisation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS (icon grid, labels via title) -->
+    <section id="skills" class="card">
+      <h2>Stacks</h2>
+      <div class="stacks" aria-label="Tool icons">
+        <!-- Analytics -->
+        <div class="stack" title="Power BI" aria-label="Power BI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="3" height="8" rx="1"/><rect x="9" y="7" width="3" height="11" rx="1"/><rect x="15" y="12" width="3" height="6" rx="1"/></svg></div>
+        <div class="stack" title="Tableau" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6 6l3 3M15 15l3 3M6 18l3-3M18 6l-3 3"/></svg></div>
+        <div class="stack" title="Excel" aria-label="Excel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M3 10h18M3 14h18"/></svg></div>
+        <!-- Data/Dev -->
+        <div class="stack" title="SQL" aria-label="SQL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v9c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div>
+        <div class="stack" title="JavaScript" aria-label="JavaScript"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg></div>
+        <div class="stack" title="Python" aria-label="Python"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h6a4 4 0 0 1 4 4v3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path d="M17 20H11a4 4 0 0 1-4-4v-3h10a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3z"/></svg></div>
+        <div class="stack" title="WordPress" aria-label="WordPress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M6 8c1.5 4 3 8 6 12 3-4 4.5-8 6-12"/></svg></div>
+        <!-- Marketing -->
+        <div class="stack" title="SEO" aria-label="SEO"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <div class="stack" title="Google Analytics" aria-label="Google Analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8"/><path d="M10 20V4"/><path d="M16 20v-6"/><path d="M22 20v-2"/></svg></div>
+        <div class="stack" title="Figma" aria-label="Figma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a3 3 0 1 1 0-6h3v6H9z"/><path d="M12 6h3a3 3 0 1 1 0 6h-3V6z"/><path d="M12 12h3a3 3 0 1 1 0 6h-3v-6z"/><circle cx="9" cy="15" r="3"/></svg></div>
+        <div class="stack" title="Adobe" aria-label="Adobe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20L10 4l7 16"/><path d="M6 20l2-5h4l2 5"/></svg></div>
+      </div>
+    </section>
+
+    <!-- EDUCATION (kept concise) -->
+    <section class="card">
+      <h2>Education & Certs</h2>
+      <p><strong>BBA (Hons), Minor in Information Systems</strong> — IIUM, 2020–2025 · Dean’s List.</p>
+      <p class="muted">Certs: Google Data Analytics (Coursera); Microsoft × LinkedIn Career Essentials (BA & DA); D3.js & Chart.js; Excel Data Analysis. <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">Credly</a>.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h2>Get in touch</h2>
+      <div class="contact">
+        <a class="chip" href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg> +60 11‑1530 1464</a>
+        <button class="chip" id="copyEmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Copy email</button>
+        <button class="chip" id="saveVcf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg> Save contact</button>
+      </div>
+    </section>
+
+    <footer>
+      <small>© <span id="year"></span> Mohammad Rashid bin Abdullah</small>
+    </footer>
+  </main>
+
+  <script>
+    // Theme persistence
+    (function(){
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+      function apply(t){ root.setAttribute('data-theme', t === 'auto' ? (prefersDark.matches ? 'dark':'light') : t); }
+      apply(saved || 'auto');
+      document.getElementById('themeToggle').addEventListener('click', ()=>{
+        const current = root.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
+      });
+      prefersDark.addEventListener('change', e=>{ if(!localStorage.getItem('theme')) apply('auto'); });
+    })();
+
+    // Parallax drift — very slight, to keep things calm
+    (function(){
+      const bg = document.querySelector('.bg'); let ticking=false;
+      function onScroll(){ if(!ticking){ requestAnimationFrame(()=>{ const y = window.scrollY||0; bg.style.transform = `translate3d(${y*-0.015}px, ${y*-0.04}px, 0)`; ticking=false; }); ticking=true; } }
+      document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+    })();
+
+    // Copy email & vCard
+    (function(){
+      const email = 'rasyidbejay@gmail.com';
+      const copyBtn = document.getElementById('copyEmail');
+      copyBtn.addEventListener('click', async ()=>{
+        try { await navigator.clipboard.writeText(email); toast('Email copied'); } catch { alert(email); }
+      });
+      document.getElementById('saveVcf').addEventListener('click', ()=>{
+        const vcf = `BEGIN:VCARD
+VERSION:3.0
+N:bin Abdullah;Mohammad;Rashid;;
+FN:Mohammad Rashid bin Abdullah
+TEL;TYPE=CELL:+60 11-1530 1464
+EMAIL;TYPE=INTERNET:${email}
+ADR;TYPE=HOME:;;Kuala Lumpur;;Malaysia
+URL:https://www.rasyidbejay.com/
+END:VCARD`;
+        const blob = new Blob([vcf], {type:'text/vcard'}); const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href=url; a.download='Mohammad-Rashid.vcf'; a.click(); URL.revokeObjectURL(url);
+      });
+    })();
+
+    function toast(msg){ const t=document.createElement('div'); t.textContent=msg; Object.assign(t.style,{position:'fixed',left:'50%',bottom:'20px',transform:'translateX(-50%)',background:'var(--card)',border:'1px solid var(--stroke)',padding:'10px 14px',borderRadius:'12px',boxShadow:'var(--shadow)',zIndex:9999}); document.body.appendChild(t); setTimeout(()=>{t.style.opacity='0'; t.style.transition='opacity .3s';},1200); setTimeout(()=>t.remove(),1500); }
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
