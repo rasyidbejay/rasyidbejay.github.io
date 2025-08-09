@@ -1,554 +1,640 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-GB" data-theme="auto">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🚀rasyidbejay</title>
+  <title>Mohammad Rashid bin Abdullah — Portfolio</title>
+  <meta name="description" content="Business Administration graduate (Minor in IS). Data Analyst • Web Developer • SEO Specialist. Kuala Lumpur, Malaysia." />
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Mohammad Rashid bin Abdullah — Portfolio" />
+  <meta property="og:description" content="Data Analyst • Web Developer • SEO Specialist | Kuala Lumpur, Malaysia" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile.jpg" />
+  <meta name="theme-color" content="#0b0c0f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
-  <!-- Tailwind CSS CDN + Config Script -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: [
-              'Inter','-apple-system','BlinkMacSystemFont','Segoe UI','Roboto',
-              'Helvetica Neue','Arial','sans-serif',
-            ],
-          },
-          colors: {
-            primary: { light: '#0071e3', dark: '#0a84ff' },
-            secondary: { light: '#f5f5f7', dark: '#1d1d1f' },
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.5s ease-in-out',
-            float: 'float 3s ease-in-out infinite',
-            'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'blob-drift': 'blobDrift 16s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeIn: { '0%': {opacity:'0'}, '100%': {opacity:'1'} },
-            float: { '0%,100%': {transform:'translateY(0)'}, '50%': {transform:'translateY(-10px)'} },
-            pulseGlow: { '0%,100%': {opacity:'1'}, '50%': {opacity:'0.6'} },
-            blobDrift: {
-              '0%': { transform: 'translate(0,0) scale(1)' },
-              '33%': { transform: 'translate(20px,-30px) scale(1.05)' },
-              '66%': { transform: 'translate(-25px,10px) scale(0.95)' },
-              '100%': { transform: 'translate(0,0) scale(1)' }
-            }
-          },
-        },
-      },
-    };
-  </script>
+  <!-- Favicons / PWA (replace with your assets) -->
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
 
-  <!-- Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --fg: #0b0c0f;
+      --muted: #5c6470;
+      --card: rgba(255, 255, 255, 0.6);
+      --card-stroke: rgba(0, 0, 0, 0.06);
+      --accent: #0a84ff; /* Apple blue */
+      --accent-2: #30d158; /* Apple green */
+      --shadow: 0 10px 30px rgba(0,0,0,.08), 0 2px 10px rgba(0,0,0,.06);
+      --radius: 24px;
+      --glass-blur: 22px;
+      --glass-sat: 130%;
+      --glass-bright: 110%;
+      --gap: clamp(14px, 2vw, 22px);
+      --maxw: 1120px;
+      --pulse-scale: 1.03;
+    }
+    html[data-theme="dark"]:root {
+      --bg: #0b0c0f;
+      --fg: #f3f5f7;
+      --muted: #a6adbb;
+      --card: rgba(17, 18, 22, 0.55);
+      --card-stroke: rgba(255,255,255,0.08);
+      --accent: #0a84ff;
+      --accent-2: #30d158;
+      --shadow: 0 20px 50px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.6);
+    }
 
-  <!-- Favicon and Manifest -->
-  <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-  <link rel="manifest" href="assets/site.webmanifest" />
+    /* Global reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css" />
+    /* Blurry gradient background that subtly follows scroll */
+    .bg {
+      position: fixed;
+      inset: -20vmax;
+      z-index: -2;
+      filter: blur(60px) saturate(140%);
+      transform: translate3d(0, 0, 0);
+      pointer-events: none;
+      background:
+        radial-gradient(35vmax 35vmax at 20% 15%, rgba(10,132,255,0.45), transparent 60%),
+        radial-gradient(30vmax 30vmax at 80% 10%, rgba(48,209,88,0.35), transparent 60%),
+        radial-gradient(45vmax 45vmax at 50% 100%, rgba(255,69,58,0.18), transparent 60%),
+        radial-gradient(40vmax 40vmax at 10% 80%, rgba(175,82,222,0.22), transparent 60%);
+    }
+
+    .texture {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.15), transparent 40%),
+                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><g fill="none" stroke="%23ffffff0d"><path d="M0 70h140M70 0v140"/></g></svg>');
+      mix-blend-mode: overlay;
+    }
+
+    .container { width: min(var(--maxw), 100% - 2*var(--gap)); margin-inline: auto; }
+
+    /* Glass navigation */
+    .nav {
+      position: sticky; top: 12px; z-index: 10;
+      margin: 12px auto; width: min(1020px, calc(100% - 24px));
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--card-stroke);
+      border-radius: 18px;
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+      box-shadow: var(--shadow);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img.logo { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; }
+    .brand .name { font-weight: 650; letter-spacing: .2px; }
+    .nav a { color: inherit; text-decoration: none; font-weight: 550; opacity: .85; }
+    .nav a:hover { opacity: 1; }
+    .nav .links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav .right { display: flex; gap: 8px; align-items: center; }
+
+    .btn, button.btn {
+      appearance: none; border: 1px solid var(--card-stroke); color: var(--fg);
+      background: linear-gradient(to bottom right, rgba(255,255,255,.6), rgba(255,255,255,.35));
+      padding: 8px 12px; border-radius: 12px; font-weight: 600; cursor: pointer;
+      backdrop-filter: blur(14px) saturate(120%);
+      box-shadow: var(--shadow);
+      transition: transform .14s ease, filter .2s ease, background .2s ease;
+    }
+    html[data-theme="dark"] .btn { background: linear-gradient(to bottom right, rgba(35,37,45,.6), rgba(24,25,31,.5)); }
+    .btn:hover { transform: translateY(-1px) scale(var(--pulse-scale)); }
+    .btn:active { transform: translateY(0) scale(.98); }
+    .btn .icon { width: 18px; height: 18px; vertical-align: -3px; margin-right: 6px; }
+
+    /* Sections */
+    section { scroll-margin-top: 100px; }
+    .grid { display: grid; gap: var(--gap); }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-stroke);
+      border-radius: var(--radius);
+      padding: clamp(16px, 2.6vw, 24px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+      transition: transform .18s ease, box-shadow .3s ease, border-color .25s ease;
+    }
+    .card:hover { transform: translateY(-2px); }
+
+    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 6px 0 8px; }
+    h2 { font-size: clamp(20px, 2.6vw, 28px); margin: 0 0 12px; }
+    h3 { font-size: clamp(16px, 2.2vw, 20px); margin: 0 0 8px; }
+    p { line-height: 1.6; color: var(--muted); margin: 6px 0 0; }
+    .muted { color: var(--muted); }
+
+    /* Hero */
+    .hero {
+      display: grid; gap: var(--gap);
+      grid-template-columns: minmax(0,1fr);
+      align-items: center; padding-top: 14px;
+    }
+    .hero-wrap { display: grid; gap: var(--gap); grid-template-columns: 140px 1fr; align-items: center; }
+    .avatar {
+      width: 128px; height: 128px; border-radius: 28px; object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18), inset 0 0 0 2px rgba(255,255,255,.6);
+      transform: translateZ(0); will-change: transform;
+    }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      background: linear-gradient(to bottom right, rgba(255,255,255,.7), rgba(255,255,255,.45));
+      border: 1px solid var(--card-stroke); border-radius: 999px; padding: 6px 10px; font-weight: 600; font-size: 13px;
+      backdrop-filter: blur(12px);
+    }
+    html[data-theme="dark"] .badge { background: linear-gradient(to bottom right, rgba(35,37,45,.65), rgba(24,25,31,.45)); }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+
+    /* Icon rows */
+    .icon-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+      border-radius: 999px; border: 1px solid var(--card-stroke); background: var(--card);
+      backdrop-filter: blur(10px); box-shadow: var(--shadow); font-weight: 600;
+      transition: transform .16s ease;
+    }
+    .chip:hover { transform: translateY(-1px) scale(var(--pulse-scale)); }
+    .chip svg { width: 18px; height: 18px; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--accent), transparent); opacity: .5; }
+    .tl-item { position: relative; padding-left: 32px; }
+    .tl-item::before { content: ""; position: absolute; left: 4px; top: .4rem; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 30%, transparent); }
+
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: var(--gap); }
+    .kpi { text-align: center; padding: 14px; }
+    .kpi .num { font-size: clamp(22px, 4vw, 32px); font-weight: 800; }
+
+    /* Projects filter */
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+    .filters button { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--card-stroke); background: var(--card); font-weight: 700; cursor: pointer; }
+    .filters button.active { outline: 2px solid color-mix(in oklab, var(--accent) 40%, transparent); background: color-mix(in oklab, var(--accent) 12%, var(--card)); }
+
+    /* Footer */
+    footer { text-align: center; padding: 30px 0 40px; color: var(--muted); }
+
+    /* Utilities */
+    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .row { display: flex; gap: var(--gap); flex-wrap: wrap; align-items: start; }
+
+    @media (max-width: 760px) {
+      .hero-wrap { grid-template-columns: 1fr; text-align: center; }
+      .avatar { margin-inline: auto; }
+      .nav .links { display: none; }
+    }
+
+    /* Prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .chip, .card { transition: none !important; }
+    }
+  </style>
 </head>
-<body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+<body>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="texture" aria-hidden="true"></div>
 
-  <!-- Animated gradient blur background -->
-  <div aria-hidden="true" class="bg-blobs pointer-events-none fixed inset-0 -z-10"></div>
+  <header class="nav" role="banner">
+    <div class="brand">
+      <img class="logo" src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
+      <span class="name">Rasyid • Portfolio</span>
+    </div>
 
-  <!-- Glowing Cursor Element -->
-  <div id="glow-cursor"></div>
+    <nav class="links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <!-- Mobile Hamburger Toggle -->
-  <button id="mobile-nav-toggle" class="fixed top-4 right-4 z-50 md:hidden bg-white/60 dark:bg-gray-900/60 border border-white/30 dark:border-white/10 p-2 rounded-lg shadow backdrop-blur-xl">
-    <i class="fas fa-bars text-xl text-gray-800 dark:text-white"></i>
+    <div class="right">
+      <button id="themeToggle" class="btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+        <span class="hide-sm">Theme</span>
+      </button>
+      <a class="btn" href="assets/Mohammad-Rashid-CV.pdf" download>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        CV
+      </a>
+    </div>
+  </header>
+
+  <main id="content" class="container grid" style="gap: calc(var(--gap) * 1.2);">
+    <!-- HERO -->
+    <section id="hero" class="card hero" aria-labelledby="intro-heading">
+      <div class="hero-wrap">
+        <img class="avatar" src="assets/profile.jpg" alt="Profile photo of Mohammad Rashid bin Abdullah" />
+        <div>
+          <h1 id="intro-heading">Mohammad Rashid bin Abdullah</h1>
+          <div class="badges" aria-label="Primary roles">
+            <span class="badge">Data Analyst</span>
+            <span class="badge">Web Developer</span>
+            <span class="badge">SEO Specialist</span>
+          </div>
+          <p class="muted" style="margin-top:8px;">Kuala Lumpur, Malaysia</p>
+          <p style="margin-top:10px; max-width: 75ch;">“Business Administration graduate (Minor in Information Systems) with hands-on experience in business analysis, data analytics, SEO, and project coordination. Skilled in SQL, Power BI, Tableau, and Excel—turning data into decisions, improving search visibility, and streamlining operations across e‑commerce, BI, and digital marketing.”</p>
+          <div class="cta-row">
+            <a class="btn" href="#contact">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+              Contact
+            </a>
+            <button class="btn" id="copyEmail">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+              Copy Email
+            </button>
+            <button class="btn" id="saveVcf">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg>
+              Save Contact
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK CONTACT / LINKS -->
+    <section id="links" class="grid cards" aria-label="Quick links">
+      <a class="card chip" href="tel:+601115301464" title="Call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.37 1.77.73 2.58a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.11-.45c.81.36 1.68.61 2.58.73A2 2 0 0 1 22 16.92z"/></svg>
+        +60 11‑1530 1464
+      </a>
+      <a class="card chip" href="mailto:rasyidbejay@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        rasyidbejay@gmail.com
+      </a>
+      <a class="card chip" href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Portfolio
+      </a>
+      <a class="card chip" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg>
+        LinkedIn
+      </a>
+      <a class="card chip" href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.9A5.1 5.1 0 1 0 17.1 12 5.1 5.1 0 0 0 12 6.9zm0 2a3.1 3.1 0 1 1-3.1 3.1A3.1 3.1 0 0 1 12 8.9zm5.6-2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg>
+        Instagram
+      </a>
+      <a class="card chip" href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 . 1.9 2 . 1.9 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+        GitHub
+      </a>
+    </section>
+
+    <!-- ABOUT / KPI quick hits -->
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>Business Administration graduate (Minor in Information Systems) with practical experience across e‑commerce, BI and digital marketing. I turn raw data into clear decisions, optimise search visibility, and build fast, accessible sites.
+      </p>
+      <div class="kpis" style="margin-top:12px;">
+        <div class="card kpi"><div class="num">+30%</div><div class="muted">Organic traffic</div></div>
+        <div class="card kpi"><div class="num">−20%</div><div class="muted">Bounce rate</div></div>
+        <div class="card kpi"><div class="num">+15%</div><div class="muted">Conversion uplift</div></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      <div class="timeline grid" style="gap:18px;">
+        <div class="tl-item card">
+          <h3>SEO Lead — Britannia Language Centre</h3>
+          <p class="muted">Greater Kuala Lumpur, Malaysia · Jun 2025 – Present</p>
+          <ul>
+            <li>Optimised content & metadata to lift rankings and organic traffic.</li>
+            <li>Ran FB/TikTok/IG campaigns; analysed GA/Meta data.</li>
+            <li>Coordinated agents & landing page optimisation; event support.</li>
+          </ul>
+        </div>
+        <div class="tl-item card">
+          <h3>Digital Marketing Intern — RIWEI Marketing</h3>
+          <p class="muted">Mar 2025 – May 2025</p>
+          <ul>
+            <li>Executed TikTok/IG/Shopee/Lazada campaigns; supported SEO & listings.</li>
+            <li>Tracked performance via GA & Meta; delivered competitor insights.</li>
+          </ul>
+        </div>
+        <div class="tl-item card">
+          <h3>Junior Data Analyst — MA Insights</h3>
+          <p class="muted">Remote (Doha) · Jul 2024 – Feb 2025</p>
+          <ul>
+            <li>Built Power BI/Tableau KPI dashboards; SQL/Excel data cleaning (~+20% reporting accuracy).</li>
+            <li>Delivered insight reports; coordinated technical/administrative tasks.</li>
+          </ul>
+        </div>
+        <div class="tl-item card">
+          <h3>SEO Specialist — Suave Designs</h3>
+          <p class="muted">Feb 2024 – Aug 2024</p>
+          <ul>
+            <li>+30% organic traffic, −20% bounce rate, +15% conversion; GA & GSC monitoring.</li>
+          </ul>
+        </div>
+        <div class="tl-item card">
+          <h3>Freelance Web Developer</h3>
+          <p class="muted">Jan 2023 – Present</p>
+          <ul>
+            <li>Responsive builds with performance, UX and SEO at the core.</li>
+            <li>Collaborated cross‑functionally with designers and marketing teams.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card">
+      <div class="row" style="align-items:center; justify-content: space-between;">
+        <h2>Featured Projects</h2>
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button data-filter="web" role="tab">Web</button>
+          <button data-filter="analytics" role="tab">Analytics</button>
+          <button data-filter="seo" role="tab">SEO</button>
+        </div>
+      </div>
+      <div class="grid cards" id="projectGrid">
+        <article class="card project" data-tags="web seo">
+          <h3>ERP Webstore for RIWEI Marketing (SiteGiant)</h3>
+          <p>Launched in ~2–3 weeks: custom layouts/banners, policy pages, shipping & payment config, GA integration, sitemap and store settings.</p>
+          <div class="icon-row">
+            <span class="chip">E‑commerce</span>
+            <span class="chip">SiteGiant</span>
+            <span class="chip">GA</span>
+          </div>
+        </article>
+        <article class="card project" data-tags="web analytics">
+          <h3>HabitFlow — Task & Habit Tracker (Python/Flask/SQLite)</h3>
+          <p>Auth, task CRUD, calendar visualisation; pandas handling; Bootstrap UI; automated progress notifications.</p>
+          <div class="icon-row">
+            <span class="chip">Flask</span>
+            <span class="chip">SQLite</span>
+            <span class="chip">pandas</span>
+          </div>
+        </article>
+        <article class="card project" data-tags="analytics">
+          <h3>Cyclistic Bike‑Share Case Study — SQL, Excel, Tableau</h3>
+          <p>End‑to‑end cleaning, analysis and visualisation. <em>Link: Tableau Public</em></p>
+          <div class="icon-row">
+            <span class="chip">SQL</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Excel</span>
+          </div>
+        </article>
+        <article class="card project" data-tags="analytics">
+          <h3>Data Analytics & Infrastructure Development (MA Insights)</h3>
+          <p>Infrastructure + custom Power BI dashboards for Yayasan Tujuh Bulir Global.</p>
+          <div class="icon-row">
+            <span class="chip">Power BI</span>
+            <span class="chip">ETL</span>
+            <span class="chip">KPI</span>
+          </div>
+        </article>
+        <article class="card project" data-tags="seo">
+          <h3>Marketing Analytics Report (University Project)</h3>
+          <p>Analysed marketing trends using SQL & Google Analytics to lift engagement.</p>
+          <div class="icon-row">
+            <span class="chip">GA</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Insights</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <div class="grid cards">
+        <div class="card">
+          <h3>Analytics & Visualisation</h3>
+          <div class="icon-row">
+            <span class="chip">Power BI</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Excel (Advanced)</span>
+            <span class="chip">Google Analytics</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Database & Programming</h3>
+          <div class="icon-row">
+            <span class="chip">SQL</span>
+            <span class="chip">Java</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Python</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Design & Development</h3>
+          <div class="icon-row">
+            <span class="chip">WordPress</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Adobe PS/AI/PR</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Marketing & Platforms</h3>
+          <div class="icon-row">
+            <span class="chip">SEO</span>
+            <span class="chip">Social Media Marketing</span>
+            <span class="chip">E‑commerce</span>
+            <span class="chip">Meta Business Suite</span>
+            <span class="chip">TikTok Ads</span>
+            <span class="chip">Canva</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <div class="icon-row">
+            <span class="chip">Microsoft 365</span>
+            <span class="chip">Google Workspace</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Soft Skills</h3>
+          <div class="icon-row">
+            <span class="chip">Data Analysis</span>
+            <span class="chip">Business Analysis</span>
+            <span class="chip">KPI Reporting</span>
+            <span class="chip">Project Coordination</span>
+            <span class="chip">Leadership</span>
+            <span class="chip">Communication</span>
+            <span class="chip">Critical Thinking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION / CERTS / LANGUAGES -->
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <p><strong>BBA (Hons), Minor in Information Systems</strong> — International Islamic University Malaysia (IIUM), 2020–2025</p>
+      <p>Dean’s List. Relevant coursework: Strategic Management; Marketing Principles & Analytics; Organisational Behaviour; Business Intelligence & Reporting; Financial Management; Project Management; Leadership & Entrepreneurship.</p>
+
+      <h3 style="margin-top:16px;">Certifications</h3>
+      <ul>
+        <li>Google Data Analytics Professional Certificate (Coursera)</li>
+        <li>Career Essentials in Business Analysis (Microsoft × LinkedIn)</li>
+        <li>Career Essentials in Data Analysis (Microsoft × LinkedIn)</li>
+        <li>Data Visualisation using D3.js & Chart.js (FreeCodeCamp)</li>
+        <li>Learning Excel: Data Analysis (LinkedIn Learning)</li>
+        <li>Credly badge: <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">View</a></li>
+      </ul>
+
+      <h3 style="margin-top:16px;">Languages</h3>
+      <p>Malay (Native), English (Fluent)</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <div class="icon-row">
+        <a class="chip" href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.37 1.77.73 2.58a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.11-.45c.81.36 1.68.61 2.58.73A2 2 0 0 1 22 16.92z"/></svg> +60 11‑1530 1464</a>
+        <a class="chip" href="mailto:rasyidbejay@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> rasyidbejay@gmail.com</a>
+        <a class="chip" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg> LinkedIn</a>
+        <a class="chip" href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm0 2h10c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3zm5 2.9A5.1 5.1 0 1 0 17.1 12 5.1 5.1 0 0 0 12 6.9zm0 2a3.1 3.1 0 1 1-3.1 3.1A3.1 3.1 0 0 1 12 8.9zm5.6-2.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg> Instagram</a>
+        <a class="chip" href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 . 1.9 2 . 1.9 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg> GitHub</a>
+      </div>
+    </section>
+
+    <footer>
+      <small>© <span id="year"></span> Mohammad Rashid bin Abdullah. Built with a frosted glass UI and Apple‑style design.</small>
+    </footer>
+  </main>
+
+  <button id="toTop" class="btn" style="position: fixed; right: 16px; bottom: 16px; display:none;" aria-label="Back to top">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg> Top
   </button>
 
-  <!-- Desktop Navigation -->
-  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-40 hidden md:block">
-    <div class="glass-nav rounded-full p-1.5 flex items-center shadow-xl">
-      <!-- Logo -->
-      <a href="#home" id="scrollToTopBtn" class="mx-1 nav-item" data-route="home">
-        <div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/50 dark:ring-white/10 hover:scale-105 transition-transform duration-200">
-          <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover" />
-        </div>
-      </a>
+  <script>
+    // ===== Theme persistence =====
+    (function() {
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      function apply(theme) {
+        if (theme === 'auto') {
+          root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        } else {
+          root.setAttribute('data-theme', theme);
+        }
+      }
+      apply(saved || 'auto');
+      const btn = document.getElementById('themeToggle');
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+      // Update if system changes and user hasn't forced a theme
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const forced = localStorage.getItem('theme');
+        if (!forced || forced === 'auto') {
+          root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
 
-      <!-- Nav Icons -->
-      <div class="flex items-center space-x-1 mx-2">
-        <a href="#home"      class="nav-item w-12 h-12 rounded-full flex items-center justify-center" data-route="home"      ><i class="fas fa-home text-lg"></i></a>
-        <a href="#about"     class="nav-item w-12 h-12 rounded-full flex items-center justify-center" data-route="about"     ><i class="fas fa-user text-lg"></i></a>
-        <a href="#resume"    class="nav-item w-12 h-12 rounded-full flex items-center justify-center" data-route="resume"    ><i class="fas fa-file-alt text-lg"></i></a>
-        <a href="#portfolio" class="nav-item w-12 h-12 rounded-full flex items-center justify-center" data-route="portfolio" ><i class="fas fa-briefcase text-lg"></i></a>
-        <a href="#skills"    class="nav-item w-12 h-12 rounded-full flex items-center justify-center" data-route="skills"    ><i class="fas fa-code text-lg"></i></a>
-        <a href="#contact"   class="nav-item w-12 h-12 rounded-full flex items-center justify-center" data-route="contact"   ><i class="fas fa-envelope text-lg"></i></a>
-      </div>
+    // ===== Blurry background follows scroll (parallax) =====
+    (function() {
+      const bg = document.querySelector('.bg');
+      let ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const y = window.scrollY || document.documentElement.scrollTop;
+            // small, smooth movement
+            bg.style.transform = `translate3d(${y * -0.02}px, ${y * -0.06}px, 0)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
 
-      <!-- Divider -->
-      <div class="nav-divider mx-1"></div>
+    // ===== Project filters =====
+    (function() {
+      const buttons = document.querySelectorAll('.filters button');
+      const cards = document.querySelectorAll('.project');
+      buttons.forEach(btn => btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          const has = card.dataset.tags.includes(f);
+          card.style.display = (f === 'all' || has) ? '' : 'none';
+        });
+      }));
+    })();
 
-      <!-- Theme Toggle -->
-      <button id="theme-toggle" class="nav-item w-12 h-12 rounded-full flex items-center justify-center ml-1">
-        <i class="fas fa-moon dark:hidden"></i>
-        <i class="fas fa-sun hidden dark:block"></i>
-      </button>
-    </div>
-  </nav>
+    // ===== Copy email & save vCard =====
+    (function() {
+      const email = 'rasyidbejay@gmail.com';
+      document.getElementById('copyEmail').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(email);
+          toast('Email copied to clipboard');
+        } catch (e) { alert(email); }
+      });
 
-  <!-- Mobile Fullscreen Menu -->
-  <nav id="mobile-nav" class="fixed inset-0 bg-white/70 dark:bg-black/70 z-40 hidden md:hidden transition-opacity duration-300 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 text-2xl font-medium">
-    <a href="#home"      class="mobile-link" data-route="home">Home</a>
-    <a href="#about"     class="mobile-link" data-route="about">About</a>
-    <a href="#resume"    class="mobile-link" data-route="resume">Resume</a>
-    <a href="#portfolio" class="mobile-link" data-route="portfolio">Portfolio</a>
-    <a href="#skills"    class="mobile-link" data-route="skills">Skills</a>
-    <a href="#contact"   class="mobile-link" data-route="contact">Contact</a>
+      document.getElementById('saveVcf').addEventListener('click', () => {
+        const vcf = `BEGIN:VCARD\nVERSION:3.0\nN:bin Abdullah;Mohammad;Rashid;;\nFN:Mohammad Rashid bin Abdullah\nTEL;TYPE=CELL:+60 11-1530 1464\nEMAIL;TYPE=INTERNET:${email}\nADR;TYPE=HOME:;;Kuala Lumpur;;Malaysia\nURL:https://www.rasyidbejay.com/\nEND:VCARD`;
+        const blob = new Blob([vcf], { type: 'text/vcard' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'Mohammad-Rashid.vcf'; a.click();
+        URL.revokeObjectURL(url);
+      });
+    })();
 
-    <!-- Theme toggle for mobile -->
-    <button id="mobile-theme-toggle" class="text-2xl mt-6">
-      <i class="fas fa-moon dark:hidden"></i>
-      <i class="fas fa-sun hidden dark:block"></i>
-    </button>
-  </nav>
+    // ===== Back to top button =====
+    (function(){
+      const btn = document.getElementById('toTop');
+      const showAt = 300;
+      function onScroll(){
+        const y = window.scrollY || document.documentElement.scrollTop;
+        btn.style.display = y > showAt ? 'inline-flex' : 'none';
+      }
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
 
-  <!-- PAGES (one visible at a time) -->
-  <!-- Home -->
-  <section id="home" class="page min-h-screen flex items-center justify-center px-6 pt-24 pb-32">
-    <div class="text-center max-w-3xl mx-auto glass p-8 rounded-2xl">
-      <div class="w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden shadow-lg ring-4 ring-blue-500/30">
-        <img src="assets/profile.jpg" alt="Mohammad Rashid Abdullah" class="object-cover w-full h-full" />
-      </div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-3">Mohammad Rashid Abdullah</h1>
-      <h2 class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 font-medium">
-        Data Analyst • Business Analyst • Web Developer • Notioner
-      </h2>
-      <p class="text-lg opacity-80 mb-8 max-w-xl mx-auto">
-        "Transforming raw data into strategy, business needs into solutions, and ideas into functional websites…"
-      </p>
-      <div class="flex justify-center gap-4">
-        <a href="#portfolio" data-route="portfolio" class="router-link px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full font-medium transition">View Projects</a>
-        <a href="assets/Mohammad-Rashid-CV.pdf" download class="px-6 py-3 border border-white/30 hover:bg-white/20 rounded-full font-medium transition">Download CV</a>
-      </div>
-    </div>
-  </section>
+    // ===== Tiny toast utility =====
+    function toast(msg){
+      const t = document.createElement('div');
+      t.textContent = msg;
+      Object.assign(t.style, {
+        position:'fixed', left:'50%', bottom:'20px', transform:'translateX(-50%)',
+        background:'var(--card)', border:'1px solid var(--card-stroke)', padding:'10px 14px',
+        borderRadius:'12px', boxShadow:'var(--shadow)', zIndex: 9999
+      });
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity='0'; t.style.transition='opacity .3s'; }, 1400);
+      setTimeout(()=> t.remove(), 1700);
+    }
 
-  <!-- About -->
-  <section id="about" class="page hidden py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
-      <div class="grid md:grid-cols-2 gap-12 items-start">
-        <div class="glass p-8 rounded-2xl">
-          <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
-          <p class="text-lg mb-4">I'm a graduate of BBA (Minor in Information Systems) at IIUM…</p>
-          <p class="text-lg mb-4">At MA Insights, I built interactive dashboards…</p>
-          <p class="text-lg">My background bridges business and tech…</p>
-        </div>
-        <div class="glass p-8 rounded-2xl">
-          <h3 class="text-2xl font-semibold mb-6">Key Highlights</h3>
-          <div class="space-y-6">
-            <!-- unchanged content -->
-            <div class="flex items-start">
-              <div class="bg-blue-500/15 p-3 rounded-full mr-4"><i class="fas fa-graduation-cap text-blue-400"></i></div>
-              <div><h4 class="font-medium">Bachelor of Business Administration</h4><p class="text-gray-500 dark:text-gray-400">IIUM (2020–2025)</p></div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-purple-500/15 p-3 rounded-full mr-4"><i class="fas fa-chart-line text-purple-400"></i></div>
-              <div><h4 class="font-medium">Data Analyst</h4><p class="text-gray-500 dark:text-gray-400">MA Insights (2024–2025)</p></div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-green-500/15 p-3 rounded-full mr-4"><i class="fas fa-search text-green-400"></i></div>
-              <div><h4 class="font-medium">SEO Specialist</h4><p class="text-gray-500 dark:text-gray-400">Freelance Projects (3+ years)</p></div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-yellow-500/15 p-3 rounded-full mr-4"><i class="fas fa-code text-yellow-400"></i></div>
-              <div><h4 class="font-medium">Freelance Developer</h4><p class="text-gray-500 dark:text-gray-400">5+ years experience</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resume -->
-  <section id="resume" class="page hidden py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">My Resume</h2>
-      <div class="flex justify-center mb-12">
-        <a href="assets/Mohammad-Rashid-CV.pdf" download class="glass px-6 py-3 text-white bg-blue-600/70 hover:bg-blue-600 rounded-full font-medium shadow-lg backdrop-blur-xl flex items-center">
-          <i class="fas fa-download mr-2"></i> Download Full CV
-        </a>
-      </div>
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="glass p-8 rounded-2xl">
-          <h3 class="text-2xl font-semibold mb-6 flex items-center"><i class="fas fa-graduation-cap mr-3 text-blue-400"></i> Education</h3>
-          <div class="timeline pl-8 relative">
-            <div class="timeline-item mb-8 relative">
-              <h4 class="font-bold text-lg">BBA (Hons), Minor in Information Systems</h4>
-              <p class="text-gray-500 dark:text-gray-400 mb-2">IIUM</p>
-              <p class="text-sm text-gray-500 dark:text-gray-500">2020 - 2025</p>
-              <p class="mt-2">Dean’s List recipient…</p>
-            </div>
-          </div>
-        </div>
-        <div class="glass p-8 rounded-2xl">
-          <h3 class="text-2xl font-semibold mb-6 flex items-center"><i class="fas fa-briefcase mr-3 text-blue-400"></i> Experience</h3>
-          <div class="timeline pl-8 relative">
-            <!-- keep original list items -->
-            <div class="timeline-item mb-8 relative">
-              <h4 class="font-bold text-lg">Junior Data Analyst</h4>
-              <p class="text-gray-500 dark:text-gray-400 mb-2">MA Insights</p>
-              <p class="text-sm text-gray-500 dark:text-gray-500">Jul 2024 – Feb 2025</p>
-              <ul class="mt-2 list-disc pl-5 space-y-1">
-                <li>Created Power BI and Tableau dashboards…</li>
-                <li>Performed business data analysis…</li>
-                <li>Managed SQL & Excel workflows…</li>
-                <li>Handled technical and admin coordination…</li>
-              </ul>
-            </div>
-            <div class="timeline-item mb-8 relative">
-              <h4 class="font-bold text-lg">SEO Specialist</h4>
-              <p class="text-gray-500 dark:text-gray-400 mb-2">Suave Designs</p>
-              <p class="text-sm text-gray-500 dark:text-gray-500">Feb 2024 – Apr 2024</p>
-              <ul class="mt-2 list-disc pl-5 space-y-1">
-                <li>Increased organic traffic by 30%…</li>
-                <li>Reduced bounce rate by 20%…</li>
-                <li>Monitored SEO KPIs…</li>
-              </ul>
-            </div>
-            <div class="timeline-item relative">
-              <h4 class="font-bold text-lg">Freelance Web Developer</h4>
-              <p class="text-gray-500 dark:text-gray-400 mb-2">Self-Employed</p>
-              <p class="text-sm text-gray-500 dark:text-gray-500">Jan 2023 – Present</p>
-              <ul class="mt-2 list-disc pl-5 space-y-1">
-                <li>Built and maintained modern websites…</li>
-                <li>Delivered responsive, fast-loading solutions…</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="mt-16">
-        <h3 class="text-2xl font-semibold mb-6 flex items-center"><i class="fas fa-certificate mr-3 text-blue-400"></i> Certifications</h3>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- turn each card glass -->
-          <div class="glass p-6 rounded-xl"><h4 class="font-bold">Google Data Analytics Professional Certificate</h4><p class="text-sm text-gray-400 mt-1">Coursera • Mar 2025</p></div>
-          <div class="glass p-6 rounded-xl"><h4 class="font-bold">Career Essentials in Business Analysis</h4><p class="text-sm text-gray-400 mt-1">Microsoft x LinkedIn • 2023</p></div>
-          <div class="glass p-6 rounded-xl"><h4 class="font-bold">Career Essentials in Data Analysis</h4><p class="text-sm text-gray-400 mt-1">Microsoft x LinkedIn • 2023</p></div>
-          <div class="glass p-6 rounded-xl"><h4 class="font-bold">Data Visualization – D3.js & Chart.js</h4><p class="text-sm text-gray-400 mt-1">FreeCodeCamp • 2023</p></div>
-          <div class="glass p-6 rounded-xl"><h4 class="font-bold">Learning Excel: Data Analysis</h4><p class="text-sm text-gray-400 mt-1">LinkedIn Learning • 2023</p></div>
-        </div>
-      </div>
-
-      <!-- Credly Badge -->
-      <div class="mt-16 text-center">
-        <h4 class="text-xl font-semibold mb-4">Verified Credential</h4>
-        <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener noreferrer">
-          <img src="assets/google-data-analytics-badge.png" alt="Google Data Analytics Certificate" class="mx-auto w-40 hover:scale-105 transition-transform duration-300 rounded-xl shadow-md"/>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section id="portfolio" class="page hidden py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- make project cards glass -->
-        <div class="project-card glass overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center rounded-t-xl"><i class="fas fa-bicycle text-white text-6xl"></i></div>
-          <div class="p-6 rounded-b-xl">
-            <h3 class="font-bold text-xl mb-2">Cyclistic Bike-Share Case Study</h3>
-            <p class="text-gray-300/90 mb-4">Analysed 12 months of bike-share data…</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="chip">R</span><span class="chip">Tableau</span><span class="chip">SQL</span>
-            </div>
-            <div class="flex space-x-3">
-              <a href="https://public.tableau.com/views/Book1_17405629913410/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="text-blue-300 hover:text-blue-200"><i class="fas fa-external-link-alt"></i> Live</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card glass overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center"><i class="fas fa-users text-white text-6xl"></i></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl mb-2">HR Analytics Dashboard</h3>
-            <p class="text-gray-300/90 mb-4">Interactive Power BI dashboard…</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Excel</span></div>
-            <div class="flex space-x-3">
-              <a href="https://public.tableau.com/views/Book1_17400731601960/HRANALYTICSDASHBOARD?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="text-purple-300 hover:text-purple-200"><i class="fas fa-external-link-alt"></i> Live</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card glass overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center"><i class="fas fa-search text-white text-6xl"></i></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl mb-2">SEO Optimisation for Scrub Squad</h3>
-            <p class="text-gray-300/90 mb-4">Comprehensive SEO strategy…</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="chip">SEO</span><span class="chip">Google Analytics</span><span class="chip">SEMrush</span></div>
-            <div class="flex space-x-3">
-              <a href="https://scrubsquadhousecleaning.com" class="text-green-300 hover:text-green-200"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card glass overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center"><i class="fas fa-coffee text-white text-6xl"></i></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl mb-2">Roast & Toast Website Dev</h3>
-            <p class="text-gray-300/90 mb-4">Custom WordPress theme…</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">WooCommerce</span></div>
-            <div class="flex space-x-3">
-              <a href="https://httpstat.us/503" class="text-yellow-200 hover:text-yellow-100"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card glass overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center"><i class="fas fa-money-bill-wave text-white text-6xl"></i></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl mb-2">Digital Nex Fintech Web Project</h3>
-            <p class="text-gray-300/90 mb-4">Fintech platform with data viz…</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">MongoDB</span></div>
-            <div class="flex space-x-3">
-              <a href="#" class="text-red-200 hover:text-red-100"><i class="fab fa-github"></i> Code</a>
-              <a href="https://httpstat.us/503" class="text-red-200 hover:text-red-100"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card glass overflow-hidden">
-          <div class="h-48 bg-gradient-to-r from-indigo-400 to-indigo-600 flex items-center justify-center"><i class="fas fa-chart-pie text-white text-6xl"></i></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl mb-2">E-commerce Sales Analysis</h3>
-            <p class="text-gray-300/90 mb-4">Python script for analysing sales trends…</p>
-            <div class="flex flex-wrap gap-2 mb-4"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span></div>
-            <div class="flex space-x-3">
-              <a href="#" class="text-indigo-200 hover:text-indigo-100"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="text-indigo-200 hover:text-indigo-100"><i class="fas fa-file-pdf"></i> Report</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="https://github.com/rasyidbejay" class="glass px-6 py-3 rounded-full font-medium inline-flex items-center hover:bg-white/10 transition">
-          <i class="fab fa-github mr-2"></i> Visit Github
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="page hidden py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">Skills & Expertise</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass p-8 rounded-2xl">
-          <div class="flex items-center mb-6">
-            <div class="bg-blue-500/15 p-3 rounded-full mr-4"><i class="fas fa-code text-blue-300"></i></div>
-            <h3 class="text-xl font-semibold">Technical Skills</h3>
-          </div>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-medium mb-2">Data Analysis</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">R</span>
-                <span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Excel</span>
-              </div>
-            </div>
-            <div>
-              <h4 class="font-medium mb-2">Web Development</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">HTML/CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span>
-                <span class="chip">WordPress</span><span class="chip">React</span><span class="chip">Node.js</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass p-8 rounded-2xl">
-          <div class="flex items-center mb-6">
-            <div class="bg-green-500/15 p-3 rounded-full mr-4"><i class="fas fa-bullhorn text-green-300"></i></div>
-            <h3 class="text-xl font-semibold">Marketing Skills</h3>
-          </div>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-medium mb-2">Digital Marketing</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">SEO</span><span class="chip">SEM</span><span class="chip">Google Analytics</span>
-                <span class="chip">Google Ads</span><span class="chip">Social Media</span><span class="chip">Content Marketing</span>
-              </div>
-            </div>
-            <div>
-              <h4 class="font-medium mb-2">Tools</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">SEMrush</span><span class="chip">Ahrefs</span><span class="chip">Search Console</span>
-                <span class="chip">Canva</span><span class="chip">CapCut</span><span class="chip">SiteGiant</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass p-8 rounded-2xl">
-          <div class="flex items-center mb-6">
-            <div class="bg-purple-500/15 p-3 rounded-full mr-4"><i class="fas fa-comments text-purple-300"></i></div>
-            <h3 class="text-xl font-semibold">Soft Skills</h3>
-          </div>
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-medium mb-2">Professional</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">Communication</span><span class="chip">Problem Solving</span><span class="chip">Teamwork</span>
-                <span class="chip">Adaptability</span><span class="chip">Time Management</span><span class="chip">Leadership</span>
-              </div>
-            </div>
-            <div>
-              <h4 class="font-medium mb-2">Languages</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="chip">English (Fluent)</span><span class="chip">Malay (Native)</span><span class="chip">Arabic (Basic)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials (left intact, now glass) -->
-  <section id="testimonials" class="page hidden py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">What People Say</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass p-8 rounded-2xl">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 rounded-full bg-green-500/30 flex items-center justify-center text-white font-bold mr-4">MG</div>
-            <div><h4 class="font-bold">Mostafa Geneidy</h4><p class="text-sm text-gray-300">Co-Founder, MA Insights</p></div>
-          </div>
-          <p class="text-gray-200/90 italic">"Working with Rashid on our analytics projects was a pleasure…"</p>
-          <div class="flex mt-4 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i></div>
-        </div>
-
-        <div class="glass p-8 rounded-2xl">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 rounded-full bg-purple-500/30 flex items-center justify-center text-white font-bold mr-4">EC</div>
-            <div><h4 class="font-bold">Emily Carter</h4><p class="text-sm text-gray-300">Founder, Scrub Squad</p></div>
-          </div>
-          <p class="text-gray-200/90 italic">"Rashid completely revamped our website and SEO strategy…"</p>
-          <div class="flex mt-4 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star-half-alt ml-1"></i></div>
-        </div>
-
-        <div class="glass p-8 rounded-2xl md:col-span-2">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 rounded-full bg-red-500/30 flex items-center justify-center text-white font-bold mr-4">RT</div>
-            <div><h4 class="font-bold">Roast & Toast</h4><p class="text-sm text-gray-300">Coffee Shop</p></div>
-          </div>
-          <p class="text-gray-200/90 italic">"The website Rashid built for us has been a game-changer…"</p>
-          <div class="flex mt-4 text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="page hidden py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
-      <div class="grid md:grid-cols-2 gap-12">
-        <div class="glass p-8 rounded-2xl">
-          <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-          <p class="mb-8">Feel free to reach out for collaborations, job opportunities, or just to say hello!</p>
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="bg-blue-500/15 p-3 rounded-full mr-4"><i class="fas fa-envelope text-blue-300"></i></div>
-              <div><h4 class="font-medium">Email</h4><a href="mailto:rasyidbejay@gmail.com" class="text-blue-300 hover:text-blue-200">rasyidbejay@gmail.com</a></div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-green-500/15 p-3 rounded-full mr-4"><i class="fas fa-map-marker-alt text-green-300"></i></div>
-              <div><h4 class="font-medium">Location</h4><p>Kuala Lumpur, Malaysia</p></div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-purple-500/15 p-3 rounded-full mr-4"><i class="fas fa-globe text-purple-300"></i></div>
-              <div>
-                <h4 class="font-medium">Online Profiles</h4>
-                <div class="flex space-x-4 mt-2">
-                  <a href="https://www.linkedin.com/in/rasyidbejay/" class="hover:text-blue-300" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in text-xl"></i></a>
-                  <a href="https://www.instagram.com/rasyidbejay/" class="hover:text-pink-300" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram text-xl"></i></a>
-                  <a href="#" class="hover:text-sky-300" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter text-xl"></i></a>
-                  <a href="https://github.com/rasyidbejay" class="hover:text-gray-200" target="_blank" rel="noopener noreferrer"><i class="fab fa-github text-xl"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="glass p-8 rounded-2xl">
-          <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-          <form id="contactForm" action="https://formspree.io/f/xldnzogn" method="POST" class="space-y-4">
-            <div>
-              <label for="name" class="block mb-2 font-medium">Name</label>
-              <input name="name" type="text" id="name" class="contact-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-            </div>
-            <div>
-              <label for="email" class="block mb-2 font-medium">Email</label>
-              <input name="email" type="email" id="email" class="contact-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-            </div>
-            <div>
-              <label for="subject" class="block mb-2 font-medium">Subject</label>
-              <input name="subject" type="text" id="subject" class="contact-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-            </div>
-            <div>
-              <label for="message" class="block mb-2 font-medium">Message</label>
-              <textarea name="message" id="message" rows="4" class="contact-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            </div>
-            <button type="submit" class="px-6 py-3 bg-blue-600/80 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors duration-300 w-full">Send Message</button>
-          </form>
-
-          <!-- Thank You Popup -->
-          <div id="thankYouPopup" aria-label="Thank you popup" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
-            <div class="glass text-white p-6 rounded-xl shadow-xl text-center animate-scale-in">
-              <div class="text-green-400 text-4xl mb-2"><i class="fas fa-check-circle"></i></div>
-              <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
-              <p>Your message has been sent successfully.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 text-center md:text-left">
-      <div class="flex items-center space-x-3 whitespace-nowrap">
-        <div class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/30 flex-shrink-0">
-          <img src="assets/logo-light.png" alt="Logo Light" class="block dark:hidden w-full h-full object-cover"/>
-          <img src="assets/logo-dark.png"  alt="Logo Dark"  class="hidden dark:block w-full h-full object-cover"/>
-        </div>
-        <span class="font-semibold text-gray-800 dark:text-gray-200 text-lg">Mohammad Rashid Abdullah</span>
-      </div>
-      <div class="flex space-x-6 text-gray-600 dark:text-gray-300 justify-center">
-        <a href="https://github.com/rasyidbejay" target="_blank" aria-label="GitHub" class="hover:text-gray-800 dark:hover:text-white transition-colors duration-300"><i class="fab fa-github text-2xl"></i></a>
-        <a href="https://linkedin.com/in/rasyidbejay" target="_blank" aria-label="LinkedIn" class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"><i class="fab fa-linkedin-in text-2xl"></i></a>
-        <a href="https://instagram.com/rasyidbejay" target="_blank" aria-label="Instagram" class="hover:text-pink-500 dark:hover:text-pink-400 transition-colors duration-300"><i class="fab fa-instagram text-2xl"></i></a>
-      </div>
-      <p class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">&copy; 2025 Mohammad Rashid Abdullah</p>
-    </div>
-  </footer>
-
-  <!-- External JS -->
-  <script src="scripts.js"></script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
