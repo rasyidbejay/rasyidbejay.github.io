@@ -122,20 +122,36 @@
       .nav-links { display: flex; }
     }
 
-    /* =============================
-       Hero
-       ============================= */
-    .hero { display:grid; gap: 28px; align-items: center; grid-template-columns: 1fr; }
-    .hero .photo { width: 160px; height:160px; border-radius: 28px; overflow:hidden; border:1px solid var(--border); box-shadow: var(--shadow); }
-    .eyebrow { font-size:.85rem; color: var(--muted); letter-spacing:.3px; }
-    .title { font-size: clamp(28px, 6vw, 44px); line-height: 1.12; letter-spacing: -0.02em; margin: 4px 0 0 0; font-weight: 800; }
-    .subtitle { color: var(--muted); font-size: clamp(16px, 2.5vw, 18px); }
-    .hero-actions { display:flex; flex-wrap: wrap; gap: 10px; }
-
-    @media (min-width: 860px) {
-      .hero { grid-template-columns: 1fr 1.2fr; }
-      .hero .photo { justify-self: end; width: 128px; height:220px; }
+/* =============================
+   Hero
+   ============================= */
+    .hero {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+      grid-template-columns: 1fr;
     }
+    
+    .hero .photo{
+      /* one responsive size—no conflicting overrides */
+      width: clamp(180px, 24vw, 320px);
+      aspect-ratio: 3 / 4;     /* nice portrait shape; use 1/1 if you want a square */
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    
+    .eyebrow{ font-size:.85rem; color: var(--muted); letter-spacing:.3px; }
+    .title{ font-size: clamp(28px, 6vw, 44px); line-height: 1.12; letter-spacing:-0.02em; margin:4px 0 0; font-weight:800; }
+    .subtitle{ color: var(--muted); font-size: clamp(16px, 2.5vw, 18px); }
+    .hero-actions{ display:flex; flex-wrap:wrap; gap:10px; }
+    
+    @media (min-width: 860px){
+      .hero { grid-template-columns: 1fr 1.2fr; }
+      .hero .photo { justify-self: end; } /* no width/height here */
+    }
+
 
     /* =============================
        Section headings
