@@ -43,6 +43,16 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.5; }
     img { max-width: 100%; height: auto; display: block; }
+
+    /* Ensure hero image fills its card */
+    .hero .photo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    
     a { color: inherit; text-decoration: none; }
     :root {
       --bg: #ffffff;
