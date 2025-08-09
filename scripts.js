@@ -5,110 +5,96 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
   const glowCursor = document.getElementById('glow-cursor');
 
-  // Show/hide mobile menu
+  /* ===== Mobile menu ===== */
   mobileToggle.addEventListener('click', () => {
     mobileNav.classList.toggle('hidden');
   });
-
-  // Close mobile menu when clicking on any link
   document.querySelectorAll('.mobile-link').forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const route = link.dataset.route;
+      showPage(route);
       mobileNav.classList.add('hidden');
     });
   });
 
-  // Toggle dark mode (desktop)
+  /* ===== Theme toggle + persistence ===== */
+  const setThemeFromStorage = () => {
+    const currentTheme =
+      localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', currentTheme === 'dark');
+  };
+  setThemeFromStorage();
+
+  const updateThemeStorage = () => {
+    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+  };
   themeToggle.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     updateThemeStorage();
   });
-
-  // Toggle dark mode (mobile)
   mobileThemeToggle.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     updateThemeStorage();
   });
 
-  // Glowing Cursor Movement
+  /* ===== Glow cursor ===== */
   document.addEventListener('mousemove', (e) => {
-    glowCursor.style.transform = `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
+    if (!glowCursor) return;
+    glowCursor.style.transform = `translate(${e.clientX - 70}px, ${e.clientY - 70}px)`;
   });
 
-  // Check for saved user preference, if any
-  const currentTheme =
-    localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  if (currentTheme) {
-    if (currentTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+  /* ===== SPA Router: one page visible at a time ===== */
+  const pages = Array.from(document.querySelectorAll('.page'));
+  const navItems = Array.from(document.querySelectorAll('.nav-item'));
+
+  function showPage(id) {
+    // hide all
+    pages.forEach(sec => sec.classList.add('hidden'));
+    // show selected
+    const target = document.getElementById(id);
+    if (target) target.classList.remove('hidden');
+
+    // mark active
+    navItems.forEach(item => {
+      const route = item.dataset.route;
+      if (route) item.classList.toggle('active', route === id);
+      // also update icon button (logo has no icon highlight)
+    });
+
+    // update hash (for shareable URL)
+    if (location.hash !== `#${id}`) history.replaceState(null, '', `#${id}`);
+    // scroll to top of viewport for new "page"
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
-  function updateThemeStorage() {
-    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-  }
-
-  // Smooth scrolling for navigation
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    if (anchor.classList.contains('nav-item')) {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Update active nav item
-        document.querySelectorAll('.nav-item').forEach((item) => {
-          item.classList.remove('active');
-        });
-        this.classList.add('active');
-
-        // Scroll to section
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop,
-            behavior: 'smooth',
-          });
-        }
-      });
-    }
-  });
-
-  // Smooth scroll to top when logo is clicked
-  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-  if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', function (e) {
+  // Intercept desktop nav clicks
+  navItems.forEach((a) => {
+    const route = a.dataset.route;
+    if (!route) return;
+    a.addEventListener('click', (e) => {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    });
-  }
-
-  // Update active nav item on scroll
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY + 100;
-
-    document.querySelectorAll('section').forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        document.querySelectorAll('.nav-item').forEach((item) => {
-          item.classList.remove('active');
-        });
-        const correspondingNav = document.querySelector(`.nav-item[href="#${sectionId}"]`);
-        if (correspondingNav) {
-          correspondingNav.classList.add('active');
-        }
-      }
+      showPage(route);
     });
   });
 
-  // Contact form submission handler
+  // Also intercept any .router-link buttons
+  document.querySelectorAll('.router-link').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const route = a.dataset.route;
+      if (!route) return;
+      e.preventDefault();
+      showPage(route);
+    });
+  });
+
+  // Initial route
+  const initial = (location.hash || '#home').replace('#', '');
+  showPage(initial);
+
+  /* ===== Contact form (kept) ===== */
   const form = document.getElementById('contactForm');
   const popup = document.getElementById('thankYouPopup');
 
