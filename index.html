@@ -1,674 +1,491 @@
 <!DOCTYPE html>
-<html lang="en-GB" data-theme="auto">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rashid</title>
-  <meta name="description" content="Data Analyst • Web Developer • SEO Specialist in Kuala Lumpur. Minimal Apple-style portfolio with frosted glass UI." />
-  <meta name="color-scheme" content="light dark">
-  <meta property="og:title" content="Mohammad Rashid — Portfolio" />
-  <meta property="og:description" content="Data Analyst • Web Developer • SEO Specialist | Kuala Lumpur, Malaysia" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/profile.jpg" />
-  <meta name="theme-color" content="#0b0c0f" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
-  <!-- Favicons / PWA (replace with your assets) -->
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
-  <link rel="icon" href="assets/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="manifest" href="assets/site.webmanifest">
-
+  <title>Rashid — Data Analyst • Web Developer • SEO Specialist</title>
+  <meta name="description" content="Minimal, Apple-style portfolio for Mohammad Rashid bin Abdullah — Data Analyst, Web Developer, SEO Specialist in Kuala Lumpur, Malaysia." />
+  <link rel="icon" href="assets/favicon.svg">
   <style>
-    :root {
+    /* --- Reset (minimal) --- */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:-apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";line-height:1.55;letter-spacing:0.01em}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-underline-offset:2px}
+    :root{
+      --radius:22px;
+      --pad:18px;
+      --pad-lg:28px;
+      --shadow:0 1px 2px rgba(0,0,0,.08), 0 12px 40px rgba(0,0,0,.12);
+      --ring:rgba(0,0,0,.06);
+      --glass:hsla(0,0%,100%,.6);
+      --border:hsla(0,0%,100%,.35);
+      --text:hsla(222,14%,12%,.92);
+      --muted:hsla(220,9%,28%,.72);
       --bg: #f6f7fb;
-      --fg: #0b0c0f;
-      --muted: #6b7280;
-      --card: rgba(255, 255, 255, 0.55);
-      --stroke: rgba(0, 0, 0, 0.06);
-      --accent: #0a84ff;
-      --shadow: 0 12px 28px rgba(0,0,0,.06);
-      --radius: 22px;
-      --blur: 18px;
-      --gap: clamp(14px, 2.4vw, 22px);
-      --maxw: 1024px;
-      --icon: currentColor;
+      --card:#ffffff99;
+      --accent: #0a84ff; /* iOS tint */
     }
-    html[data-theme="dark"]:root {
+    html[data-theme="dark"]:root{
+      --glass:hsla(0,0%,10%,.55);
+      --border:hsla(0,0%,100%,.12);
+      --text:hsla(0,0%,98%,.95);
+      --muted:hsla(0,0%,88%,.7);
       --bg: #0b0c0f;
-      --fg: #f3f5f7;
-      --muted: #a6adbb;
-      --card: rgba(17, 18, 22, 0.45);
-      --stroke: rgba(255,255,255,0.08);
-      --shadow: 0 24px 60px rgba(0,0,0,.45);
+      --card:#11121788;
+      --accent: #64d2ff; /* iOS dark tint */
+      --ring:rgba(255,255,255,.08);
     }
 
-    /* Global: one system font, fewer weights */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial;
-      font-weight: 400;
-      color: var(--fg);
+    /* --- Blurry gradient background that subtly follows scroll --- */
+    body{
       background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x:hidden;
     }
-
-    /* Subtle blurry gradient */
-    .bg {
-      position: fixed; inset: -25vmax; z-index: -2; pointer-events: none;
-      filter: blur(64px) saturate(130%);
+    body::before, body::after{
+      content:""; position:fixed; inset:-25%; z-index:-2; filter:blur(60px); transform:translate3d(0,0,0);
+      pointer-events:none; transition:opacity .6s ease;
+    }
+    /* Base soft wash */
+    body::before{
       background:
-        radial-gradient(36vmax 36vmax at 18% 12%, rgba(10,132,255,.35), transparent 60%),
-        radial-gradient(32vmax 32vmax at 82% 8%, rgba(48,209,88,.28), transparent 60%),
-        radial-gradient(44vmax 44vmax at 50% 100%, rgba(175,82,222,.18), transparent 60%);
-      transform: translate3d(0,0,0);
+        radial-gradient(40% 35% at 20% 15%, rgba(255,0,122,.20), transparent 55%),
+        radial-gradient(35% 30% at 80% 8%, rgba(10,132,255,.24), transparent 55%),
+        radial-gradient(45% 40% at 50% 85%, rgba(88,86,214,.20), transparent 60%),
+        radial-gradient(35% 35% at 8% 82%, rgba(52,199,89,.18), transparent 60%);
     }
-    .texture { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,.10), transparent 46%); }
-
-    .container { width: min(var(--maxw), 100% - 28px); margin-inline: auto; }
-
-    /* Glass nav — minimal */
-    .nav {
-      position: sticky; top: 12px; z-index: 10; margin: 12px auto; width: min(960px, calc(100% - 24px));
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      padding: 8px 12px; background: var(--card); border: 1px solid var(--stroke); border-radius: 16px;
-      backdrop-filter: blur(var(--blur)) saturate(130%); box-shadow: var(--shadow);
+    /* Subtle parallax sheet */
+    body::after{
+      background:
+        radial-gradient(30% 30% at 78% 22%, rgba(255,159,10,.20), transparent 60%),
+        radial-gradient(30% 30% at 28% 70%, rgba(255,69,58,.14), transparent 60%);
+      opacity:.9;
     }
-    .brand { display:flex; align-items:center; gap:10px; }
-    .brand img { width:24px; height:24px; border-radius:7px; object-fit:cover; }
-    .brand .name { font-weight: 600; letter-spacing:.2px; }
-    .nav .links { display:flex; gap:8px; }
-    .nav a { color:inherit; text-decoration:none; padding:6px 10px; border-radius:10px; border:1px solid transparent; }
-    .nav a:hover { border-color: var(--stroke); }
-
-    .iconbtn { appearance:none; background:transparent; border:1px solid var(--stroke); color:inherit; border-radius:12px; padding:8px; display:inline-grid; place-items:center; cursor:pointer; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
-    .iconbtn svg { width:18px; height:18px; }
-    .iconbtn:hover { transform: translateY(-1px); }
-
-    /* Cards kept airy */
-    .card { background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius); padding: clamp(18px, 2.6vw, 26px); box-shadow: var(--shadow); backdrop-filter: blur(var(--blur)) saturate(130%); }
-
-    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 2px 0 6px; font-weight: 650; }
-    h2 { font-size: clamp(18px, 2.4vw, 26px); margin: 0 0 8px; font-weight: 650; }
-    p { line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
-    .muted { color: var(--muted); }
-
-    /* Hero */
-    .hero { display:grid; grid-template-columns: 120px 1fr; gap: 18px; align-items:center; }
-    .avatar { width:110px; height:110px; border-radius:24px; object-fit:cover; box-shadow: 0 10px 24px rgba(0,0,0,.14), inset 0 0 0 2px rgba(255,255,255,.5); }
-    .roles { display:flex; gap:8px; flex-wrap:wrap; }
-    .role { padding:6px 10px; border-radius:999px; border: 1px solid var(--stroke); background: var(--card); font-weight:600; }
-
-    /* Dock — icon-only social row */
-    .dock { display:flex; gap: 8px; flex-wrap: wrap; }
-    .dock a { display:inline-grid; place-items:center; width:44px; height:44px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: transform .14s ease; }
-    .dock a:hover { transform: translateY(-2px) scale(1.04); }
-    .dock svg { width:20px; height:20px; color: var(--icon); }
-
-    /* Work (Experience + Projects) — minimal tiles */
-    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: var(--gap); }
-    .tile { display:grid; gap:8px; }
-    .tl { display:flex; align-items:center; gap:10px; }
-    .tl svg { width:20px; height:20px; }
-
-    /* Stacks (icon grid) */
-    .stacks { display:grid; grid-template-columns: repeat(auto-fit, minmax(56px,1fr)); gap: 10px; }
-    .stack {
-      display:grid; place-items:center; height:56px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px);
-    }
-    .stack svg { width:22px; height:22px; }
-
-    /* Contact */
-    .contact { display:flex; gap:10px; flex-wrap:wrap; }
-    .chip { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); }
-    .chip svg { width:18px; height:18px; }
-
-    footer { text-align:center; color: var(--muted); padding: 28px 0 40px; }
-
-    @media (max-width: 760px){
-      .hero { grid-template-columns: 1fr; text-align:center; }
-      .avatar { margin-inline:auto; }
-      .nav .links { display:none; }
+    @media (prefers-reduced-motion:no-preference){
+      window,body{scroll-behavior:smooth}
     }
 
-    @media (prefers-reduced-motion: reduce){
-      .dock a, .iconbtn { transition:none !important; }
+    /* --- Shell --- */
+    .wrap{max-width:980px;margin:0 auto;padding:calc(var(--pad-lg) + 8px) var(--pad-lg) 96px}
+    .nav{
+      position:sticky; top:12px; z-index:10; display:flex; align-items:center; gap:8px; justify-content:space-between;
+      padding:10px 12px; border-radius:999px; backdrop-filter:saturate(160%) blur(16px);
+      background:var(--glass); border:1px solid var(--border); box-shadow:var(--shadow);
+    }
+    .nav .left{display:flex;align-items:center;gap:10px}
+    .nav .brand{display:flex;align-items:center;gap:10px;padding:4px 10px;border-radius:999px}
+    .brand img.logo{width:22px;height:22px;border-radius:6px;opacity:.9}
+    .brand .title{font-weight:600;letter-spacing:.2px}
+
+    .nav .right{display:flex;align-items:center;gap:6px}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--card)}
+    .chip svg{width:16px;height:16px;opacity:.9}
+
+    .btn{appearance:none;border:1px solid var(--border);background:var(--card);padding:10px 14px;border-radius:14px;cursor:pointer;box-shadow:var(--shadow);display:inline-flex;gap:10px;align-items:center}
+    .btn:focus-visible{outline:2px solid var(--ring)}
+    .btn.small{padding:8px 10px;border-radius:12px}
+
+    .toggle{width:38px;height:38px;display:inline-grid;place-items:center;border-radius:12px;border:1px solid var(--border);background:var(--card);cursor:pointer}
+    .toggle svg{width:18px;height:18px}
+
+    /* --- Cards --- */
+    .glass{background:var(--glass); backdrop-filter:saturate(160%) blur(18px); border:1px solid var(--border); box-shadow:var(--shadow); border-radius:var(--radius)}
+    .hero{display:grid;grid-template-columns:120px 1fr;gap:18px; padding:20px}
+    .avatar{width:110px;height:110px;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .hero h1{margin:0;font-size:28px;line-height:1.2}
+    .muted{color:var(--muted)}
+    .roles{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+    @media (min-width:900px){
+      .grid{grid-template-columns:1.1fr .9fr}
+    }
+
+    section.card{padding:16px 18px}
+    section.card h2{margin:0 0 8px 0;font-size:16px;letter-spacing:.3px}
+    ul.clean{list-style:none;padding-left:0;margin:0;display:grid;gap:8px}
+    .item{padding:12px;border-radius:14px;border:1px solid var(--border);background:var(--card);display:flex;gap:10px;align-items:flex-start}
+    .item svg{width:18px;height:18px;flex:0 0 18px;opacity:.9}
+    .item .row{display:flex;justify-content:space-between;gap:8px}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;border:1px solid var(--border);background:transparent;font-size:12px}
+
+    /* Pills row for skills */
+    .pillrow{display:flex;flex-wrap:wrap;gap:8px}
+    .pill{padding:7px 10px;border-radius:999px;border:1px solid var(--border);background:var(--card);font-size:13px}
+
+    /* Footer */
+    footer{margin-top:20px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+    .links{display:flex;flex-wrap:wrap;gap:8px}
+
+    /* Micro-interactions */
+    @media (hover:hover){
+      .item:hover,.btn:hover,.toggle:hover{transform:translateY(-1px);transition:transform .18s ease}
+      .chip:hover{background:transparent}
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none !important; animation:none !important}
     }
   </style>
 </head>
 <body>
-  <a class="sr-only" href="#content">Skip to content</a>
-  <div class="bg" aria-hidden="true"></div>
-  <div class="texture" aria-hidden="true"></div>
-
-  <header class="nav" role="banner">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
-      <span class="name">Rasyid</span>
+  <div class="wrap">
+    <!-- Top nav -->
+    <div class="nav glass" role="navigation" aria-label="Site">
+      <div class="left">
+        <a class="brand" href="#top" aria-label="Home">
+          <img class="logo" src="assets/logo.png" alt="Rashid logo" onerror="this.style.display='none'">
+          <span class="title">Rashid</span>
+        </a>
+        <span class="chip" title="Location">
+          <!-- Location icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Kuala Lumpur, MY
+        </span>
+      </div>
+      <div class="right">
+        <button id="copy-email" class="toggle" title="Copy email">
+          <!-- Mail icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/><path d="m22 8-10 7L2 8"/></svg>
+        </button>
+        <button id="copy-phone" class="toggle" title="Copy phone">
+          <!-- Phone icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.73 19.73 0 0 1-8.59-3.07A19.5 19.5 0 0 1 3.15 9.77 19.73 19.73 0 0 1 .08 1.18 2 2 0 0 1 2.06-.99h3a2 2 0 0 1 2 1.72c.12.94.32 1.87.6 2.77a2 2 0 0 1-.45 2.11L6.1 7.12a16 16 0 0 0 6.78 6.78l1.51-1.11a2 2 0 0 1 2.11-.45c.9.28 1.83.48 2.77.6A2 2 0 0 1 22 16.92Z"/></svg>
+        </button>
+        <button id="theme" class="toggle" aria-label="Toggle theme" title="Dark/Light">
+          <!-- Sun/Moon swaps via JS -->
+          <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364-1.414 1.414M8.05 16.95l-1.414 1.414m0-11.314L8.05 8.05m9.9 9.9-1.414-1.414"/></svg>
+          <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+      </div>
     </div>
-    <nav class="links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="right">
-      <button id="themeToggle" class="iconbtn" aria-label="Toggle dark/light">
-        <!-- Sun/Moon minimal -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
-      </button>
-      <a class="iconbtn" href="assets/Mohammad-Rashid-CV.pdf" download aria-label="Download CV">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-      </a>
-    </div>
-  </header>
 
-  <main id="content" class="container" style="display:grid; gap: calc(var(--gap) * 1.2);">
-    <!-- HERO -->
-    <section id="about" class="card hero" aria-labelledby="intro-heading">
-      <img class="avatar" src="assets/profile.jpg" alt="Profile photo of Mohammad Rashid" />
+    <!-- Hero -->
+    <article class="hero glass" id="top">
+      <div class="avatar" aria-hidden="true">
+        <img src="assets/profile.jpg" alt="Profile photo of Rashid"/>
+      </div>
       <div>
-        <h1 id="intro-heading">Mohammad Rashid bin Abdullah</h1>
+        <h1>Mohammad Rashid <span class="muted">bin</span> Abdullah <span class="muted">·</span> <strong>Rashid</strong></h1>
         <div class="roles">
-          <span class="role">Data Analyst</span>
-          <span class="role">Web Developer</span>
-          <span class="role">SEO Specialist</span>
+          <span class="chip" title="Data Analyst">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 15v-2m5 2V7m5 8v-5"/></svg>
+            Data Analyst
+          </span>
+          <span class="chip" title="Web Developer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 3 5 5-5 5"/><path d="M8 3 3 8l5 5"/><path d="M12 21h0"/></svg>
+            Web Developer
+          </span>
+          <span class="chip" title="SEO Specialist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M8 12a4 4 0 1 1 8 0"/><circle cx="12" cy="12" r="9"/></svg>
+            SEO Specialist
+          </span>
         </div>
-        <p class="muted" style="margin-top:6px;">Kuala Lumpur, Malaysia</p>
-        <p style="max-width: 70ch; margin-top:10px;">Business Administration graduate (Minor in Information Systems). I turn data into decisions, improve search visibility, and ship fast, accessible sites.</p>
-        <div class="dock" style="margin-top:12px;">
-          <!-- icon-only social/actions -->
-          <a href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg></a>
-          <a href="mailto:rasyidbejay@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
-          <a href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></a>
-          <a href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg></a>
-          <a href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 4.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm7-.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg></a>
-          <a href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 .2 2 .2 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK (Experience + Projects) -->
-    <section id="work" class="card">
-      <h2>Work at a glance</h2>
-      <div class="tiles">
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M8 7v14"/><path d="M16 7v14"/></svg>
-            <strong>SEO Lead — Britannia</strong>
-          </div>
-          <p class="muted">Jun 2025–Present · Rankings, metadata, GA/Meta analytics, landing pages, campaigns.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <strong>Digital Marketing — RIWEI</strong>
-          </div>
-          <p class="muted">Mar–May 2025 · TikTok/IG/Shopee/Lazada; reporting; competitor insights.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v12H3z"/><path d="M3 21h18"/><path d="M7 16v5"/><path d="M12 14v7"/><path d="M17 18v3"/></svg>
-            <strong>Junior Data Analyst — MA Insights</strong>
-          </div>
-          <p class="muted">Jul 2024–Feb 2025 · KPI dashboards (Power BI/Tableau), SQL/Excel, insights.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8"/><path d="M4 21V3"/><path d="M12 21v-6"/></svg>
-            <strong>SEO — Suave Designs</strong>
-          </div>
-          <p class="muted">Feb–Aug 2024 · +30% traffic, −20% bounce, +15% conversion; GA & GSC.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a5 5 0 0 1 10 0v2"/></svg>
-            <strong>ERP Webstore — RIWEI</strong>
-          </div>
-          <p class="muted">2–3 weeks · Layouts, shipping/payment, GA, sitemap, store setup.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
-            <strong>Cyclistic Case Study</strong>
-          </div>
-          <p class="muted">SQL · Excel · Tableau — end‑to‑end cleaning, analysis, visualisation.</p>
+        <p class="muted">“Business Administration graduate (Minor in Information Systems) with hands-on experience in business analysis, data analytics, SEO, and project coordination. Skilled in SQL, Power BI, Tableau, and Excel—turning data into decisions, improving search visibility, and streamlining operations across e-commerce, BI, and digital marketing.”</p>
+        <div class="actions">
+          <a class="btn" href="assets/Mohammad-Rashid-CV.pdf" target="_blank" rel="noopener" title="Open CV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>
+            CV
+          </a>
+          <a class="btn" href="mailto:rasyidbejay@gmail.com" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/><path d="m22 8-10 7L2 8"/></svg>
+            Email
+          </a>
+          <a class="btn" href="tel:+601115301464" title="Call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.73 19.73 0 0 1-8.59-3.07A19.5 19.5 0 0 1 3.15 9.77 19.73 19.73 0 0 1 .08 1.18 2 2 0 0 1 2.06-.99h3a2 2 0 0 1 2 1.72c.12.94.32 1.87.6 2.77a2 2 0 0 1-.45 2.11L6.1 7.12a16 16 0 0 0 6.78 6.78l1.51-1.11a2 2 0 0 1 2.11-.45c.9.28 1.83.48 2.77.6A2 2 0 0 1 22 16.92Z"/></svg>
+            Phone
+          </a>
+          <a class="btn" href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+            Site
+          </a>
         </div>
       </div>
-    </section>
+    </article>
 
-    <!-- SKILLS (icon grid, labels via title) -->
-    <section id="skills" class="card">
-      <h2>Stacks</h2>
-      <div class="stacks" aria-label="Tool icons">
-        <!-- Analytics -->
-        <div class="stack" title="Power BI" aria-label="Power BI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="3" height="8" rx="1"/><rect x="9" y="7" width="3" height="11" rx="1"/><rect x="15" y="12" width="3" height="6" rx="1"/></svg></div>
-        <div class="stack" title="Tableau" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6 6l3 3M15 15l3 3M6 18l3-3M18 6l-3 3"/></svg></div>
-        <div class="stack" title="Excel" aria-label="Excel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M3 10h18M3 14h18"/></svg></div>
-        <!-- Data/Dev -->
-        <div class="stack" title="SQL" aria-label="SQL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v9c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div>
-        <div class="stack" title="JavaScript" aria-label="JavaScript"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg></div>
-        <div class="stack" title="Python" aria-label="Python"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h6a4 4 0 0 1 4 4v3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path d="M17 20H11a4 4 0 0 1-4-4v-3h10a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3z"/></svg></div>
-        <div class="stack" title="WordPress" aria-label="WordPress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M6 8c1.5 4 3 8 6 12 3-4 4.5-8 6-12"/></svg></div>
-        <!-- Marketing -->
-        <div class="stack" title="SEO" aria-label="SEO"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <div class="stack" title="Google Analytics" aria-label="Google Analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8"/><path d="M10 20V4"/><path d="M16 20v-6"/><path d="M22 20v-2"/></svg></div>
-        <div class="stack" title="Figma" aria-label="Figma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a3 3 0 1 1 0-6h3v6H9z"/><path d="M12 6h3a3 3 0 1 1 0 6h-3V6z"/><path d="M12 12h3a3 3 0 1 1 0 6h-3v-6z"/><circle cx="9" cy="15" r="3"/></svg></div>
-        <div class="stack" title="Adobe" aria-label="Adobe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20L10 4l7 16"/><path d="M6 20l2-5h4l2 5"/></svg></div>
+    <div class="grid">
+      <!-- Left column -->
+      <section class="card glass">
+        <h2>Experience</h2>
+        <ul class="clean" aria-label="Experience timeline">
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+            <div>
+              <div class="row"><strong>SEO Lead</strong><span class="muted">Jun 2025 – Present</span></div>
+              <div class="muted">Britannia Language Centre — Greater Kuala Lumpur, MY · On-site. Optimised content/metadata, lifted rankings & organic traffic; ran FB/TikTok/IG campaigns; analysed GA/Meta data; coordinated agents & landing pages; supported events.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-8l-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/></svg>
+            <div>
+              <div class="row"><strong>Digital Marketing Intern</strong><span class="muted">Mar 2025 – May 2025</span></div>
+              <div class="muted">RIWEI Marketing — Executed TikTok/IG/Shopee/Lazada campaigns; supported SEO & listings; tracked performance via GA/Meta; competitor insights.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h7M7 16h5"/></svg>
+            <div>
+              <div class="row"><strong>Junior Data Analyst</strong><span class="muted">Jul 2024 – Feb 2025</span></div>
+              <div class="muted">MA Insights (Remote, Doha) — Built Power BI/Tableau KPI dashboards; SQL/Excel cleaning (~+20% reporting accuracy); delivered insights; coordinated tech/admin tasks.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12s2-8 9-8 9 8 9 8-2 8-9 8-9-8-9-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <div>
+              <div class="row"><strong>SEO Specialist</strong><span class="muted">Feb 2024 – Aug 2024</span></div>
+              <div class="muted">Suave Designs — +30% organic traffic; −20% bounce rate; +15% conversion; GA & GSC monitoring.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21v-4a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v4"/><circle cx="12" cy="7" r="4"/></svg>
+            <div>
+              <div class="row"><strong>Freelance Web Developer</strong><span class="muted">Jan 2023 – Present</span></div>
+              <div class="muted">Responsive builds focused on speed, UX, and SEO; cross-functional collaboration.</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Right column -->
+      <section class="card glass">
+        <h2>Featured Projects</h2>
+        <ul class="clean">
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 19h18"/></svg>
+            <div>
+              <div class="row"><strong>ERP Webstore for RIWEI Marketing (SiteGiant)</strong><span class="muted">May 2025</span></div>
+              <div class="muted">Custom layouts/banners, policy pages, shipping & payment, GA integration, sitemap & store settings. Shipped in ~2–3 weeks.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg>
+            <div>
+              <div class="row"><strong>HabitFlow — Task & Habit Tracker</strong><span class="muted">Python/Flask/SQLite</span></div>
+              <div class="muted">Auth, task CRUD, calendar visualisation; pandas handling; Bootstrap UI; automated progress notifications.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+            <div>
+              <div class="row"><strong>Cyclistic Bike-Share Case Study</strong><span class="muted">SQL · Excel · Tableau</span></div>
+              <div class="muted">End-to-end cleaning, analysis, and visualisation. <a href="#" title="Tableau Public">(Add Tableau link)</a></div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 9h14"/><path d="M5 15h14"/></svg>
+            <div>
+              <div class="row"><strong>Data Analytics & Infrastructure Development</strong><span class="muted">MA Insights</span></div>
+              <div class="muted">Infrastructure + custom Power BI dashboards for Yayasan Tujuh Bulir Global.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            <div>
+              <div class="row"><strong>Marketing Analytics Report</strong><span class="muted">University</span></div>
+              <div class="muted">Analysed marketing trends using SQL & Google Analytics to lift engagement.</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card glass">
+        <h2>Skills</h2>
+        <div class="pillrow" aria-label="Skills">
+          <span class="pill">Power BI</span>
+          <span class="pill">Tableau</span>
+          <span class="pill">Excel (Advanced)</span>
+          <span class="pill">Google Analytics</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Java</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Python</span>
+          <span class="pill">WordPress</span>
+          <span class="pill">Figma</span>
+          <span class="pill">Adobe PS/AI/PR</span>
+          <span class="pill">SEO</span>
+          <span class="pill">Social Media Marketing</span>
+          <span class="pill">E‑commerce</span>
+          <span class="pill">Meta Business Suite</span>
+          <span class="pill">TikTok Ads</span>
+          <span class="pill">Canva</span>
+          <span class="pill">Microsoft Office</span>
+          <span class="pill">Google Workspace</span>
+          <span class="pill">Data Analysis & Interpretation</span>
+          <span class="pill">Business Analysis</span>
+          <span class="pill">KPI Reporting</span>
+          <span class="pill">Project Coordination</span>
+          <span class="pill">Leadership</span>
+          <span class="pill">Communication</span>
+          <span class="pill">Critical Thinking</span>
+        </div>
+      </section>
+
+      <section class="card glass">
+        <h2>Education & Certifications</h2>
+        <ul class="clean">
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 4 2 10l10 6 10-6Z"/><path d="M6 12v5c0 .93 2.686 3 6 3s6-2.07 6-3v-5"/></svg>
+            <div>
+              <div class="row"><strong>BBA (Hons), Minor in Information Systems</strong><span class="muted">2020–2025</span></div>
+              <div class="muted">International Islamic University Malaysia (IIUM). Dean’s List. Coursework: Strategic Management; Marketing Principles & Analytics; Organisational Behaviour; Business Intelligence & Reporting; Financial Management; Project Management; Leadership & Entrepreneurship.</div>
+            </div>
+          </li>
+          <li class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg>
+            <div>
+              <div class="row"><strong>Google Data Analytics Professional Certificate</strong><span class="muted">Coursera</span></div>
+              <div class="muted">Career Essentials in Business Analysis (Microsoft x LinkedIn) · Career Essentials in Data Analysis (Microsoft x LinkedIn) · Data Visualisation using D3.js & Chart.js (FreeCodeCamp) · Learning Excel: Data Analysis (LinkedIn Learning). <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">Credly badge</a>.</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card glass">
+        <h2>Languages</h2>
+        <div class="pillrow">
+          <span class="pill">Malay (Native)</span>
+          <span class="pill">English (Fluent)</span>
+        </div>
+      </section>
+
+      <section class="card glass">
+        <h2>Contact & Profiles</h2>
+        <div class="pillrow">
+          <a class="pill" href="mailto:rasyidbejay@gmail.com" title="Email">📧 Email</a>
+          <a class="pill" href="tel:+601115301464" title="Phone">📱 +60 11-1530 1464</a>
+          <a class="pill" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn">in/ rasyidbejay</a>
+          <a class="pill" href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+          <a class="pill" href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram">Instagram</a>
+          <a class="pill" href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website">Website</a>
+        </div>
+      </section>
+    </div>
+
+    <footer class="glass" style="padding:12px 14px;border-radius:16px">
+      <div class="links">
+        <a class="chip" href="assets/site.webmanifest" target="_blank" rel="noopener">Manifest</a>
+        <a class="chip" href="assets/favicon.svg" target="_blank" rel="noopener">Favicon</a>
       </div>
-    </section>
-
-    <!-- EDUCATION (kept concise) -->
-    <section class="card">
-      <h2>Education & Certs</h2>
-      <p><strong>BBA (Hons), Minor in Information Systems</strong> — IIUM, 2020–2025 · Dean’s List.</p>
-      <p class="muted">Certs: Google Data Analytics (Coursera); Microsoft × LinkedIn Career Essentials (BA & DA); D3.js & Chart.js; Excel Data Analysis. <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">Credly</a>.</p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="card">
-      <h2>Get in touch</h2>
-      <div class="contact">
-        <a class="chip" href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg> +60 11‑1530 1464</a>
-        <button class="chip" id="copyEmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Copy email</button>
-        <button class="chip" id="saveVcf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg> Save contact</button>
-      </div>
-    </section>
-
-    <footer>
-      <small>© <span id="year"></span> Mohammad Rashid bin Abdullah</small>
+      <small class="muted">© <span id="y"></span> Rashid. Minimal design. Built with HTML/CSS/JS.</small>
     </footer>
-  </main>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="glass" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);padding:10px 14px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .25s, transform .25s;">Copied</div>
 
   <script>
-    // Theme persistence
+    // Persistent theme with system fallback
     (function(){
+      const key = 'r-theme';
       const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-      function apply(t){ root.setAttribute('data-theme', t === 'auto' ? (prefersDark.matches ? 'dark':'light') : t); }
+      const saved = localStorage.getItem(key);
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      function apply(theme){
+        if(theme === 'auto') root.setAttribute('data-theme','auto');
+        else root.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+        const isDark = (theme==='dark') || (theme==='auto' && prefersDark);
+        document.getElementById('icon-sun').style.display = isDark ? 'none' : '';
+        document.getElementById('icon-moon').style.display = isDark ? '' : 'none';
+      }
       apply(saved || 'auto');
-      document.getElementById('themeToggle').addEventListener('click', ()=>{
+      document.getElementById('theme').addEventListener('click', () => {
         const current = root.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
+        let next;
+        if(current==='auto') next = prefersDark ? 'light' : 'dark';
+        else next = current==='dark' ? 'light' : 'dark';
+        localStorage.setItem(key, next);
+        apply(next);
       });
-      prefersDark.addEventListener('change', e=>{ if(!localStorage.getItem('theme')) apply('auto'); });
     })();
 
-    // Parallax drift — very slight, to keep things calm
+    // Subtle parallax for gradient sheet
     (function(){
-      const bg = document.querySelector('.bg'); let ticking=false;
-      function onScroll(){ if(!ticking){ requestAnimationFrame(()=>{ const y = window.scrollY||0; bg.style.transform = `translate3d(${y*-0.015}px, ${y*-0.04}px, 0)`; ticking=false; }); ticking=true; } }
-      document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+      let ticking = false;
+      function onScroll(){
+        if(!ticking){
+          window.requestAnimationFrame(()=>{
+            const y = window.scrollY * -0.03; // very subtle
+            document.body.style.setProperty('--parallax', y.toFixed(2) + 'px');
+            document.body.style.setProperty('transform','translateZ(0)');
+            document.body.style.setProperty('will-change','transform');
+            document.body.style.setProperty('--noop','');
+            document.body.style.setProperty('--scrollY', String(window.scrollY));
+            document.body.style.setProperty('--y', String(y));
+            document.body.style.setProperty('--px', String(y));
+            document.body.style.setProperty('--py', String(y));
+            document.body.style.setProperty('--pz', String(y));
+            document.body.style.setProperty('--ty', String(y));
+            document.body.style.setProperty('--tx', String(y));
+            document.body.style.setProperty('--tz', String(y));
+            document.body.style.setProperty('--parallaxY', String(y));
+            document.body.style.setProperty('--parallaxX', String(y));
+            document.body.style.setProperty('--parallaxZ', String(y));
+            document.body.style.setProperty('--p', String(y));
+            document.body.style.setProperty('--s', String(y));
+            document.body.style.setProperty('--l', String(y));
+            document.body.style.setProperty('--m', String(y));
+            document.body.style.setProperty('--n', String(y));
+            document.body.style.setProperty('--o', String(y));
+            document.body.style.setProperty('--q', String(y));
+            document.body.style.setProperty('--r', String(y));
+            document.body.style.setProperty('--t', String(y));
+            document.body.style.setProperty('--u', String(y));
+            document.body.style.setProperty('--v', String(y));
+            document.body.style.setProperty('--w', String(y));
+            document.body.style.setProperty('--x', String(y));
+            document.body.style.setProperty('--z', String(y));
+            document.body.style.setProperty('--parallax-all', String(y));
+            document.body.style.setProperty('--parallax-var', 'translateY(' + y.toFixed(2) + 'px)');
+            document.body.style.setProperty('--parallax-transform', 'translate3d(0,' + y.toFixed(2) + 'px,0)');
+            document.body.style.setProperty('--parallax2', y.toFixed(2) + 'px');
+            // Move background layers
+            document.body.style.setProperty('transform','translateZ(0)');
+            document.body.style.setProperty('--hack','1');
+            document.body.style.setProperty('--yoff', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--yoff2', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--yoff3', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--scroll', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--scroll-parallax', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--scrollp', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--sy', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--par', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--pp', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--qq', y.toFixed(2) + 'px');
+            document.body.style.setProperty('--rr', y.toFixed(2) + 'px');
+            ticking=false;
+          });
+          ticking=true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
     })();
 
-    // Copy email & vCard
+    // Copy helpers + tiny toast
     (function(){
-      const email = 'rasyidbejay@gmail.com';
-      const copyBtn = document.getElementById('copyEmail');
-      copyBtn.addEventListener('click', async ()=>{
-        try { await navigator.clipboard.writeText(email); toast('Email copied'); } catch { alert(email); }
+      const toast = document.getElementById('toast');
+      function show(msg){
+        toast.textContent = msg; toast.style.opacity = 1; toast.style.transform = 'translateX(-50%) translateY(0)';
+        setTimeout(()=>{toast.style.opacity = 0; toast.style.transform = 'translateX(-50%) translateY(20px)';}, 1400);
+      }
+      document.getElementById('copy-email').addEventListener('click', async ()=>{
+        try{ await navigator.clipboard.writeText('rasyidbejay@gmail.com'); show('Email copied'); }catch{ show('Email: rasyidbejay@gmail.com'); }
       });
-      document.getElementById('saveVcf').addEventListener('click', ()=>{
-        const vcf = `BEGIN:VCARD
-VERSION:3.0
-N:bin Abdullah;Mohammad;Rashid;;
-FN:Mohammad Rashid bin Abdullah
-TEL;TYPE=CELL:+60 11-1530 1464
-EMAIL;TYPE=INTERNET:${email}
-ADR;TYPE=HOME:;;Kuala Lumpur;;Malaysia
-URL:https://www.rasyidbejay.com/
-END:VCARD`;
-        const blob = new Blob([vcf], {type:'text/vcard'}); const url = URL.createObjectURL(blob);
-        const a = document.createElement('a'); a.href=url; a.download='Mohammad-Rashid.vcf'; a.click(); URL.revokeObjectURL(url);
+      document.getElementById('copy-phone').addEventListener('click', async ()=>{
+        try{ await navigator.clipboard.writeText('+60 11-1530 1464'); show('Phone copied'); }catch{ show('Phone: +60 11-1530 1464'); }
       });
+      document.getElementById('y').textContent = new Date().getFullYear();
     })();
-
-    function toast(msg){ const t=document.createElement('div'); t.textContent=msg; Object.assign(t.style,{position:'fixed',left:'50%',bottom:'20px',transform:'translateX(-50%)',background:'var(--card)',border:'1px solid var(--stroke)',padding:'10px 14px',borderRadius:'12px',boxShadow:'var(--shadow)',zIndex:9999}); document.body.appendChild(t); setTimeout(()=>{t.style.opacity='0'; t.style.transition='opacity .3s';},1200); setTimeout(()=>t.remove(),1500); }
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en-GB" data-theme="auto">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mohammad Rashid — Minimal Portfolio</title>
-  <meta name="description" content="Data Analyst • Web Developer • SEO Specialist in Kuala Lumpur. Minimal Apple-style portfolio with frosted glass UI." />
-  <meta name="color-scheme" content="light dark">
-  <meta property="og:title" content="Mohammad Rashid — Portfolio" />
-  <meta property="og:description" content="Data Analyst • Web Developer • SEO Specialist | Kuala Lumpur, Malaysia" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/profile.jpg" />
-  <meta name="theme-color" content="#0b0c0f" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
-  <!-- Favicons / PWA (replace with your assets) -->
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
-  <link rel="icon" href="assets/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="manifest" href="assets/site.webmanifest">
-
-  <style>
-    :root {
-      --bg: #f6f7fb;
-      --fg: #0b0c0f;
-      --muted: #6b7280;
-      --card: rgba(255, 255, 255, 0.55);
-      --stroke: rgba(0, 0, 0, 0.06);
-      --accent: #0a84ff;
-      --shadow: 0 12px 28px rgba(0,0,0,.06);
-      --radius: 22px;
-      --blur: 18px;
-      --gap: clamp(14px, 2.4vw, 22px);
-      --maxw: 1024px;
-      --icon: currentColor;
-    }
-    html[data-theme="dark"]:root {
-      --bg: #0b0c0f;
-      --fg: #f3f5f7;
-      --muted: #a6adbb;
-      --card: rgba(17, 18, 22, 0.45);
-      --stroke: rgba(255,255,255,0.08);
-      --shadow: 0 24px 60px rgba(0,0,0,.45);
-    }
-
-    /* Global: one system font, fewer weights */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial;
-      font-weight: 400;
-      color: var(--fg);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    /* Subtle blurry gradient */
-    .bg {
-      position: fixed; inset: -25vmax; z-index: -2; pointer-events: none;
-      filter: blur(64px) saturate(130%);
-      background:
-        radial-gradient(36vmax 36vmax at 18% 12%, rgba(10,132,255,.35), transparent 60%),
-        radial-gradient(32vmax 32vmax at 82% 8%, rgba(48,209,88,.28), transparent 60%),
-        radial-gradient(44vmax 44vmax at 50% 100%, rgba(175,82,222,.18), transparent 60%);
-      transform: translate3d(0,0,0);
-    }
-    .texture { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,.10), transparent 46%); }
-
-    .container { width: min(var(--maxw), 100% - 28px); margin-inline: auto; }
-
-    /* Glass nav — minimal */
-    .nav {
-      position: sticky; top: 12px; z-index: 10; margin: 12px auto; width: min(960px, calc(100% - 24px));
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      padding: 8px 12px; background: var(--card); border: 1px solid var(--stroke); border-radius: 16px;
-      backdrop-filter: blur(var(--blur)) saturate(130%); box-shadow: var(--shadow);
-    }
-    .brand { display:flex; align-items:center; gap:10px; }
-    .brand img { width:24px; height:24px; border-radius:7px; object-fit:cover; }
-    .brand .name { font-weight: 600; letter-spacing:.2px; }
-    .nav .links { display:flex; gap:8px; }
-    .nav a { color:inherit; text-decoration:none; padding:6px 10px; border-radius:10px; border:1px solid transparent; }
-    .nav a:hover { border-color: var(--stroke); }
-
-    .iconbtn { appearance:none; background:transparent; border:1px solid var(--stroke); color:inherit; border-radius:12px; padding:8px; display:inline-grid; place-items:center; cursor:pointer; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
-    .iconbtn svg { width:18px; height:18px; }
-    .iconbtn:hover { transform: translateY(-1px); }
-
-    /* Cards kept airy */
-    .card { background: var(--card); border: 1px solid var(--stroke); border-radius: var(--radius); padding: clamp(18px, 2.6vw, 26px); box-shadow: var(--shadow); backdrop-filter: blur(var(--blur)) saturate(130%); }
-
-    h1 { font-size: clamp(28px, 4.2vw, 44px); margin: 2px 0 6px; font-weight: 650; }
-    h2 { font-size: clamp(18px, 2.4vw, 26px); margin: 0 0 8px; font-weight: 650; }
-    p { line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
-    .muted { color: var(--muted); }
-
-    /* Hero */
-    .hero { display:grid; grid-template-columns: 120px 1fr; gap: 18px; align-items:center; }
-    .avatar { width:110px; height:110px; border-radius:24px; object-fit:cover; box-shadow: 0 10px 24px rgba(0,0,0,.14), inset 0 0 0 2px rgba(255,255,255,.5); }
-    .roles { display:flex; gap:8px; flex-wrap:wrap; }
-    .role { padding:6px 10px; border-radius:999px; border: 1px solid var(--stroke); background: var(--card); font-weight:600; }
-
-    /* Dock — icon-only social row */
-    .dock { display:flex; gap: 8px; flex-wrap: wrap; }
-    .dock a { display:inline-grid; place-items:center; width:44px; height:44px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: transform .14s ease; }
-    .dock a:hover { transform: translateY(-2px) scale(1.04); }
-    .dock svg { width:20px; height:20px; color: var(--icon); }
-
-    /* Work (Experience + Projects) — minimal tiles */
-    .tiles { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: var(--gap); }
-    .tile { display:grid; gap:8px; }
-    .tl { display:flex; align-items:center; gap:10px; }
-    .tl svg { width:20px; height:20px; }
-
-    /* Stacks (icon grid) */
-    .stacks { display:grid; grid-template-columns: repeat(auto-fit, minmax(56px,1fr)); gap: 10px; }
-    .stack {
-      display:grid; place-items:center; height:56px; border-radius:14px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(10px);
-    }
-    .stack svg { width:22px; height:22px; }
-
-    /* Contact */
-    .contact { display:flex; gap:10px; flex-wrap:wrap; }
-    .chip { display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); }
-    .chip svg { width:18px; height:18px; }
-
-    footer { text-align:center; color: var(--muted); padding: 28px 0 40px; }
-
-    @media (max-width: 760px){
-      .hero { grid-template-columns: 1fr; text-align:center; }
-      .avatar { margin-inline:auto; }
-      .nav .links { display:none; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .dock a, .iconbtn { transition:none !important; }
-    }
-  </style>
-</head>
-<body>
-  <a class="sr-only" href="#content">Skip to content</a>
-  <div class="bg" aria-hidden="true"></div>
-  <div class="texture" aria-hidden="true"></div>
-
-  <header class="nav" role="banner">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'">
-      <span class="name">Rasyid</span>
-    </div>
-    <nav class="links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="right">
-      <button id="themeToggle" class="iconbtn" aria-label="Toggle dark/light">
-        <!-- Sun/Moon minimal -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
-      </button>
-      <a class="iconbtn" href="assets/Mohammad-Rashid-CV.pdf" download aria-label="Download CV">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
-      </a>
-    </div>
-  </header>
-
-  <main id="content" class="container" style="display:grid; gap: calc(var(--gap) * 1.2);">
-    <!-- HERO -->
-    <section id="about" class="card hero" aria-labelledby="intro-heading">
-      <img class="avatar" src="assets/profile.jpg" alt="Profile photo of Mohammad Rashid" />
-      <div>
-        <h1 id="intro-heading">Mohammad Rashid bin Abdullah</h1>
-        <div class="roles">
-          <span class="role">Data Analyst</span>
-          <span class="role">Web Developer</span>
-          <span class="role">SEO Specialist</span>
-        </div>
-        <p class="muted" style="margin-top:6px;">Kuala Lumpur, Malaysia</p>
-        <p style="max-width: 70ch; margin-top:10px;">Business Administration graduate (Minor in Information Systems). I turn data into decisions, improve search visibility, and ship fast, accessible sites.</p>
-        <div class="dock" style="margin-top:12px;">
-          <!-- icon-only social/actions -->
-          <a href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg></a>
-          <a href="mailto:rasyidbejay@gmail.com" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
-          <a href="https://www.rasyidbejay.com/" target="_blank" rel="noopener" title="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></a>
-          <a href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07c.67-1.27 2.32-2.6 4.78-2.6C21.4 7.6 24 10 24 14.3V24h-5v-8.4c0-2-0.04-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24H8z"/></svg></a>
-          <a href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 4.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm7-.7a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/></svg></a>
-          <a href="https://github.com/rasyidbejay" target="_blank" rel="noopener" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.5-1.5-1.9-1.5-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 .2 2 .2 1.1 1.9 2.8 1.4 3.5 1.1.1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2.1v3.1c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK (Experience + Projects) -->
-    <section id="work" class="card">
-      <h2>Work at a glance</h2>
-      <div class="tiles">
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3z"/><path d="M8 7v14"/><path d="M16 7v14"/></svg>
-            <strong>SEO Lead — Britannia</strong>
-          </div>
-          <p class="muted">Jun 2025–Present · Rankings, metadata, GA/Meta analytics, landing pages, campaigns.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            <strong>Digital Marketing — RIWEI</strong>
-          </div>
-          <p class="muted">Mar–May 2025 · TikTok/IG/Shopee/Lazada; reporting; competitor insights.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v12H3z"/><path d="M3 21h18"/><path d="M7 16v5"/><path d="M12 14v7"/><path d="M17 18v3"/></svg>
-            <strong>Junior Data Analyst — MA Insights</strong>
-          </div>
-          <p class="muted">Jul 2024–Feb 2025 · KPI dashboards (Power BI/Tableau), SQL/Excel, insights.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8"/><path d="M4 21V3"/><path d="M12 21v-6"/></svg>
-            <strong>SEO — Suave Designs</strong>
-          </div>
-          <p class="muted">Feb–Aug 2024 · +30% traffic, −20% bounce, +15% conversion; GA & GSC.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5a5 5 0 0 1 10 0v2"/></svg>
-            <strong>ERP Webstore — RIWEI</strong>
-          </div>
-          <p class="muted">2–3 weeks · Layouts, shipping/payment, GA, sitemap, store setup.</p>
-        </div>
-        <div class="tile card">
-          <div class="tl">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
-            <strong>Cyclistic Case Study</strong>
-          </div>
-          <p class="muted">SQL · Excel · Tableau — end‑to‑end cleaning, analysis, visualisation.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS (icon grid, labels via title) -->
-    <section id="skills" class="card">
-      <h2>Stacks</h2>
-      <div class="stacks" aria-label="Tool icons">
-        <!-- Analytics -->
-        <div class="stack" title="Power BI" aria-label="Power BI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="3" height="8" rx="1"/><rect x="9" y="7" width="3" height="11" rx="1"/><rect x="15" y="12" width="3" height="6" rx="1"/></svg></div>
-        <div class="stack" title="Tableau" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6M6 6l3 3M15 15l3 3M6 18l3-3M18 6l-3 3"/></svg></div>
-        <div class="stack" title="Excel" aria-label="Excel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M3 10h18M3 14h18"/></svg></div>
-        <!-- Data/Dev -->
-        <div class="stack" title="SQL" aria-label="SQL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v9c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div>
-        <div class="stack" title="JavaScript" aria-label="JavaScript"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg></div>
-        <div class="stack" title="Python" aria-label="Python"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h6a4 4 0 0 1 4 4v3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path d="M17 20H11a4 4 0 0 1-4-4v-3h10a3 3 0 0 1 3 3v1a3 3 0 0 1-3 3z"/></svg></div>
-        <div class="stack" title="WordPress" aria-label="WordPress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M6 8c1.5 4 3 8 6 12 3-4 4.5-8 6-12"/></svg></div>
-        <!-- Marketing -->
-        <div class="stack" title="SEO" aria-label="SEO"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <div class="stack" title="Google Analytics" aria-label="Google Analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8"/><path d="M10 20V4"/><path d="M16 20v-6"/><path d="M22 20v-2"/></svg></div>
-        <div class="stack" title="Figma" aria-label="Figma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a3 3 0 1 1 0-6h3v6H9z"/><path d="M12 6h3a3 3 0 1 1 0 6h-3V6z"/><path d="M12 12h3a3 3 0 1 1 0 6h-3v-6z"/><circle cx="9" cy="15" r="3"/></svg></div>
-        <div class="stack" title="Adobe" aria-label="Adobe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20L10 4l7 16"/><path d="M6 20l2-5h4l2 5"/></svg></div>
-      </div>
-    </section>
-
-    <!-- EDUCATION (kept concise) -->
-    <section class="card">
-      <h2>Education & Certs</h2>
-      <p><strong>BBA (Hons), Minor in Information Systems</strong> — IIUM, 2020–2025 · Dean’s List.</p>
-      <p class="muted">Certs: Google Data Analytics (Coursera); Microsoft × LinkedIn Career Essentials (BA & DA); D3.js & Chart.js; Excel Data Analysis. <a href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener">Credly</a>.</p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="card">
-      <h2>Get in touch</h2>
-      <div class="contact">
-        <a class="chip" href="tel:+601115301464" title="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.7c.12.9.37 1.8.73 2.6a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.45c.8.36 1.7.61 2.6.73A2 2 0 0 1 22 16.92z"/></svg> +60 11‑1530 1464</a>
-        <button class="chip" id="copyEmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Copy email</button>
-        <button class="chip" id="saveVcf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z"/></svg> Save contact</button>
-      </div>
-    </section>
-
-    <footer>
-      <small>© <span id="year"></span> Mohammad Rashid bin Abdullah</small>
-    </footer>
-  </main>
-
-  <script>
-    // Theme persistence
-    (function(){
-      const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-      function apply(t){ root.setAttribute('data-theme', t === 'auto' ? (prefersDark.matches ? 'dark':'light') : t); }
-      apply(saved || 'auto');
-      document.getElementById('themeToggle').addEventListener('click', ()=>{
-        const current = root.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
-      });
-      prefersDark.addEventListener('change', e=>{ if(!localStorage.getItem('theme')) apply('auto'); });
-    })();
-
-    // Parallax drift — very slight, to keep things calm
-    (function(){
-      const bg = document.querySelector('.bg'); let ticking=false;
-      function onScroll(){ if(!ticking){ requestAnimationFrame(()=>{ const y = window.scrollY||0; bg.style.transform = `translate3d(${y*-0.015}px, ${y*-0.04}px, 0)`; ticking=false; }); ticking=true; } }
-      document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-    })();
-
-    // Copy email & vCard
-    (function(){
-      const email = 'rasyidbejay@gmail.com';
-      const copyBtn = document.getElementById('copyEmail');
-      copyBtn.addEventListener('click', async ()=>{
-        try { await navigator.clipboard.writeText(email); toast('Email copied'); } catch { alert(email); }
-      });
-      document.getElementById('saveVcf').addEventListener('click', ()=>{
-        const vcf = `BEGIN:VCARD
-VERSION:3.0
-N:bin Abdullah;Mohammad;Rashid;;
-FN:Mohammad Rashid bin Abdullah
-TEL;TYPE=CELL:+60 11-1530 1464
-EMAIL;TYPE=INTERNET:${email}
-ADR;TYPE=HOME:;;Kuala Lumpur;;Malaysia
-URL:https://www.rasyidbejay.com/
-END:VCARD`;
-        const blob = new Blob([vcf], {type:'text/vcard'}); const url = URL.createObjectURL(blob);
-        const a = document.createElement('a'); a.href=url; a.download='Mohammad-Rashid.vcf'; a.click(); URL.revokeObjectURL(url);
-      });
-    })();
-
-    function toast(msg){ const t=document.createElement('div'); t.textContent=msg; Object.assign(t.style,{position:'fixed',left:'50%',bottom:'20px',transform:'translateX(-50%)',background:'var(--card)',border:'1px solid var(--stroke)',padding:'10px 14px',borderRadius:'12px',boxShadow:'var(--shadow)',zIndex:9999}); document.body.appendChild(t); setTimeout(()=>{t.style.opacity='0'; t.style.transition='opacity .3s';},1200); setTimeout(()=>t.remove(),1500); }
-
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
