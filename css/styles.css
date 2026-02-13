@@ -61,7 +61,8 @@ img { max-width: 100%; display: block; }
 
 .container { width: min(1120px, 92vw); margin-inline: auto; }
 main { padding: 7rem 0 4rem; }
-section { margin-bottom: 2rem; }
+section { padding: 80px 0; }
+h2 { margin-bottom: 32px; }
 
 .glass-card {
   background: var(--bg-glass);
@@ -118,20 +119,27 @@ section { margin-bottom: 2rem; }
 [data-theme="dark"] .icon-sun { display: none; }
 [data-theme="dark"] .icon-moon { display: inline; }
 
-.hero-section { display: grid; gap: 1rem; grid-template-columns: 1fr; align-items: stretch; }
+.hero-section { display: block; }
+.hero-content { max-width: 760px; }
 .hero-title, .hero-subtitle { opacity: 0; }
-.hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-md); min-height: 300px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
 .eyebrow { color: var(--text-secondary); text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; }
-
-.section-header { display: flex; gap: .75rem; align-items: center; margin-bottom: .9rem; }
-.section-icon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-tertiary); }
-.section-desc { margin: 0; color: var(--text-secondary); font-size: .95rem; }
 
 .grid { display: grid; gap: .8rem; }
 .cols-3 { grid-template-columns: 1fr; }
 .split-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-.skills-grid { display: grid; gap: .8rem; grid-template-columns: 1fr; }
+.skills-grid { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+#experienceList, #projectsList { display: block; }
+.simple-card + .simple-card { margin-top: 16px; }
+.card-header-row { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+.period { color: var(--text-secondary); font-size: .95rem; }
+.desc { margin: .4rem 0 .9rem; color: var(--text-secondary); }
+.tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+
+.skill-group { padding: .2rem 0; }
+.skill-group h4 { margin-bottom: .35rem; }
+.skill-group p { margin: 0; color: var(--text-secondary); }
+
 
 .chip {
   display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
@@ -159,7 +167,6 @@ section { margin-bottom: 2rem; }
 @media (min-width: 768px) {
   .nav-links { display: flex; }
   #mobile-menu-toggle { display: none; }
-  .hero-section { grid-template-columns: 1.4fr 1fr; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .split-grid { grid-template-columns: 1fr 1fr; }
 }
