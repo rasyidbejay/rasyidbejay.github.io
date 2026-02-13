@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "name": "Mohammad Rashid bin Abdullah",
+    "shortName": "Rashid",
+    "title": "SEO Specialist & Data Analyst",
+    "location": "Kuala Lumpur, Malaysia",
+    "phone": "+60 11-1530 1464",
+    "email": "rasyidbejay@gmail.com",
+    "website": "https://www.rasyidbejay.com",
+    "bio": "SEO Specialist & Data Analyst with a Bachelor's in Business Administration (Minor in Information Systems). Skilled in SEO strategy (on-page, off-page, technical), data analytics (SQL, Power BI, Tableau), and web development. Passionate about translating data into actionable insights that support strategic decision-making and business growth.",
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/rasyidbejay/",
+      "github": "https://github.com/rasyidbejay",
+      "instagram": "https://www.instagram.com/rasyidbejay/"
+    }
+  },
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "SEO & Web Specialist",
+      "company": "Audience Intelligence",
+      "location": "Kuala Lumpur",
+      "period": "June 2025 – Present",
+      "type": "full-time",
+      "highlights": [
+        "Lead SEO strategy for B2B clients, focusing on improving search visibility, increasing organic traffic, and generating quality leads.",
+        "Perform comprehensive keyword research, including search intent analysis and keyword mapping, to optimise content and landing pages.",
+        "Execute on-page SEO (metadata, header tags, internal linking) and technical SEO (site health, Core Web Vitals, crawl optimization).",
+        "Track SEO performance through Google Analytics 4, Google Search Console, and SEMrush, providing regular performance reports and insights.",
+        "Collaborate with cross-functional teams to ensure SEO initiatives are aligned with broader marketing and business goals.",
+        "Support SEO-optimised web development, enhancing site performance through technical fixes, speed improvements, and UI/UX enhancements."
+      ],
+      "skills": ["SEO", "GA4", "SEMrush", "Technical SEO", "Web Development"]
+    },
+    {
+      "id": "exp-2",
+      "role": "Internship – SEO Specialist",
+      "company": "Riwei Marketing",
+      "location": "Kuala Lumpur",
+      "period": "March 2025 – May 2025",
+      "type": "internship",
+      "highlights": [
+        "Supported day-to-day SEO operations, including keyword research, content optimisation, and on-page SEO for client websites.",
+        "Assisted in performing SEO audits and provided recommendations for improving site health and search rankings.",
+        "Monitored SEO performance using Google Analytics and Google Search Console, identifying opportunities for organic growth.",
+        "Created SEO reports and dashboards to track keyword rankings, site traffic, and overall SEO performance.",
+        "Contributed to link-building strategies and ensured content alignment with SEO best practices."
+      ],
+      "skills": ["SEO Audits", "Google Analytics", "Link Building", "Content Optimization"]
+    },
+    {
+      "id": "exp-3",
+      "role": "Junior Data Analyst",
+      "company": "MA Insights",
+      "location": "Remote",
+      "period": "Aug 2024 – Mar 2025",
+      "type": "full-time",
+      "highlights": [
+        "Analyzed large datasets to uncover actionable insights supporting strategic decision-making.",
+        "Built interactive dashboards and reports using Power BI and Tableau to visualize KPIs and performance metrics.",
+        "Conducted data cleaning, transformation, and validation, improving reporting accuracy and reliability.",
+        "Collaborated with cross-functional teams to define KPIs, conduct statistical analysis, and provide recommendations for process optimization."
+      ],
+      "skills": ["SQL", "Python", "R", "Power BI", "Tableau", "Excel"]
+    },
+    {
+      "id": "exp-4",
+      "role": "Search Engine Optimization Specialist",
+      "company": "Suave Designs",
+      "location": "Kuala Lumpur",
+      "period": "Feb 2024 – Aug 2024",
+      "type": "full-time",
+      "highlights": [
+        "Conducted keyword research and developed SEO strategies, improving search engine rankings and organic traffic.",
+        "Executed on-page and off-page optimization, including SEO-friendly content creation.",
+        "Monitored performance via Google Analytics and Search Console, ensuring continuous improvement.",
+        "Collaborated with clients to align SEO initiatives with business objectives, improving conversion rates."
+      ],
+      "skills": ["SEO", "WordPress", "Google Analytics", "Search Console"]
+    },
+    {
+      "id": "exp-5",
+      "role": "Freelance Web Developer",
+      "company": "Self-Employed",
+      "location": "Remote",
+      "period": "Jan 2023 – Present",
+      "type": "freelance",
+      "highlights": [
+        "Designed, developed, and maintained responsive websites optimized for SEO and performance.",
+        "Implemented interactive features with JavaScript, SQL integration, and WordPress optimization.",
+        "Enhanced site performance, achieving faster load times and improved rankings.",
+        "Delivered solutions aligned with client goals, ensuring accessibility and best practices."
+      ],
+      "skills": ["WordPress", "Webflow", "SEO", "JavaScript", "IT Business Analysis"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "SEO Optimization for Britannia Language Centre",
+      "description": "Leading SEO initiatives to improve organic visibility and student recruitment. Conduct keyword research with KWFinder, optimize on-page SEO with RankMath Pro (WordPress), and implement technical SEO improvements. Track performance via Google Analytics & Site Kit.",
+      "period": "Jul 2025 – Present",
+      "category": "SEO",
+      "tags": ["SEO", "SEO Copywriting", "Web Marketing Strategy", "WordPress"],
+      "links": {
+        "live": null,
+        "github": null
+      },
+      "featured": true
+    },
+    {
+      "id": "proj-2",
+      "title": "ERP Webstore for Riwei Marketing",
+      "description": "Developed a custom ERP webstore on the SiteGiant platform, delivering a fully functional e-commerce solution within 2-3 weeks. Designed custom layouts/banners, created policy pages, configured shipping/payment gateways, GA integration, and sitemap.",
+      "period": "May 2025",
+      "category": "Web Development",
+      "tags": ["E-commerce", "SiteGiant", "Web Design", "SEO Copywriting"],
+      "links": {
+        "live": null,
+        "github": null
+      },
+      "featured": true
+    },
+    {
+      "id": "proj-3",
+      "title": "HabitFlow - Task and Habit Tracker",
+      "description": "Developed a task and habit tracking web application using Python, Flask, and SQLite. Implemented user authentication, task CRUD operations, and calendar-based habit visualization. Used pandas for data handling and Bootstrap for responsive UI.",
+      "period": "2024",
+      "category": "Python Development",
+      "tags": ["Python", "Flask", "SQLite", "pandas", "Bootstrap"],
+      "links": {
+        "live": null,
+        "github": null
+      },
+      "featured": true
+    },
+    {
+      "id": "proj-4",
+      "title": "Cyclistic Bike-Share Case Study",
+      "description": "End-to-end data cleaning, analysis, and visualization using SQL, Excel, and Tableau. Comprehensive case study analyzing bike-share usage patterns.",
+      "period": "2024",
+      "category": "Data Analytics",
+      "tags": ["SQL", "Excel", "Tableau", "Data Analysis"],
+      "links": {
+        "live": null,
+        "github": null
+      },
+      "featured": true
+    },
+    {
+      "id": "proj-5",
+      "title": "Data Analytics & Infrastructure (MA Insights)",
+      "description": "Developed infrastructure systems and customized Power BI dashboards for Yayasan Tujuh Bulir Global. Provided insights for operations and finance.",
+      "period": "2024-2025",
+      "category": "Data Analytics",
+      "tags": ["Power BI", "Data Modelling", "Stakeholder Management"],
+      "links": {
+        "live": null,
+        "github": null
+      },
+      "featured": true
+    }
+  ],
+  "skills": {
+    "seo": {
+      "title": "SEO & Digital Marketing",
+      "icon": "search",
+      "items": [
+        "Keyword Research",
+        "On-Page SEO",
+        "Off-Page SEO",
+        "Technical SEO",
+        "SEO Audits",
+        "Content Optimization",
+        "Link Building",
+        "Local SEO",
+        "Core Web Vitals",
+        "Google Search Console",
+        "Google Analytics 4",
+        "RankMath Pro",
+        "SEMrush",
+        "KWFinder"
+      ]
+    },
+    "data": {
+      "title": "Data Analytics & BI",
+      "icon": "bar-chart",
+      "items": [
+        "SQL",
+        "Python (pandas, matplotlib)",
+        "Power BI",
+        "Tableau",
+        "Excel (Advanced)",
+        "Data Cleaning",
+        "Data Visualization",
+        "KPI Reporting",
+        "Statistical Analysis"
+      ]
+    },
+    "webdev": {
+      "title": "Web Development",
+      "icon": "code",
+      "items": [
+        "HTML & CSS",
+        "JavaScript",
+        "WordPress",
+        "Webflow",
+        "Responsive Design",
+        "UI/UX Implementation",
+        "Performance Optimization"
+      ]
+    },
+    "tools": {
+      "title": "Tools & Platforms",
+      "icon": "tool",
+      "items": [
+        "Figma",
+        "Google Workspace",
+        "Microsoft Office",
+        "Git & GitHub"
+      ]
+    },
+    "soft": {
+      "title": "Professional Skills",
+      "icon": "users",
+      "items": [
+        "Business Analysis",
+        "Project Coordination",
+        "Cross-functional Collaboration",
+        "Problem Solving",
+        "Critical Thinking",
+        "Communication"
+      ]
+    }
+  },
+  "education": [
+    {
+      "id": "edu-1",
+      "degree": "Bachelor of Business Administration (Honours)",
+      "minor": "Minor in Information Systems",
+      "institution": "International Islamic University Malaysia (IIUM)",
+      "location": "Gombak, Malaysia",
+      "period": "2020 – 2025",
+      "honors": ["Dean's List Award Recipient"],
+      "coursework": [
+        "Strategic Management",
+        "Marketing Principles and Analytics",
+        "Organizational Behaviour",
+        "Business Intelligence and Reporting",
+        "Financial Management",
+        "Project Management",
+        "Leadership and Entrepreneurship"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "name": "MOHE–MDEC Global Outsourcing Talent (GOT) Programme",
+      "issuer": "Malaysia Digital Economy Corporation (MDEC)",
+      "date": "Aug 2025",
+      "credentialId": "HVG005906",
+      "skills": ["Web Design", "Web Marketing Strategy", "SEO", "WordPress"]
+    },
+    {
+      "id": "cert-2",
+      "name": "Google Data Analytics Professional Certificate",
+      "issuer": "Google / Coursera",
+      "date": "Mar 2025",
+      "credentialId": "YM89MN1AS20X",
+      "skills": ["Data Analytics", "SQL", "R", "Tableau"]
+    },
+    {
+      "id": "cert-3",
+      "name": "Become a Data Analyst",
+      "issuer": "LinkedIn Learning",
+      "date": "Aug 2024",
+      "credentialId": null,
+      "skills": ["Data Visualization", "Tableau", "Power BI", "Excel"]
+    },
+    {
+      "id": "cert-4",
+      "name": "Career Essentials in Business Analysis",
+      "issuer": "Microsoft & LinkedIn",
+      "date": "Jul 2024",
+      "credentialId": null,
+      "skills": ["Business Analysis", "Project Management", "Requirements Gathering"]
+    },
+    {
+      "id": "cert-5",
+      "name": "Career Essentials in Data Analysis",
+      "issuer": "Microsoft & LinkedIn",
+      "date": "Jul 2024",
+      "credentialId": null,
+      "skills": ["Data Analytics", "Data Visualization"]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "test-1",
+      "quote": "Rashid shipped our SiteGiant store in record time and set up analytics properly. His attention to detail saved us countless back-and-forths.",
+      "author": "Marketing Director",
+      "company": "RIWEI Marketing"
+    },
+    {
+      "id": "test-2",
+      "quote": "The Power BI dashboards were clear, reliable, and easy to brief from. Rashid's data cleaning improved our weekly reporting considerably.",
+      "author": "Project Manager",
+      "company": "MA Insights"
+    },
+    {
+      "id": "test-3",
+      "quote": "Solid SEO foundations and thoughtful content tweaks—traffic grew steadily and conversions followed. Professional and proactive.",
+      "author": "Founder",
+      "company": "Suave Designs"
+    }
+  ],
+  "extras": {
+    "languages": ["Malay (Native)", "English (Fluent)"],
+    "activities": [
+      "Secretary, AL-AQSA FRIENDS' SOCIETY (2020–2022)",
+      "Committee Member, Mahallah Faruq BRC (2020/2021)",
+      "Participant, Global Youth & Peace Conference 2024",
+      "Silver Medalist, QLD LEP In-Class Activities 2024"
+    ]
+  }
+}
