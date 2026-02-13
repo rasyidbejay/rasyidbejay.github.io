@@ -3,61 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <meta name="theme-color" content="#007AFF">
   <title>Experience — Rashid</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
   <header class="mobile-header">
-    <span class="mobile-logo">Rashid</span>
+    <a href="index.html" class="mobile-logo" aria-label="Home">
+      <img src="assets/logo-light.png" alt="Rashid" class="logo-light">
+      <img src="assets/logo-dark.png" alt="Rashid" class="logo-dark">
+    </a>
     <div class="mobile-actions">
-      <a href="assets/Mohammad-Rashid-CV.pdf" class="btn-icon-sm" title="Download CV" aria-label="Download CV" target="_blank" rel="noopener">
+      <a href="assets/Mohammad-Rashid-CV.pdf" class="btn-icon-sm" title="Download Resume" aria-label="Download Resume" target="_blank" rel="noopener">
         <i data-lucide="download"></i>
       </a>
-      <button id="theme-toggle-mobile" class="btn-icon-sm" title="Toggle theme" aria-label="Toggle theme">
-        <i data-lucide="moon"></i>
+      <button id="theme-toggle-mobile" class="btn-icon-sm" title="Toggle Theme" aria-label="Toggle Theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
       </button>
     </div>
   </header>
 
   <nav class="nav-desktop" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo" aria-label="Home">R</a>
+    <a href="index.html" class="nav-logo" aria-label="Home">
+      <img src="assets/logo-light.png" alt="Rashid" class="logo-light">
+      <img src="assets/logo-dark.png" alt="Rashid" class="logo-dark">
+    </a>
+
     <div class="nav-links">
-      <a href="index.html"><i data-lucide="home"></i><span>Home</span></a>
-      <a href="experience.html"><i data-lucide="briefcase"></i><span>Experience</span></a>
-      <a href="projects.html"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
-      <a href="skills.html"><i data-lucide="cpu"></i><span>Skills</span></a>
-      <a href="education.html"><i data-lucide="graduation-cap"></i><span>Education</span></a>
-      <a href="contact.html"><i data-lucide="mail"></i><span>Contact</span></a>
+      <a href="index.html">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="contact.html">Contact</a>
     </div>
+
     <div class="nav-actions">
-      <a href="assets/Mohammad-Rashid-CV.pdf" class="btn-icon" title="Download CV" aria-label="Download CV" target="_blank" rel="noopener">
+      <a href="assets/Mohammad-Rashid-CV.pdf" class="btn-icon" title="Download Resume" aria-label="Download Resume" target="_blank" rel="noopener">
         <i data-lucide="download"></i>
       </a>
-      <button id="theme-toggle" class="btn-icon" title="Toggle theme" aria-label="Toggle theme">
-        <i data-lucide="moon"></i>
+      <button id="theme-toggle" class="btn-icon" title="Toggle Theme" aria-label="Toggle Theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
       </button>
     </div>
   </nav>
 
-  <nav class="nav-mobile" aria-label="Mobile navigation">
-    <a href="index.html" class="tab-item">
+  <nav class="mobile-tabbar" aria-label="Mobile navigation">
+    <a href="index.html" class="tab">
       <i data-lucide="home"></i>
       <span>Home</span>
     </a>
-    <a href="experience.html" class="tab-item">
+    <a href="experience.html" class="tab">
       <i data-lucide="briefcase"></i>
       <span>Work</span>
     </a>
-    <a href="projects.html" class="tab-item">
-      <i data-lucide="folder-kanban"></i>
+    <a href="projects.html" class="tab">
+      <i data-lucide="layers"></i>
       <span>Projects</span>
     </a>
-    <a href="skills.html" class="tab-item">
-      <i data-lucide="cpu"></i>
+    <a href="skills.html" class="tab">
+      <i data-lucide="sparkles"></i>
       <span>Skills</span>
     </a>
-    <a href="contact.html" class="tab-item">
+    <a href="contact.html" class="tab">
       <i data-lucide="mail"></i>
       <span>Contact</span>
     </a>
