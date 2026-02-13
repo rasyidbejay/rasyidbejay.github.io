@@ -14,11 +14,12 @@ export async function loadPortfolioData() {
 
 export function renderPortfolio(data) {
   const { meta } = data;
-  document.title = `${meta.shortName} | ${meta.title}`;
+  const role = meta.role || meta.title || "Portfolio";
+  document.title = `${meta.shortName} | ${role}`;
   document.getElementById("navName").textContent = meta.shortName;
   document.getElementById("heroLocation").textContent = meta.location;
   document.querySelector(".hero-title").dataset.text = meta.name;
-  document.querySelector(".hero-subtitle").dataset.text = meta.title;
+  document.querySelector(".hero-subtitle").dataset.text = role;
   document.getElementById("heroBio").textContent = meta.bio;
 
   document.getElementById("heroActions").innerHTML = `
@@ -37,8 +38,8 @@ export function renderPortfolio(data) {
         <h3>${item.role} — ${item.company}</h3>
         <span class="period">${item.period}</span>
       </div>
-      <p class="desc">${firstSentence(item.highlights[0])}</p>
-      <div class="tags">${item.skills.map((skill) => `<span class="chip">${skill}</span>`).join(" ")}</div>
+      <p class="desc">${firstSentence(item.description || item.highlights[0])}</p>
+      <div class="tags">${(item.tags || item.skills || []).map((skill) => `<span class="chip">${skill}</span>`).join(" ")}</div>
     </article>
   `).join("");
 
@@ -50,7 +51,7 @@ export function renderPortfolio(data) {
     </article>
   `).join("");
 
-  const skillGroups = [data.skills.seo, data.skills.data, data.skills.webdev];
+  const skillGroups = [data.skills.frontend, data.skills.seo, data.skills.tools, data.skills.data].filter(Boolean);
   document.getElementById("skillsList").innerHTML = skillGroups.map((group) => `
     <article class="skill-group">
       <h4>${group.title}</h4>
@@ -58,7 +59,8 @@ export function renderPortfolio(data) {
     </article>
   `).join("");
 
-  document.getElementById("educationList").innerHTML = data.education.map((item) => `
+  const educationItems = Array.isArray(data.education) ? data.education : [data.education];
+  document.getElementById("educationList").innerHTML = educationItems.map((item) => `
     <article class="glass-card card-hover">
       <h3>${item.degree}</h3>
       <p>${item.minor}</p>
@@ -97,7 +99,7 @@ export function renderPortfolio(data) {
     "@type": "Person",
     name: meta.name,
     alternateName: meta.shortName,
-    jobTitle: meta.title,
+    jobTitle: role,
     email: `mailto:${meta.email}`,
     url: meta.website,
     sameAs: Object.values(meta.socials)
