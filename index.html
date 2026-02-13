@@ -1,598 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rashid</title>
-  <meta name="description" content="Business Administration graduate (Minor in IS). Data Analyst, Web Developer, SEO Specialist in Kuala Lumpur. Turning data into decisions and building fast, elegant sites." />
-  <meta name="color-scheme" content="light dark" />
-
-  <!-- Favicons / PWA -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rashid | SEO Specialist & Data Analyst</title>
+  <meta name="description" content="SEO Specialist & Data Analyst portfolio of Mohammad Rashid bin Abdullah. Experience, projects, skills, certifications, and contact details." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="manifest" href="assets/site.webmanifest" />
-  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
-  <!-- Structured data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohammad Rashid bin Abdullah",
-    "alternateName": "Rashid",
-    "image": "assets/profile.jpg",
-    "jobTitle": "Data Analyst, Web Developer, SEO Specialist",
-    "address": {"@type":"PostalAddress","addressLocality":"Kuala Lumpur","addressCountry":"MY"},
-    "url": "https://www.rasyidbejay.com/",
-    "email": "mailto:rasyidbejay@gmail.com",
-    "sameAs": [
-      "https://www.linkedin.com/in/rasyidbejay/",
-      "https://github.com/rasyidbejay",
-      "https://www.instagram.com/rasyidbejay/"
-    ]
-  }
-  </script>
-
-  <style>
-    /* =============================
-       Core, resets, and variables
-       ============================= */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.5; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* Ensure hero image fills its card */
-    .hero .photo img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    
-    a { color: inherit; text-decoration: none; }
-    :root {
-      --bg: #ffffff;
-      --fg: #0a0a0a;
-      --muted: #6b7280; /* grey-500 */
-      --card: rgba(255,255,255,0.6);
-      --border: rgba(0,0,0,0.08);
-      --accent: #0ea5e9; /* sky-500 */
-      --accent-2: #a78bfa; /* violet-400 */
-      --ring: rgba(14,165,233,0.3);
-      --shadow: 0 10px 30px rgba(2,6,23,0.08);
-      --glass-blur: 22px;
-    }
-    [data-theme="dark"]:root {
-      --bg: #0b0c0f;
-      --fg: #f5f7fb;
-      --muted: #9aa3b2;
-      --card: rgba(12,14,19,0.6);
-      --border: rgba(255,255,255,0.1);
-      --accent: #22d3ee; /* cyan-400 */
-      --accent-2: #c084fc; /* violet-400 */
-      --ring: rgba(34,211,238,0.25);
-      --shadow: 0 14px 40px rgba(0,0,0,0.4);
-      --glass-blur: 24px;
-    }
-    body { background: var(--bg); color: var(--fg); }
-
-    /* =============================
-       Background gradient blobs
-       ============================= */
-    .bg-blur {
-      position: fixed; inset: auto auto 10% -10%; width: 70vmax; height: 70vmax; filter: blur(90px); z-index: -1; opacity: 0.55; transform: translate3d(0,0,0); pointer-events: none; transition: transform .2s ease-out;
-      background: radial-gradient(50% 60% at 30% 30%, var(--accent) 0%, transparent 60%),
-                  radial-gradient(50% 60% at 70% 70%, var(--accent-2) 0%, transparent 65%);
-    }
-    .bg-blur.top { inset: -10% -10% auto auto; opacity: 0.5; }
-
-    /* =============================
-       Layout basics
-       ============================= */
-    .container { width: min(1100px, 92vw); margin-inline: auto; }
-    section { padding: clamp(48px, 8vw, 96px) 0; }
-    .stack { display: grid; gap: 16px; }
-    .cluster { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-
-    /* =============================
-       Glassy surfaces & cards
-       ============================= */
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(var(--glass-blur));
-      -webkit-backdrop-filter: blur(var(--glass-blur));
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    /* =============================
-       Header / Nav
-       ============================= */
-    .site-header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); background: color-mix(in oklab, var(--bg) 70%, transparent); border-bottom: 1px solid var(--border); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: .3px; }
-    .brand-logo { width: 28px; height: 28px; border-radius: 9px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); }
-    .nav-links { display: none; gap: 22px; font-size: 0.95rem; color: var(--muted); }
-    .nav-links a { position: relative; }
-    .nav-links a::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-    .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
-    .nav-cta { display: flex; align-items: center; gap: 10px; }
-    .btn, button.btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background: color-mix(in oklab, var(--bg) 70%, transparent); color: var(--fg); box-shadow: var(--shadow); transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 36px rgba(2,6,23,0.12); border-color: color-mix(in oklab, var(--accent) 30%, var(--border)); }
-    .btn:active { transform: translateY(0) scale(0.99); }
-    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; border-color: transparent; }
-    .icon { width: 18px; height: 18px; display:inline-block; }
-
-    @media (min-width: 860px) {
-      .nav-links { display: flex; }
-    }
-
-/* =============================
-   Hero
-   ============================= */
-    .hero {
-      display: grid;
-      gap: 28px;
-      align-items: center;
-      grid-template-columns: 1fr;
-    }
-    
-    .hero .photo{
-      /* one responsive size—no conflicting overrides */
-      width: clamp(180px, 24vw, 320px);
-      aspect-ratio: 3 / 4;     /* nice portrait shape; use 1/1 if you want a square */
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-    
-    .eyebrow{ font-size:.85rem; color: var(--muted); letter-spacing:.3px; }
-    .title{ font-size: clamp(28px, 6vw, 44px); line-height: 1.12; letter-spacing:-0.02em; margin:4px 0 0; font-weight:800; }
-    .subtitle{ color: var(--muted); font-size: clamp(16px, 2.5vw, 18px); }
-    .hero-actions{ display:flex; flex-wrap:wrap; gap:10px; }
-    
-    @media (min-width: 860px){
-      .hero { grid-template-columns: 1fr 1.2fr; }
-      .hero .photo { justify-self: end; } /* no width/height here */
-    }
-
-
-    /* =============================
-       Section headings
-       ============================= */
-    .section-head { display:flex; align-items:center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-    .section-head h2 { font-size: clamp(20px, 3.2vw, 28px); margin:0; letter-spacing: -0.01em; }
-    .section-head p { margin:0; color: var(--muted); font-size: 0.95rem; }
-
-    /* =============================
-       Grid helpers
-       ============================= */
-    .grid { display:grid; gap: 14px; }
-    .grid.cols-2 { grid-template-columns: 1fr; }
-    .grid.cols-3 { grid-template-columns: 1fr; }
-    @media (min-width: 720px) { .grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 980px) { .grid.cols-3 { grid-template-columns: repeat(3, 1fr); } }
-
-    /* =============================
-       Experience / Education / Cards
-       ============================= */
-    .item { padding: 16px; }
-    .item h3 { margin: 0 0 6px; font-size: 1.05rem; letter-spacing: -0.01em; }
-    .item .meta { color: var(--muted); font-size: 0.92rem; margin-bottom: 8px; }
-    .item ul { margin: 10px 0 0 0; padding-left: 18px; color: color-mix(in oklab, var(--fg) 80%, var(--muted)); }
-    .badge { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); background: color-mix(in oklab, var(--bg) 70%, transparent); font-size:.85rem; color: var(--muted); }
-
-    /* =============================
-       Projects
-       ============================= */
-    .project { padding: 16px; display:grid; gap:10px; }
-    .project h3 { margin:0; font-size:1.02rem; }
-    .tags { display:flex; flex-wrap: wrap; gap:6px; }
-    .tag { font-size:.8rem; padding:4px 8px; border-radius:999px; border:1px solid var(--border); color: var(--muted); }
-
-    /* =============================
-       Skills
-       ============================= */
-    .skills { display:grid; gap: 10px; grid-template-columns: 1fr; }
-    .skill-group { padding: 14px; }
-    .skill-group h4 { margin: 0 0 10px; font-size: .95rem; color: var(--muted); }
-    .chips { display:flex; flex-wrap: wrap; gap: 8px; }
-    .chip { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: color-mix(in oklab, var(--bg) 70%, transparent); font-size: .9rem; }
-
-    @media (min-width: 860px) { .skills { grid-template-columns: repeat(2, 1fr); } }
-
-    /* =============================
-       Testimonials
-       ============================= */
-    .quote { padding: 18px; }
-    .quote p { margin: 0 0 10px; font-size: 0.98rem; }
-    .quote .who { color: var(--muted); font-size: .9rem; }
-
-    /* =============================
-       Contact & Footer
-       ============================= */
-    .contact-card { padding: 18px; display:grid; gap: 10px; }
-    footer { padding: 28px 0 48px; color: var(--muted); border-top: 1px solid var(--border); }
-
-    /* =============================
-       Motion / reveal
-       ============================= */
-    .reveal { opacity: 0; translate: 0 8px; transition: opacity .5s ease, translate .5s ease; }
-    .reveal.in { opacity: 1; translate: 0 0; }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; translate: none; }
-      .bg-blur, .btn { transition: none !important; }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- Background blobs -->
-  <div class="bg-blur top" aria-hidden="true"></div>
-  <div class="bg-blur" aria-hidden="true"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
-  <!-- Header / Nav -->
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand" aria-label="Home">
-        <span class="brand-logo" aria-hidden="true"></span>
-        <span>Rashid</span>
+  <header class="nav-glass" role="banner">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Go to top">
+        <img src="assets/logo.png" alt="Rashid logo" width="28" height="28" />
+        <span id="navName">Rashid</span>
       </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
+
+      <button id="mobile-menu-toggle" class="btn btn-icon" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
+        <span class="menu-open">☰</span><span class="menu-close">✕</span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
-      <div class="nav-cta">
-        <a class="btn" href="assets/Mohammad-Rashid-CV.pdf" target="_blank" rel="noopener" aria-label="Open CV in a new tab">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          CV
+
+      <div class="nav-actions">
+        <a href="assets/Mohammad-Rashid-CV.pdf" class="btn btn-secondary btn-magnetic" target="_blank" rel="noopener">
+          Resume
         </a>
-        <button class="btn" id="themeToggle" aria-label="Toggle dark mode">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-          Theme
+        <button id="theme-toggle" class="btn btn-icon btn-magnetic" aria-label="Toggle theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
         </button>
       </div>
     </div>
   </header>
 
-  <main id="top" class="container">
-    <!-- Hero -->
-    <section id="about" class="reveal">
-      <div class="hero">
-        <div class="stack">
-          <span class="eyebrow">Kuala Lumpur, Malaysia</span>
-          <h1 class="title">Mohammad Rashid bin Abdullah</h1>
-          <p class="subtitle">Data Analyst • Web Developer • SEO Specialist</p>
-          <p class="subtitle">SEO, Data Analytics, and Web Development specialist with a Business Administration background. Experienced in boosting organic growth, delivering insights with SQL, Power BI, Tableau, and Python, and building responsive websites that drive business success.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="mailto:rasyidbejay@gmail.com" aria-label="Email Rashid">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email me
-            </a>
-            <a class="btn" href="tel:+601115301464" aria-label="Call Rashid">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V21a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.18 2 2 0 0 1 4 2h4.09a2 2 0 0 1 2 1.72c.12.89.33 1.76.64 2.59a2 2 0 0 1-.45 2.11L9.1 9.1a16 16 0 0 0 6 6l.68-1.18a2 2 0 0 1 2.11-.45c.83.31 1.7.52 2.59.64A2 2 0 0 1 22 16.92z"/></svg>
-              Call
-            </a>
-            <a class="btn" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v15H0zM8 8h4.8v2.2h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.2 3.4 6.2 7.9V23H19V16.2c0-1.6 0-3.6-2.2-3.6-2.2 0-2.5 1.7-2.5 3.5V23H8z"/></svg>
-              LinkedIn
-            </a>
-            <a class="btn" href="https://github.com/rasyidbejay" target="_blank" rel="noopener">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.24-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.85 1.24 1.92 1.24 3.24 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.58A12 12 0 0 0 12 .5z"/></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-        <div class="photo card"><img src="assets/profile.jpg" alt="Portrait of Rashid" width="256" height="256"></div>
+  <main>
+    <section id="hero" class="hero-section container reveal">
+      <div class="glass-card hero-content">
+        <p class="eyebrow" id="heroLocation"></p>
+        <h1 class="hero-title"></h1>
+        <p class="hero-subtitle"></p>
+        <p id="heroBio"></p>
+        <div class="hero-actions" id="heroActions"></div>
+      </div>
+      <div class="glass-card hero-image-wrap">
+        <img src="assets/profile.jpg" alt="Portrait of Mohammad Rashid" loading="lazy" width="480" height="640" />
       </div>
     </section>
 
-    <!-- Experience -->
-<section id="experience" class="reveal">
-  <div class="section-head">
-    <h2>Experience</h2>
-    <p>Recent roles and impact</p>
-  </div>
-  <div class="grid cols-2">
-    
-    <article class="item card">
-      <h3>SEO Lead — <strong>Britannia Language Centre</strong></h3>
-      <div class="meta">Kuala Lumpur • Mar 2025 – Present</div>
-      <ul>
-        <li>Drive online visibility and student recruitment through advanced SEO strategies.</li>
-        <li>Lead keyword research, on-page & off-page optimization, content planning, and technical SEO improvements.</li>
-        <li>Oversee analytics tracking and performance reporting to boost search rankings and organic traffic.</li>
-        <li>Strengthen digital presence in a competitive education market.</li>
-      </ul>
-    </article>
-
-    <article class="item card">
-      <h3>Junior Data Analyst — <strong>MA Insights</strong></h3>
-      <div class="meta">Remote (Doha) • Aug 2024 – Mar 2025</div>
-      <ul>
-        <li>Analyzed large datasets to uncover actionable insights supporting strategic decision-making.</li>
-        <li>Built interactive dashboards and reports using Power BI and Tableau to visualize KPIs and performance metrics.</li>
-        <li>Conducted data cleaning, transformation, and validation, improving reporting accuracy and reliability.</li>
-        <li>Collaborated with cross-functional teams to define KPIs, perform statistical analysis, and provide recommendations.</li>
-      </ul>
-    </article>
-
-    <article class="item card">
-      <h3>SEO Specialist — <strong>Suave Designs</strong></h3>
-      <div class="meta">Kuala Lumpur • Feb 2024 – Aug 2024</div>
-      <ul>
-        <li>Conducted keyword research and developed SEO strategies, improving rankings and organic traffic.</li>
-        <li>Executed on-page and off-page optimization, including SEO-friendly content creation.</li>
-        <li>Monitored performance via Google Analytics and Search Console, driving continuous improvement.</li>
-        <li>Collaborated with clients to align SEO initiatives with business objectives, boosting conversions.</li>
-      </ul>
-    </article>
-
-    <article class="item card">
-      <h3>Freelance Web Developer</h3>
-      <div class="meta">Remote • Jan 2023 – Present</div>
-      <ul>
-        <li>Designed, developed, and maintained responsive websites optimized for SEO and performance.</li>
-        <li>Implemented interactive features with JavaScript, SQL integration, and WordPress optimization.</li>
-        <li>Enhanced site performance with faster load times and improved rankings.</li>
-        <li>Delivered tailored solutions aligned with client goals, ensuring accessibility and best practices.</li>
-      </ul>
-    </article>
-
-  </div>
-</section>
-
-    <!-- Projects -->
-    <section id="projects" class="reveal">
-      <div class="section-head">
-        <h2>Featured Projects</h2>
-        <p>Selected work across data, web, and marketing</p>
+    <section id="about" class="container reveal">
+      <div class="section-header">
+        <div class="section-icon">👋</div>
+        <div class="section-text">
+          <h2>About</h2>
+          <p class="section-desc">Quick profile snapshot</p>
+        </div>
       </div>
-      <div class="grid cols-2">
-        <article class="project card">
-          <div class="cluster" style="justify-content: space-between;">
-            <h3>ERP Webstore for RIWEI Marketing (SiteGiant)</h3>
-            <span class="badge">May 2025</span>
-          </div>
-          <p>Shipped a full e‑commerce store in ~2–3 weeks: custom layouts/banners, policy pages, shipping/payment setup, GA integration, sitemap, and store settings.</p>
-          <div class="tags">
-            <span class="tag">E‑commerce</span><span class="tag">GA</span><span class="tag">SiteGiant</span>
-          </div>
-        </article>
+      <div class="glass-card" id="aboutCard"></div>
+    </section>
 
-        <article class="project card">
-          <div class="cluster" style="justify-content: space-between;">
-            <h3>HabitFlow — Task & Habit Tracker</h3>
-            <span class="badge">Python / Flask / SQLite</span>
-          </div>
-          <p>Authentication, task CRUD, calendar visualisation; pandas processing; Bootstrap UI; automated progress notifications.</p>
-          <div class="tags">
-            <span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">pandas</span>
-          </div>
-        </article>
+    <section id="experience" class="container reveal">
+      <div class="section-header"><div class="section-icon">💼</div><div class="section-text"><h2>Experience</h2><p class="section-desc">My professional journey</p></div></div>
+      <div id="experienceList" class="grid"></div>
+    </section>
 
-        <article class="project card">
-          <div class="cluster" style="justify-content: space-between;">
-            <h3>Cyclistic Bike‑Share Case Study</h3>
-            <span class="badge">SQL • Excel • Tableau</span>
-          </div>
-          <p>End‑to‑end cleaning, analysis, and Tableau dashboard. <a href="#" aria-label="Add your Tableau Public link">Add link</a></p>
-          <div class="tags">
-            <span class="tag">Tableau</span><span class="tag">SQL</span><span class="tag">Analytics</span>
-          </div>
-        </article>
+    <section id="projects" class="container reveal">
+      <div class="section-header"><div class="section-icon">📁</div><div class="section-text"><h2>Projects</h2><p class="section-desc">Featured work and outcomes</p></div></div>
+      <div id="projectsList" class="grid"></div>
+    </section>
 
-        <article class="project card">
-          <div class="cluster" style="justify-content: space-between;">
-            <h3>Data Analytics & Infrastructure (MA Insights)</h3>
-            <span class="badge">Power BI</span>
-          </div>
-          <p>Data infrastructure + custom Power BI dashboards for Yayasan Tujuh Bulir Global; insights for operations and finance.</p>
-          <div class="tags">
-            <span class="tag">Power BI</span><span class="tag">Data Modelling</span><span class="tag">Stakeholder</span>
-          </div>
-        </article>
+    <section id="skills" class="container reveal">
+      <div class="section-header"><div class="section-icon">🧩</div><div class="section-text"><h2>Skills</h2><p class="section-desc">Tools and strengths</p></div></div>
+      <div id="skillsList" class="skills-grid"></div>
+    </section>
 
-        <article class="project card">
-          <div class="cluster" style="justify-content: space-between;">
-            <h3>Marketing Analytics Report (University)</h3>
-            <span class="badge">SQL • GA</span>
-          </div>
-          <p>Analysed marketing trends using SQL & Google Analytics to lift engagement and inform campaign planning.</p>
-          <div class="tags">
-            <span class="tag">Google Analytics</span><span class="tag">SQL</span><span class="tag">Reporting</span>
-          </div>
-        </article>
+    <section id="education" class="container reveal">
+      <div class="section-header"><div class="section-icon">🎓</div><div class="section-text"><h2>Education & Certifications</h2><p class="section-desc">Academic background and credentials</p></div></div>
+      <div class="split-grid">
+        <div id="educationList" class="grid"></div>
+        <div id="certificationsList" class="grid"></div>
       </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="reveal">
-      <div class="section-head">
-        <h2>Skills</h2>
-        <p>What I work with day‑to‑day</p>
-      </div>
-      <div class="skills grid cols-2">
-        <div class="skill-group card">
-          <h4>Analytics & Visualisation</h4>
-          <div class="chips">
-            <span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Excel (Advanced)</span><span class="chip">Google Analytics</span>
-          </div>
-        </div>
-        <div class="skill-group card">
-          <h4>Database & Programming</h4>
-          <div class="chips">
-            <span class="chip">SQL</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">Python</span>
-          </div>
-        </div>
-        <div class="skill-group card">
-          <h4>Design & Development</h4>
-          <div class="chips">
-            <span class="chip">WordPress</span><span class="chip">Figma</span><span class="chip">Adobe PS/AI/PR</span>
-          </div>
-        </div>
-        <div class="skill-group card">
-          <h4>Marketing & Platforms</h4>
-          <div class="chips">
-            <span class="chip">SEO</span><span class="chip">Social Media</span><span class="chip">E‑commerce</span><span class="chip">Meta Business Suite</span><span class="chip">TikTok Ads</span><span class="chip">Canva</span>
-          </div>
-        </div>
-        <div class="skill-group card">
-          <h4>Tools</h4>
-          <div class="chips">
-            <span class="chip">Microsoft Office</span><span class="chip">Google Workspace</span>
-          </div>
-        </div>
-        <div class="skill-group card">
-          <h4>Soft Skills</h4>
-          <div class="chips">
-            <span class="chip">Data Interpretation</span><span class="chip">Business Analysis</span><span class="chip">KPI Reporting</span><span class="chip">Project Co‑ordination</span><span class="chip">Leadership</span><span class="chip">Communication</span><span class="chip">Critical Thinking</span>
-          </div>
-        </div>
-      </div>
+    <section id="testimonials" class="container reveal">
+      <div class="section-header"><div class="section-icon">💬</div><div class="section-text"><h2>Testimonials</h2><p class="section-desc">What people say</p></div></div>
+      <div id="testimonialsList" class="grid cols-3"></div>
     </section>
 
-    <!-- Education & Certifications -->
-    <section id="education" class="reveal">
-      <div class="section-head">
-        <h2>Education & Certifications</h2>
-        <p>Grounded in business, refined in data</p>
-      </div>
-      <div class="grid cols-2">
-        <article class="item card">
-          <h3>BBA (Hons), Minor in Information Systems — IIUM</h3>
-          <div class="meta">2020 – 2025 • Dean’s List</div>
-          <p><strong>Relevant coursework:</strong> Strategic Management; Marketing Principles & Analytics; Organisational Behaviour; Business Intelligence & Reporting; Financial Management; Project Management; Leadership & Entrepreneurship.</p>
-        </article>
-        <article class="item card">
-          <h3>Certifications</h3>
-          <ul>
-            <li>Google Data Analytics Professional Certificate (Coursera)</li>
-            <li>Career Essentials in Business Analysis (Microsoft × LinkedIn)</li>
-            <li>Career Essentials in Data Analysis (Microsoft × LinkedIn)</li>
-            <li>Data Visualisation using D3.js & Chart.js (freeCodeCamp)</li>
-            <li>Learning Excel: Data Analysis (LinkedIn Learning)</li>
-          </ul>
-          <p class="cluster"><a class="btn" href="https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4" target="_blank" rel="noopener" aria-label="Open Credly badge">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.54 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2z"/></svg>
-            View Credly</a></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="reveal">
-      <div class="section-head">
-        <h2>Testimonials</h2>
-        <p>What collaborators say</p>
-      </div>
-      <div class="grid cols-3">
-        <blockquote class="quote card">
-          <p>“Rashid shipped our SiteGiant store in record time and set up analytics properly. His attention to detail saved us countless back‑and‑forths.”</p>
-          <div class="who">Marketing Director, RIWEI Marketing</div>
-        </blockquote>
-        <blockquote class="quote card">
-          <p>“The Power BI dashboards were clear, reliable, and easy to brief from. Rashid’s data cleaning improved our weekly reporting considerably.”</p>
-          <div class="who">Project Manager, MA Insights</div>
-        </blockquote>
-        <blockquote class="quote card">
-          <p>“Solid SEO foundations and thoughtful content tweaks—traffic grew steadily and conversions followed. Professional and proactive.”</p>
-          <div class="who">Founder, Suave Designs</div>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="reveal">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Let’s build something useful</p>
-      </div>
-      <div class="contact-card card">
-        <div class="cluster">
-          <span class="badge" title="Location">📍 Kuala Lumpur, Malaysia</span>
-          <a class="badge" href="tel:+601115301464" title="Phone">📞 +60 11‑1530 1464</a>
-          <a class="badge" href="mailto:rasyidbejay@gmail.com" title="Email">✉️ rasyidbejay@gmail.com</a>
-        </div>
-        <div class="cluster">
-          <a class="btn" href="https://www.rasyidbejay.com/" target="_blank" rel="noopener">Website</a>
-          <a class="btn" href="https://www.linkedin.com/in/rasyidbejay/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://www.instagram.com/rasyidbejay/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn" href="https://github.com/rasyidbejay" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
+    <section id="contact" class="container reveal">
+      <div class="section-header"><div class="section-icon">📫</div><div class="section-text"><h2>Contact</h2><p class="section-desc">Let's connect</p></div></div>
+      <div class="glass-card contact-card" id="contactCard"></div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="cluster" style="justify-content: space-between;">
-        <span>© <span id="year"></span> Rashid. All rights reserved.</span>
-        <a href="assets/Mohammad-Rashid-CV.pdf" class="cluster" style="color:inherit;">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
-          Download CV
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // =============================
-    // Theme toggle with persistence
-    // =============================
-    (function() {
-      const key = 'theme-preference';
-      const getPref = () => localStorage.getItem(key);
-      const setPref = (val) => localStorage.setItem(key, val);
-      const apply = (val) => document.documentElement.setAttribute('data-theme', val);
-      const user = getPref();
-      if (user) apply(user); else if (window.matchMedia('(prefers-color-scheme: dark)').matches) apply('dark');
-      const btn = document.getElementById('themeToggle');
-      if (btn) btn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        apply(current); setPref(current);
-      });
-    })();
-
-    // =============================
-    // Parallax-ish follow for blobs
-    // =============================
-    (function(){
-      const tops = document.querySelector('.bg-blur.top');
-      const bot = document.querySelector('.bg-blur:not(.top)');
-      let lastY = 0;
-      window.addEventListener('scroll', () => {
-        const y = window.scrollY || window.pageYOffset;
-        const dy = y - lastY; lastY = y;
-        if (tops) tops.style.transform = `translate3d(${y * -0.02}px, ${y * 0.03}px, 0)`;
-        if (bot) bot.style.transform = `translate3d(${y * 0.02}px, ${y * -0.02}px, 0)`;
-      }, { passive: true });
-    })();
-
-    // =============================
-    // Reveal on view
-    // =============================
-    (function(){
-      const els = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      els.forEach(el => io.observe(el));
-    })();
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
