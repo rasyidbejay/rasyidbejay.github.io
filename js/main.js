@@ -1,44 +1,39 @@
 (() => {
-  const root = document.documentElement;
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  if (window.lucide?.createIcons) {
+    window.lucide.createIcons();
+  }
 
-  const refreshIcons = () => {
+  const getTheme = () => localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
     if (window.lucide?.createIcons) {
       window.lucide.createIcons();
     }
   };
 
-  const updateThemeIcons = (theme) => {
-    document.querySelectorAll('#theme-toggle i, #theme-toggle-mobile i').forEach((icon) => {
-      icon.setAttribute('data-lucide', theme === 'dark' ? 'sun' : 'moon');
-    });
-    refreshIcons();
-  };
-
-  const savedTheme = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  root.setAttribute('data-theme', savedTheme);
-  updateThemeIcons(savedTheme);
+  setTheme(getTheme());
 
   const toggleTheme = () => {
-    const current = root.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    updateThemeIcons(next);
+    const current = document.documentElement.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
   };
 
-  themeToggle?.addEventListener('click', toggleTheme);
-  themeToggleMobile?.addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme);
 
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .tab-item').forEach((link) => {
-    if (link.getAttribute('href') === currentPage) {
+
+  document.querySelectorAll('.nav-links a, .tab').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
     }
   });
-
-  refreshIcons();
 })();
