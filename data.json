@@ -2,51 +2,51 @@
   "meta": {
     "name": "Mohammad Rashid bin Abdullah",
     "shortName": "Rashid",
-    "title": "SEO Specialist & Data Analyst",
+    "role": "Frontend Developer & SEO Specialist",
     "location": "Kuala Lumpur, Malaysia",
-    "phone": "+60 11-1530 1464",
     "email": "rasyidbejay@gmail.com",
+    "phone": "+60 11-1530 1464",
     "website": "https://www.rasyidbejay.com",
-    "bio": "I help businesses grow through SEO strategy and data-driven insights. I combine technical optimization with analytics to improve visibility and performance.",
+    "bio": "I build fast, beautiful websites and help them rank. Frontend development meets SEO.",
+    "bioLong": "Frontend Developer & SEO Specialist with a Bachelor's in Business Administration (Minor in Information Systems). I create responsive, high-performance websites and optimize them for search engines. Passionate about clean code, great UX, and making websites that both users and Google love.",
     "socials": {
       "linkedin": "https://www.linkedin.com/in/rasyidbejay/",
       "github": "https://github.com/rasyidbejay",
       "instagram": "https://www.instagram.com/rasyidbejay/"
     }
   },
+
   "experience": [
     {
       "id": "exp-1",
       "role": "SEO & Web Specialist",
       "company": "Audience Intelligence",
       "location": "Kuala Lumpur",
-      "period": "June 2025 – Present",
+      "period": "Jun 2025 – Present",
       "type": "full-time",
+      "description": "Build and optimize SEO-friendly websites for B2B clients. Handle frontend performance, Core Web Vitals, and technical SEO implementation.",
       "highlights": [
-        "Lead SEO strategy for B2B clients, focusing on improving search visibility, increasing organic traffic, and generating quality leads.",
-        "Perform comprehensive keyword research, including search intent analysis and keyword mapping, to optimise content and landing pages.",
-        "Execute on-page SEO (metadata, header tags, internal linking) and technical SEO (site health, Core Web Vitals, crawl optimization).",
-        "Track SEO performance through Google Analytics 4, Google Search Console, and SEMrush, providing regular performance reports and insights.",
-        "Collaborate with cross-functional teams to ensure SEO initiatives are aligned with broader marketing and business goals.",
-        "Support SEO-optimised web development, enhancing site performance through technical fixes, speed improvements, and UI/UX enhancements."
+        "Develop responsive landing pages optimized for conversions",
+        "Implement technical SEO — site speed, Core Web Vitals, crawl optimization",
+        "Build custom UI components and interactive features",
+        "Track performance via GA4, Search Console, and SEMrush"
       ],
-      "skills": ["SEO", "GA4", "SEMrush", "Technical SEO", "Web Development"]
+      "tags": ["JavaScript", "HTML/CSS", "Technical SEO", "GA4", "Web Performance"]
     },
     {
       "id": "exp-2",
-      "role": "Internship – SEO Specialist",
+      "role": "SEO Specialist Intern",
       "company": "Riwei Marketing",
       "location": "Kuala Lumpur",
-      "period": "March 2025 – May 2025",
+      "period": "Mar 2025 – May 2025",
       "type": "internship",
+      "description": "Supported SEO operations and built frontend components for client websites.",
       "highlights": [
-        "Supported day-to-day SEO operations, including keyword research, content optimisation, and on-page SEO for client websites.",
-        "Assisted in performing SEO audits and provided recommendations for improving site health and search rankings.",
-        "Monitored SEO performance using Google Analytics and Google Search Console, identifying opportunities for organic growth.",
-        "Created SEO reports and dashboards to track keyword rankings, site traffic, and overall SEO performance.",
-        "Contributed to link-building strategies and ensured content alignment with SEO best practices."
+        "Developed custom page layouts and responsive components",
+        "Performed SEO audits and implemented frontend fixes",
+        "Created SEO-optimized landing pages"
       ],
-      "skills": ["SEO Audits", "Google Analytics", "Link Building", "Content Optimization"]
+      "tags": ["WordPress", "HTML/CSS", "SEO Audits", "Responsive Design"]
     },
     {
       "id": "exp-3",
@@ -55,66 +55,80 @@
       "location": "Remote",
       "period": "Aug 2024 – Mar 2025",
       "type": "full-time",
+      "description": "Built interactive dashboards and data visualizations using modern tools.",
       "highlights": [
-        "Analyzed large datasets to uncover actionable insights supporting strategic decision-making.",
-        "Built interactive dashboards and reports using Power BI and Tableau to visualize KPIs and performance metrics.",
-        "Conducted data cleaning, transformation, and validation, improving reporting accuracy and reliability.",
-        "Collaborated with cross-functional teams to define KPIs, conduct statistical analysis, and provide recommendations for process optimization."
+        "Created interactive dashboards with Power BI and Tableau",
+        "Built data visualization components",
+        "Automated reporting workflows"
       ],
-      "skills": ["SQL", "Python", "R", "Power BI", "Tableau", "Excel"]
+      "tags": ["Power BI", "Tableau", "SQL", "Data Visualization"]
     },
     {
       "id": "exp-4",
-      "role": "Search Engine Optimization Specialist",
+      "role": "SEO Specialist",
       "company": "Suave Designs",
       "location": "Kuala Lumpur",
       "period": "Feb 2024 – Aug 2024",
       "type": "full-time",
+      "description": "Implemented SEO strategies and optimized website performance through frontend improvements.",
       "highlights": [
-        "Conducted keyword research and developed SEO strategies, improving search engine rankings and organic traffic.",
-        "Executed on-page and off-page optimization, including SEO-friendly content creation.",
-        "Monitored performance via Google Analytics and Search Console, ensuring continuous improvement.",
-        "Collaborated with clients to align SEO initiatives with business objectives, improving conversion rates."
+        "Improved Core Web Vitals scores through frontend optimization",
+        "Built SEO-friendly page templates",
+        "Implemented structured data and schema markup"
       ],
-      "skills": ["SEO", "WordPress", "Google Analytics", "Search Console"]
+      "tags": ["Technical SEO", "WordPress", "Page Speed", "Schema Markup"]
     },
     {
       "id": "exp-5",
-      "role": "Freelance Web Developer",
+      "role": "Freelance Frontend Developer",
       "company": "Self-Employed",
       "location": "Remote",
       "period": "Jan 2023 – Present",
       "type": "freelance",
+      "description": "Design and develop responsive, high-performance websites with modern frontend technologies.",
       "highlights": [
-        "Designed, developed, and maintained responsive websites optimized for SEO and performance.",
-        "Implemented interactive features with JavaScript, SQL integration, and WordPress optimization.",
-        "Enhanced site performance, achieving faster load times and improved rankings.",
-        "Delivered solutions aligned with client goals, ensuring accessibility and best practices."
+        "Build responsive websites with HTML, CSS, JavaScript",
+        "Create interactive UI components and animations",
+        "Optimize for performance and SEO",
+        "Implement modern CSS (Flexbox, Grid, animations)"
       ],
-      "skills": ["WordPress", "Webflow", "SEO", "JavaScript", "IT Business Analysis"]
+      "tags": ["JavaScript", "HTML/CSS", "React", "Responsive Design", "SEO"]
     }
   ],
+
   "projects": [
     {
       "id": "proj-1",
-      "title": "Britannia Language Centre SEO",
-      "description": "Leading SEO initiatives to improve organic visibility and student recruitment. Conduct keyword research with KWFinder, optimize on-page SEO with RankMath Pro (WordPress), and implement technical SEO improvements. Track performance via Google Analytics & Site Kit.",
-      "period": "Jul 2025 – Present",
-      "category": "SEO",
-      "tags": ["SEO", "SEO Copywriting", "Web Marketing Strategy", "WordPress"],
+      "title": "Personal Portfolio Website",
+      "description": "Multi-page portfolio built from scratch with vanilla HTML, CSS, and JavaScript. Features smooth animations, dark/light mode, responsive design, and optimized performance.",
+      "period": "2025",
+      "category": "Frontend Development",
+      "tags": ["HTML", "CSS", "JavaScript", "Responsive", "Animations"],
+      "highlights": [
+        "Custom CSS animations and transitions",
+        "Theme switching with localStorage",
+        "Mobile-first responsive design",
+        "Optimized for Core Web Vitals"
+      ],
       "links": {
-        "live": null,
-        "github": null
+        "live": "https://www.rasyidbejay.com",
+        "github": "https://github.com/rasyidbejay/rasyidbejay.github.io"
       },
       "featured": true
     },
     {
       "id": "proj-2",
-      "title": "ERP Webstore for Riwei Marketing",
-      "description": "Developed a custom ERP webstore on the SiteGiant platform, delivering a fully functional e-commerce solution within 2-3 weeks. Designed custom layouts/banners, created policy pages, configured shipping/payment gateways, GA integration, and sitemap.",
-      "period": "May 2025",
-      "category": "Web Development",
-      "tags": ["E-commerce", "SiteGiant", "Web Design", "SEO Copywriting"],
+      "title": "Britannia Language Centre Website",
+      "description": "SEO-optimized WordPress website with custom frontend components. Improved organic visibility and student recruitment.",
+      "period": "Jul 2025 – Present",
+      "category": "Frontend + SEO",
+      "tags": ["WordPress", "Custom CSS", "Technical SEO", "Core Web Vitals"],
+      "highlights": [
+        "Custom responsive layouts",
+        "Core Web Vitals optimization",
+        "On-page SEO implementation",
+        "Schema markup for local SEO"
+      ],
       "links": {
         "live": null,
         "github": null
@@ -123,11 +137,17 @@
     },
     {
       "id": "proj-3",
-      "title": "HabitFlow - Task and Habit Tracker",
-      "description": "Developed a task and habit tracking web application using Python, Flask, and SQLite. Implemented user authentication, task CRUD operations, and calendar-based habit visualization. Used pandas for data handling and Bootstrap for responsive UI.",
-      "period": "2024",
-      "category": "Python Development",
-      "tags": ["Python", "Flask", "SQLite", "pandas", "Bootstrap"],
+      "title": "ERP Webstore – Riwei Marketing",
+      "description": "Custom e-commerce frontend on SiteGiant platform. Delivered in 2-3 weeks with responsive layouts and optimized UX.",
+      "period": "May 2025",
+      "category": "Frontend Development",
+      "tags": ["E-commerce", "Responsive Design", "Custom CSS", "UX"],
+      "highlights": [
+        "Custom page layouts and banners",
+        "Responsive product galleries",
+        "Optimized checkout flow",
+        "GA4 integration"
+      ],
       "links": {
         "live": null,
         "github": null
@@ -136,11 +156,17 @@
     },
     {
       "id": "proj-4",
-      "title": "Cyclistic Bike-Share Case Study",
-      "description": "End-to-end data cleaning, analysis, and visualization using SQL, Excel, and Tableau. Comprehensive case study analyzing bike-share usage patterns.",
+      "title": "HabitFlow – Task Tracker App",
+      "description": "Full-stack web application with responsive Bootstrap frontend. Features authentication, CRUD operations, and calendar visualization.",
       "period": "2024",
-      "category": "Data Analytics",
-      "tags": ["SQL", "Excel", "Tableau", "Data Analysis"],
+      "category": "Full-Stack",
+      "tags": ["Python", "Flask", "Bootstrap", "JavaScript", "SQLite"],
+      "highlights": [
+        "Responsive UI with Bootstrap",
+        "Interactive calendar component",
+        "Real-time form validation",
+        "Mobile-friendly design"
+      ],
       "links": {
         "live": null,
         "github": null
@@ -149,179 +175,173 @@
     },
     {
       "id": "proj-5",
-      "title": "Data Analytics & Infrastructure (MA Insights)",
-      "description": "Developed infrastructure systems and customized Power BI dashboards for Yayasan Tujuh Bulir Global. Provided insights for operations and finance.",
-      "period": "2024-2025",
-      "category": "Data Analytics",
-      "tags": ["Power BI", "Data Modelling", "Stakeholder Management"],
+      "title": "Interactive Data Dashboard",
+      "description": "Custom dashboard built for MA Insights with interactive charts and data visualizations.",
+      "period": "2024",
+      "category": "Data Visualization",
+      "tags": ["Power BI", "Tableau", "Data Viz", "UI Design"],
+      "highlights": [
+        "Interactive filtering and drill-down",
+        "Custom visual components",
+        "Real-time data updates"
+      ],
       "links": {
         "live": null,
         "github": null
       },
-      "featured": true
+      "featured": false
     }
   ],
+
   "skills": {
-    "seo": {
-      "title": "SEO & Digital Marketing",
-      "icon": "search",
-      "items": [
-        "Keyword Research",
-        "On-Page SEO",
-        "Off-Page SEO",
-        "Technical SEO",
-        "SEO Audits",
-        "Content Optimization",
-        "Link Building",
-        "Local SEO",
-        "Core Web Vitals",
-        "Google Search Console",
-        "Google Analytics 4",
-        "RankMath Pro",
-        "SEMrush",
-        "KWFinder"
-      ]
-    },
-    "data": {
-      "title": "Data Analytics & BI",
-      "icon": "bar-chart",
-      "items": [
-        "SQL",
-        "Python (pandas, matplotlib)",
-        "Power BI",
-        "Tableau",
-        "Excel (Advanced)",
-        "Data Cleaning",
-        "Data Visualization",
-        "KPI Reporting",
-        "Statistical Analysis"
-      ]
-    },
-    "webdev": {
-      "title": "Web Development",
+    "frontend": {
+      "title": "Frontend Development",
       "icon": "code",
+      "primary": true,
       "items": [
-        "HTML & CSS",
-        "JavaScript",
-        "WordPress",
-        "Webflow",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Bootstrap",
+        "SCSS/Sass",
         "Responsive Design",
-        "UI/UX Implementation",
-        "Performance Optimization"
+        "CSS Animations",
+        "Flexbox & Grid",
+        "DOM Manipulation",
+        "REST APIs",
+        "Git & GitHub",
+        "npm/yarn",
+        "Webpack/Vite",
+        "Figma to Code"
+      ]
+    },
+    "seo": {
+      "title": "SEO & Web Performance",
+      "icon": "search",
+      "primary": true,
+      "items": [
+        "Technical SEO",
+        "On-Page SEO",
+        "Core Web Vitals",
+        "Page Speed Optimization",
+        "Schema Markup",
+        "Google Analytics 4",
+        "Google Search Console",
+        "SEMrush",
+        "Keyword Research",
+        "SEO Audits",
+        "Structured Data",
+        "Mobile SEO",
+        "Local SEO",
+        "Internal Linking"
       ]
     },
     "tools": {
       "title": "Tools & Platforms",
-      "icon": "tool",
+      "icon": "wrench",
+      "primary": false,
       "items": [
+        "VS Code",
         "Figma",
-        "Google Workspace",
-        "Microsoft Office",
-        "Git & GitHub"
+        "WordPress",
+        "Webflow",
+        "Chrome DevTools",
+        "Lighthouse",
+        "PageSpeed Insights",
+        "Postman",
+        "Notion",
+        "Vercel",
+        "Netlify",
+        "GitHub Pages"
       ]
     },
-    "soft": {
-      "title": "Professional Skills",
-      "icon": "users",
+    "data": {
+      "title": "Data & Analytics",
+      "icon": "bar-chart",
+      "primary": false,
       "items": [
-        "Business Analysis",
-        "Project Coordination",
-        "Cross-functional Collaboration",
-        "Problem Solving",
-        "Critical Thinking",
-        "Communication"
+        "SQL",
+        "Python",
+        "Power BI",
+        "Tableau",
+        "Excel",
+        "Data Visualization"
       ]
     }
   },
-  "education": [
-    {
-      "id": "edu-1",
-      "degree": "Bachelor of Business Administration (Honours)",
-      "minor": "Minor in Information Systems",
-      "institution": "International Islamic University Malaysia (IIUM)",
-      "location": "Gombak, Malaysia",
-      "period": "2020 – 2025",
-      "honors": ["Dean's List Award Recipient"],
-      "coursework": [
-        "Strategic Management",
-        "Marketing Principles and Analytics",
-        "Organizational Behaviour",
-        "Business Intelligence and Reporting",
-        "Financial Management",
-        "Project Management",
-        "Leadership and Entrepreneurship"
-      ]
-    }
-  ],
+
+  "education": {
+    "degree": "Bachelor of Business Administration (Honours)",
+    "minor": "Minor in Information Systems",
+    "institution": "International Islamic University Malaysia (IIUM)",
+    "location": "Gombak, Malaysia",
+    "period": "2020 – 2025",
+    "honors": ["Dean's List Award Recipient"],
+    "coursework": [
+      "Web Development",
+      "Information Systems",
+      "Business Intelligence",
+      "Project Management"
+    ]
+  },
+
   "certifications": [
     {
-      "id": "cert-1",
-      "name": "MOHE–MDEC Global Outsourcing Talent (GOT) Programme",
-      "issuer": "Malaysia Digital Economy Corporation (MDEC)",
+      "name": "MDEC Global Outsourcing Talent (GOT) Programme",
+      "issuer": "Malaysia Digital Economy Corporation",
       "date": "Aug 2025",
-      "credentialId": "HVG005906",
-      "skills": ["Web Design", "Web Marketing Strategy", "SEO", "WordPress"]
+      "skills": ["Web Design", "Web Development", "SEO", "WordPress"],
+      "featured": true
     },
     {
-      "id": "cert-2",
       "name": "Google Data Analytics Professional Certificate",
       "issuer": "Google / Coursera",
       "date": "Mar 2025",
-      "credentialId": "YM89MN1AS20X",
-      "skills": ["Data Analytics", "SQL", "R", "Tableau"]
+      "skills": ["Data Analytics", "SQL", "Visualization"],
+      "featured": true
     },
     {
-      "id": "cert-3",
-      "name": "Become a Data Analyst",
-      "issuer": "LinkedIn Learning",
-      "date": "Aug 2024",
-      "credentialId": null,
-      "skills": ["Data Visualization", "Tableau", "Power BI", "Excel"]
+      "name": "Responsive Web Design",
+      "issuer": "freeCodeCamp",
+      "date": "2024",
+      "skills": ["HTML", "CSS", "Responsive Design"],
+      "featured": true
     },
     {
-      "id": "cert-4",
+      "name": "JavaScript Algorithms and Data Structures",
+      "issuer": "freeCodeCamp",
+      "date": "2024",
+      "skills": ["JavaScript", "Algorithms", "ES6"],
+      "featured": true
+    },
+    {
       "name": "Career Essentials in Business Analysis",
       "issuer": "Microsoft & LinkedIn",
       "date": "Jul 2024",
-      "credentialId": null,
-      "skills": ["Business Analysis", "Project Management", "Requirements Gathering"]
-    },
-    {
-      "id": "cert-5",
-      "name": "Career Essentials in Data Analysis",
-      "issuer": "Microsoft & LinkedIn",
-      "date": "Jul 2024",
-      "credentialId": null,
-      "skills": ["Data Analytics", "Data Visualization"]
+      "skills": ["Business Analysis", "Requirements"],
+      "featured": false
     }
   ],
+
   "testimonials": [
     {
-      "id": "test-1",
-      "quote": "Rashid shipped our SiteGiant store in record time and set up analytics properly. His attention to detail saved us countless back-and-forths.",
+      "quote": "Rashid built our e-commerce store in record time. Clean code, responsive design, and SEO-ready from day one.",
       "author": "Marketing Director",
-      "company": "RIWEI Marketing"
+      "company": "Riwei Marketing"
     },
     {
-      "id": "test-2",
-      "quote": "The Power BI dashboards were clear, reliable, and easy to brief from. Rashid's data cleaning improved our weekly reporting considerably.",
-      "author": "Project Manager",
-      "company": "MA Insights"
-    },
-    {
-      "id": "test-3",
-      "quote": "Solid SEO foundations and thoughtful content tweaks—traffic grew steadily and conversions followed. Professional and proactive.",
+      "quote": "His frontend skills combined with SEO knowledge made our site both beautiful and highly visible on search.",
       "author": "Founder",
       "company": "Suave Designs"
+    },
+    {
+      "quote": "The dashboards Rashid built were not only functional but also visually polished. Great attention to UI details.",
+      "author": "Project Manager",
+      "company": "MA Insights"
     }
-  ],
-  "extras": {
-    "languages": ["Malay (Native)", "English (Fluent)"],
-    "activities": [
-      "Secretary, AL-AQSA FRIENDS' SOCIETY (2020–2022)",
-      "Committee Member, Mahallah Faruq BRC (2020/2021)",
-      "Participant, Global Youth & Peace Conference 2024",
-      "Silver Medalist, QLD LEP In-Class Activities 2024"
-    ]
-  }
+  ]
 }
