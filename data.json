@@ -7,7 +7,7 @@
     "phone": "+60 11-1530 1464",
     "email": "rasyidbejay@gmail.com",
     "website": "https://www.rasyidbejay.com",
-    "bio": "SEO Specialist & Data Analyst with a Bachelor's in Business Administration (Minor in Information Systems). Skilled in SEO strategy (on-page, off-page, technical), data analytics (SQL, Power BI, Tableau), and web development. Passionate about translating data into actionable insights that support strategic decision-making and business growth.",
+    "bio": "I help businesses grow through SEO strategy and data-driven insights. I combine technical optimization with analytics to improve visibility and performance.",
     "socials": {
       "linkedin": "https://www.linkedin.com/in/rasyidbejay/",
       "github": "https://github.com/rasyidbejay",
@@ -97,7 +97,7 @@
   "projects": [
     {
       "id": "proj-1",
-      "title": "SEO Optimization for Britannia Language Centre",
+      "title": "Britannia Language Centre SEO",
       "description": "Leading SEO initiatives to improve organic visibility and student recruitment. Conduct keyword research with KWFinder, optimize on-page SEO with RankMath Pro (WordPress), and implement technical SEO improvements. Track performance via Google Analytics & Site Kit.",
       "period": "Jul 2025 – Present",
       "category": "SEO",

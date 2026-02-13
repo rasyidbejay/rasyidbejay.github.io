@@ -1,4 +1,10 @@
 const safe = (value) => value ?? "";
+const firstSentence = (text = "") => {
+  const cleaned = text.trim();
+  if (!cleaned) return "";
+  const sentence = cleaned.match(/^[^.!?]+[.!?]/);
+  return sentence ? sentence[0] : cleaned;
+};
 
 export async function loadPortfolioData() {
   const response = await fetch("data.json");
@@ -17,7 +23,6 @@ export function renderPortfolio(data) {
 
   document.getElementById("heroActions").innerHTML = `
     <a href="mailto:${meta.email}" class="btn btn-magnetic">Email</a>
-    <a href="tel:${meta.phone.replace(/\s+/g, "")}" class="btn btn-magnetic">Phone</a>
     <a href="${meta.socials.linkedin}" class="btn btn-magnetic" target="_blank" rel="noopener">LinkedIn</a>
     <a href="${meta.socials.github}" class="btn btn-magnetic" target="_blank" rel="noopener">GitHub</a>`;
 
@@ -27,28 +32,29 @@ export function renderPortfolio(data) {
     <p><strong>Languages:</strong> ${data.extras.languages.join(", ")}</p>`;
 
   document.getElementById("experienceList").innerHTML = data.experience.map((item) => `
-    <article class="glass-card card-hover reveal-stagger">
-      <h3>${item.role}</h3>
-      <p>${item.company} · ${item.location} · ${item.period}</p>
-      <ul>${item.highlights.map((line) => `<li>${line}</li>`).join("")}</ul>
-      <div>${item.skills.map((skill) => `<span class="chip">${skill}</span>`).join(" ")}</div>
+    <article class="glass-card card-hover reveal-stagger simple-card">
+      <div class="card-header-row">
+        <h3>${item.role} — ${item.company}</h3>
+        <span class="period">${item.period}</span>
+      </div>
+      <p class="desc">${firstSentence(item.highlights[0])}</p>
+      <div class="tags">${item.skills.map((skill) => `<span class="chip">${skill}</span>`).join(" ")}</div>
     </article>
   `).join("");
 
   document.getElementById("projectsList").innerHTML = data.projects.map((project) => `
-    <article class="glass-card card-hover reveal-stagger">
+    <article class="glass-card card-hover reveal-stagger simple-card">
       <h3>${project.title}</h3>
-      <p>${project.period} · ${project.category}</p>
-      <p>${project.description}</p>
-      <div>${project.tags.map((tag) => `<span class="chip">${tag}</span>`).join(" ")}</div>
-      <p>${project.links.live ? `<a href="${project.links.live}" target="_blank" rel="noopener">Live</a>` : ""} ${project.links.github ? `<a href="${project.links.github}" target="_blank" rel="noopener">GitHub</a>` : ""}</p>
+      <p class="desc">${firstSentence(project.description)}</p>
+      <div class="tags">${project.tags.map((tag) => `<span class="chip">${tag}</span>`).join(" ")}</div>
     </article>
   `).join("");
 
-  document.getElementById("skillsList").innerHTML = Object.values(data.skills).map((group) => `
-    <article class="glass-card card-hover">
-      <h3>${group.title}</h3>
-      <div>${group.items.map((item) => `<span class="chip">${item}</span>`).join(" ")}</div>
+  const skillGroups = [data.skills.seo, data.skills.data, data.skills.webdev];
+  document.getElementById("skillsList").innerHTML = skillGroups.map((group) => `
+    <article class="skill-group">
+      <h4>${group.title}</h4>
+      <p>${group.items.join(", ")}</p>
     </article>
   `).join("");
 
