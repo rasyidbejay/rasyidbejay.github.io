@@ -1,100 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rashid | SEO Specialist & Data Analyst</title>
-  <meta name="description" content="SEO Specialist & Data Analyst portfolio of Mohammad Rashid bin Abdullah. Experience, projects, skills, certifications, and contact details." />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="manifest" href="assets/site.webmanifest" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rashid — SEO Specialist & Data Analyst</title>
+  <meta name="description" content="Portfolio of Mohammad Rashid, SEO Specialist & Data Analyst.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
-  <div id="cursor-glow" aria-hidden="true"></div>
-
-  <header class="nav-glass" role="banner">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo" aria-label="Go to top">
-        <img src="assets/logo.png" alt="Rashid logo" width="28" height="28" />
-        <span id="navName">Rashid</span>
+  <nav class="nav-bar" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Home">R</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-item"><i data-lucide="home"></i><span>Home</span></a>
+      <a href="experience.html" class="nav-item"><i data-lucide="briefcase"></i><span>Experience</span></a>
+      <a href="projects.html" class="nav-item"><i data-lucide="folder-kanban"></i><span>Projects</span></a>
+      <a href="skills.html" class="nav-item"><i data-lucide="cpu"></i><span>Skills</span></a>
+      <a href="education.html" class="nav-item"><i data-lucide="graduation-cap"></i><span>Education</span></a>
+      <a href="contact.html" class="nav-item"><i data-lucide="mail"></i><span>Contact</span></a>
+    </div>
+    <div class="nav-actions">
+      <a href="assets/Mohammad-Rashid-CV.pdf" class="btn-icon" title="Download CV" aria-label="Download CV" target="_blank" rel="noopener">
+        <i data-lucide="download"></i>
       </a>
-
-      <button id="mobile-menu-toggle" class="btn btn-icon" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">
-        <span class="menu-open">☰</span><span class="menu-close">✕</span>
+      <button id="theme-toggle" class="btn-icon" title="Toggle theme" aria-label="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
       </button>
+    </div>
+  </nav>
 
-      <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+  <main class="container hero-page">
+    <div class="hero">
+      <p class="hero-location"><i data-lucide="map-pin"></i> Kuala Lumpur, Malaysia</p>
+      <h1 class="hero-name">Mohammad Rashid</h1>
+      <p class="hero-role">SEO Specialist & Data Analyst</p>
+      <p class="hero-bio">I help businesses grow through SEO strategy and data-driven insights.</p>
 
-      <div class="nav-actions">
-        <a href="assets/Mohammad-Rashid-CV.pdf" class="btn btn-secondary btn-magnetic" target="_blank" rel="noopener">
-          Resume
-        </a>
-        <button id="theme-toggle" class="btn btn-icon btn-magnetic" aria-label="Toggle theme">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
+      <div class="hero-links">
+        <a href="mailto:rasyidbejay@gmail.com" class="btn btn-primary"><i data-lucide="mail"></i>Get in touch</a>
+        <a href="https://linkedin.com/in/rasyidbejay" class="btn btn-secondary" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="https://github.com/rasyidbejay" class="btn btn-secondary" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
       </div>
     </div>
-  </header>
 
-  <main>
-    <section id="hero" class="hero-section container reveal">
-      <div class="glass-card hero-content">
-        <p class="eyebrow" id="heroLocation"></p>
-        <h1 class="hero-title"></h1>
-        <p class="hero-subtitle"></p>
-        <p id="heroBio"></p>
-        <div class="hero-actions" id="heroActions"></div>
-      </div>
-    </section>
-
-    <section id="about" class="container reveal">
-      <h2>About</h2>
-      <div class="glass-card" id="aboutCard"></div>
-    </section>
-
-    <section id="experience" class="container reveal">
-      <h2>Experience</h2>
-      <div id="experienceList" class="grid"></div>
-    </section>
-
-    <section id="projects" class="container reveal">
-      <h2>Projects</h2>
-      <div id="projectsList" class="grid"></div>
-    </section>
-
-    <section id="skills" class="container reveal">
-      <h2>Skills</h2>
-      <div id="skillsList" class="skills-grid"></div>
-    </section>
-
-    <section id="education" class="container reveal">
-      <h2>Education & Certifications</h2>
-      <div class="split-grid">
-        <div id="educationList" class="grid"></div>
-        <div id="certificationsList" class="grid"></div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="container reveal">
-      <h2>Testimonials</h2>
-      <div id="testimonialsList" class="grid cols-3"></div>
-    </section>
-
-    <section id="contact" class="container reveal">
-      <h2>Contact</h2>
-      <div class="glass-card contact-card" id="contactCard"></div>
-    </section>
+    <div class="quick-links">
+      <a href="experience.html" class="quick-card"><i data-lucide="briefcase"></i><span>Experience</span><i data-lucide="arrow-right"></i></a>
+      <a href="projects.html" class="quick-card"><i data-lucide="folder-kanban"></i><span>Projects</span><i data-lucide="arrow-right"></i></a>
+      <a href="skills.html" class="quick-card"><i data-lucide="cpu"></i><span>Skills</span><i data-lucide="arrow-right"></i></a>
+    </div>
   </main>
 
-  <script type="module" src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
