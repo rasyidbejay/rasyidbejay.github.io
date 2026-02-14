@@ -416,6 +416,108 @@ p { font-size: 15px; color: var(--text-muted); }
 }
 .tags span i { width: 12px; height: 12px; margin-right: 4px; vertical-align: middle; }
 
+/* Experience Card */
+.exp-card {
+  padding: 24px;
+}
+
+.exp-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.exp-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.exp-card .company {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.exp-card .period {
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.exp-card .description {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Skills & Tools Sections */
+.exp-section {
+  margin-top: 16px;
+}
+
+.exp-section h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.exp-section .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-section .tag {
+  font-size: 12px;
+  padding: 5px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.exp-section .tag:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Tools have different style */
+.exp-section .tag.tool {
+  background: transparent;
+  border: 1px dashed var(--border);
+}
+
+.exp-section .tag.tool:hover {
+  background: var(--bg-secondary);
+  border-style: solid;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .exp-card .card-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .exp-card .period {
+    align-self: flex-start;
+  }
+}
+
+
 .quick-links { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 40px; }
 .quick-card {
   display: flex;
