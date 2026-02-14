@@ -431,34 +431,34 @@ p { font-size: 15px; color: var(--text-muted); }
 
 /* ========== EDUCATION SECTION ========== */
 .education-section {
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .education-card {
-  padding: 24px;
+  padding: 20px;
 }
 
 .education-header {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .education-icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--accent);
-  border-radius: 12px;
-  flex-shrink: 0;
+  border-radius: 10px;
 }
 
 .education-icon i {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: white;
 }
 
@@ -467,77 +467,89 @@ p { font-size: 15px; color: var(--text-muted); }
 }
 
 .education-info h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .education-minor {
-  font-size: 15px;
+  font-size: 13px;
   color: var(--accent);
-  margin: 0 0 4px 0;
+  margin: 0;
 }
 
 .education-school {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
   margin: 0;
 }
 
 .education-period {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
   background: var(--bg-secondary);
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-left: auto;
   white-space: nowrap;
 }
 
 .education-details {
-  padding-top: 16px;
+  padding-top: 12px;
   border-top: 1px solid var(--border);
 }
 
 .education-honor {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
+  gap: 6px;
+  padding: 6px 10px;
   background: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.2);
-  border-radius: 8px;
+  border-radius: 6px;
   color: #f59e0b;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 16px;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
 .education-honor i {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .education-coursework h4 {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.education-coursework .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.education-coursework .tag {
+  font-size: 11px;
+  padding: 4px 10px;
 }
 
 /* ========== CERTIFICATIONS GRID ========== */
 .certifications-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 12px;
 }
 
 /* ========== CERTIFICATION CARD ========== */
 .cert-card {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 16px;
-  padding: 20px;
+  padding: 16px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
   animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -555,24 +567,19 @@ p { font-size: 15px; color: var(--text-muted); }
 }
 
 .cert-image {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  max-width: 60px;
   flex-shrink: 0;
   border-radius: 12px;
   overflow: hidden;
   background: var(--bg-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .cert-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.cert-image.badge-image img {
   object-fit: contain;
   padding: 8px;
 }
@@ -606,112 +613,77 @@ p { font-size: 15px; color: var(--text-muted); }
 }
 
 .cert-issuer {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-size: 13px;
   color: var(--text-muted);
-  margin: 0 0 8px 0;
-}
-
-.issuer-logo {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
-.issuer-logo.fcc {
-  width: 20px;
-  height: 20px;
+  margin: 0 0 6px 0;
 }
 
 .cert-id {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin: 0 0 10px 0;
-  opacity: 0.7;
+  display: none;
 }
 
 .cert-skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .cert-skills .tag {
-  font-size: 11px;
-  padding: 4px 8px;
+  font-size: 10px;
+  padding: 3px 8px;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: 4px;
   color: var(--text-muted);
 }
 
 .cert-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 500;
+  gap: 4px;
+  font-size: 12px;
   color: var(--accent);
   text-decoration: none;
-  transition: gap 0.2s ease;
-}
-
-.cert-link:hover {
-  gap: 10px;
 }
 
 .cert-link i {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 
 @media (max-width: 900px) {
   .certifications-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
 @media (max-width: 640px) {
   .education-header {
-    flex-direction: column;
-    gap: 12px;
+    flex-wrap: wrap;
   }
 
   .education-period {
-    align-self: flex-start;
+    margin-left: 0;
+    margin-top: 8px;
   }
 
-  .cert-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .cert-image {
-    width: 100px;
-    height: 100px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    max-width: 48px;
   }
 
-  .cert-header {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .cert-issuer {
-    justify-content: center;
-  }
-
-  .cert-skills {
-    justify-content: center;
-  }
-
-  .cert-link {
-    justify-content: center;
+  .cert-image img {
+    padding: 6px;
   }
 }
 
