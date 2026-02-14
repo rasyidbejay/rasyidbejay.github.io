@@ -2058,3 +2058,87 @@ hr, .divider { display: none; }
     margin-right: 0;
   }
 }
+
+/* ===== Consistent grouped icon actions (desktop + mobile) ===== */
+.top-bar-actions,
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+[data-theme="light"] .top-bar-actions,
+[data-theme="light"] .mobile-actions {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+[data-theme="light"] .action-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.action-btn i {
+  width: 18px;
+  height: 18px;
+}
+
+.top-bar-actions .divider,
+.mobile-actions .divider {
+  display: block;
+  width: 1px;
+  height: 20px;
+  margin: 0 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .top-bar-actions .divider,
+[data-theme="light"] .mobile-actions .divider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 769px) {
+  .top-bar-actions {
+    padding: 6px;
+    border-radius: 16px;
+  }
+
+  .top-bar-actions .action-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .top-bar-actions .action-btn i {
+    width: 20px;
+    height: 20px;
+  }
+
+  .top-bar-actions .divider {
+    height: 24px;
+  }
+}
