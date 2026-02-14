@@ -15,7 +15,6 @@
       "instagram": "https://www.instagram.com/rasyidbejay/"
     }
   },
-
   "experience": [
     {
       "id": "exp-1",
@@ -24,14 +23,39 @@
       "location": "Kuala Lumpur",
       "period": "Jun 2025 – Present",
       "type": "full-time",
-      "description": "Build and optimize SEO-friendly websites for B2B clients. Handle frontend performance, Core Web Vitals, and technical SEO implementation.",
-      "highlights": [
-        "Develop responsive landing pages optimized for conversions",
-        "Implement technical SEO — site speed, Core Web Vitals, crawl optimization",
-        "Build custom UI components and interactive features",
-        "Track performance via GA4, Search Console, and SEMrush"
+      "description": "Build and optimize SEO-friendly websites for B2B clients with a strong focus on frontend performance and technical SEO. Improve Core Web Vitals, mobile responsiveness, and page load times. Work with cross-functional teams to implement cutting-edge web technologies.",
+      "skills": [
+        "On-page SEO",
+        "Off-page SEO",
+        "Technical SEO",
+        "Local SEO",
+        "International SEO",
+        "Content Strategy",
+        "Conversion Rate Optimization",
+        "UX/UI Principles",
+        "Mobile SEO",
+        "E-commerce SEO",
+        "Website Architecture",
+        "Schema Markup",
+        "Keyword Research",
+        "Competitor Analysis",
+        "A/B Testing",
+        "Link Building"
       ],
-      "tags": ["JavaScript", "HTML/CSS", "Technical SEO", "GA4", "Web Performance"]
+      "tools": [
+        "Google Analytics",
+        "Google Data Studio",
+        "SEMrush",
+        "Ahrefs",
+        "Moz",
+        "RankMath",
+        "Yoast",
+        "WordPress",
+        "Shopify",
+        "HubSpot",
+        "Vercel",
+        "Figma"
+      ]
     },
     {
       "id": "exp-2",
@@ -40,13 +64,26 @@
       "location": "Kuala Lumpur",
       "period": "Mar 2025 – May 2025",
       "type": "internship",
-      "description": "Supported SEO operations and built frontend components for client websites.",
-      "highlights": [
-        "Developed custom page layouts and responsive components",
-        "Performed SEO audits and implemented frontend fixes",
-        "Created SEO-optimized landing pages"
+      "description": "Supported SEO operations and developed responsive frontend components. Performed SEO audits, keyword research, and content optimization. Collaborated with the team to implement on-page SEO strategies aligned with web standards.",
+      "skills": [
+        "Keyword Research",
+        "On-Page SEO",
+        "Technical SEO Basics",
+        "SEO Audits",
+        "Backlink Research",
+        "Content Optimization",
+        "Competitor Research",
+        "SEO Reporting",
+        "Social Media SEO",
+        "Local SEO Basics"
       ],
-      "tags": ["WordPress", "HTML/CSS", "SEO Audits", "Responsive Design"]
+      "tools": [
+        "Google Analytics",
+        "Google Search Console",
+        "WordPress",
+        "HTML",
+        "CSS"
+      ]
     },
     {
       "id": "exp-3",
@@ -55,13 +92,30 @@
       "location": "Remote",
       "period": "Aug 2024 – Mar 2025",
       "type": "full-time",
-      "description": "Built interactive dashboards and data visualizations using modern tools.",
-      "highlights": [
-        "Created interactive dashboards with Power BI and Tableau",
-        "Built data visualization components",
-        "Automated reporting workflows"
+      "description": "Built interactive dashboards and data visualizations using Power BI and Tableau. Streamlined reporting workflows and presented complex data in actionable formats. Automated reports to reduce manual effort and ensure timely delivery of business intelligence.",
+      "skills": [
+        "Data Manipulation",
+        "Statistical Analysis",
+        "Data Mining",
+        "Data Wrangling",
+        "Hypothesis Testing",
+        "Regression Analysis",
+        "Problem-solving",
+        "Critical Thinking",
+        "Report Generation",
+        "Dashboard Creation",
+        "Stakeholder Presentation"
       ],
-      "tags": ["Power BI", "Tableau", "SQL", "Data Visualization"]
+      "tools": [
+        "SQL",
+        "Python",
+        "R",
+        "Power BI",
+        "Tableau",
+        "Google Data Studio",
+        "Excel",
+        "Pandas"
+      ]
     },
     {
       "id": "exp-4",
@@ -70,13 +124,28 @@
       "location": "Kuala Lumpur",
       "period": "Feb 2024 – Aug 2024",
       "type": "full-time",
-      "description": "Implemented SEO strategies and optimized website performance through frontend improvements.",
-      "highlights": [
-        "Improved Core Web Vitals scores through frontend optimization",
-        "Built SEO-friendly page templates",
-        "Implemented structured data and schema markup"
+      "description": "Implemented comprehensive SEO strategies including keyword research, on-page optimization, and backlink development. Monitored website performance, conducted SEO audits, and improved site rankings and organic traffic.",
+      "skills": [
+        "Keyword Research",
+        "On-Page SEO",
+        "Technical SEO",
+        "Backlink Strategy",
+        "SEO Audits",
+        "Competitor Analysis",
+        "Content Optimization",
+        "Analytics & Reporting",
+        "Local SEO",
+        "Mobile SEO",
+        "Link Building",
+        "E-commerce SEO"
       ],
-      "tags": ["Technical SEO", "WordPress", "Page Speed", "Schema Markup"]
+      "tools": [
+        "WordPress",
+        "Google Analytics",
+        "Google Search Console",
+        "SEMrush",
+        "Ahrefs"
+      ]
     },
     {
       "id": "exp-5",
@@ -85,17 +154,40 @@
       "location": "Remote",
       "period": "Jan 2023 – Present",
       "type": "freelance",
-      "description": "Design and develop responsive, high-performance websites with modern frontend technologies.",
-      "highlights": [
-        "Build responsive websites with HTML, CSS, JavaScript",
-        "Create interactive UI components and animations",
-        "Optimize for performance and SEO",
-        "Implement modern CSS (Flexbox, Grid, animations)"
+      "description": "Design and develop responsive, high-performance websites optimized for speed and SEO. Create interactive frontends using modern JavaScript frameworks. Integrate APIs, optimize performance, and ensure cross-browser compatibility.",
+      "skills": [
+        "Web Development",
+        "Frontend Optimization",
+        "Responsive Design",
+        "React.js",
+        "Vue.js",
+        "Angular",
+        "REST API Integration",
+        "Cross-browser Compatibility",
+        "Performance Optimization",
+        "SEO Best Practices"
       ],
-      "tags": ["JavaScript", "HTML/CSS", "React", "Responsive Design", "SEO"]
+      "tools": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React.js",
+        "Vue.js",
+        "Angular",
+        "Node.js",
+        "PHP",
+        "MySQL",
+        "MongoDB",
+        "Git",
+        "AWS",
+        "Vercel",
+        "Figma",
+        "Docker",
+        "WooCommerce",
+        "Shopify"
+      ]
     }
   ],
-
   "projects": [
     {
       "id": "proj-1",
@@ -103,7 +195,13 @@
       "description": "Multi-page portfolio built from scratch with vanilla HTML, CSS, and JavaScript. Features smooth animations, dark/light mode, responsive design, and optimized performance.",
       "period": "2025",
       "category": "Frontend Development",
-      "tags": ["HTML", "CSS", "JavaScript", "Responsive", "Animations"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Responsive",
+        "Animations"
+      ],
       "highlights": [
         "Custom CSS animations and transitions",
         "Theme switching with localStorage",
@@ -122,7 +220,12 @@
       "description": "SEO-optimized WordPress website with custom frontend components. Improved organic visibility and student recruitment.",
       "period": "Jul 2025 – Present",
       "category": "Frontend + SEO",
-      "tags": ["WordPress", "Custom CSS", "Technical SEO", "Core Web Vitals"],
+      "tags": [
+        "WordPress",
+        "Custom CSS",
+        "Technical SEO",
+        "Core Web Vitals"
+      ],
       "highlights": [
         "Custom responsive layouts",
         "Core Web Vitals optimization",
@@ -141,7 +244,12 @@
       "description": "Custom e-commerce frontend on SiteGiant platform. Delivered in 2-3 weeks with responsive layouts and optimized UX.",
       "period": "May 2025",
       "category": "Frontend Development",
-      "tags": ["E-commerce", "Responsive Design", "Custom CSS", "UX"],
+      "tags": [
+        "E-commerce",
+        "Responsive Design",
+        "Custom CSS",
+        "UX"
+      ],
       "highlights": [
         "Custom page layouts and banners",
         "Responsive product galleries",
@@ -160,7 +268,13 @@
       "description": "Full-stack web application with responsive Bootstrap frontend. Features authentication, CRUD operations, and calendar visualization.",
       "period": "2024",
       "category": "Full-Stack",
-      "tags": ["Python", "Flask", "Bootstrap", "JavaScript", "SQLite"],
+      "tags": [
+        "Python",
+        "Flask",
+        "Bootstrap",
+        "JavaScript",
+        "SQLite"
+      ],
       "highlights": [
         "Responsive UI with Bootstrap",
         "Interactive calendar component",
@@ -179,7 +293,12 @@
       "description": "Custom dashboard built for MA Insights with interactive charts and data visualizations.",
       "period": "2024",
       "category": "Data Visualization",
-      "tags": ["Power BI", "Tableau", "Data Viz", "UI Design"],
+      "tags": [
+        "Power BI",
+        "Tableau",
+        "Data Viz",
+        "UI Design"
+      ],
       "highlights": [
         "Interactive filtering and drill-down",
         "Custom visual components",
@@ -192,7 +311,6 @@
       "featured": false
     }
   ],
-
   "skills": {
     "frontend": {
       "title": "Frontend Development",
@@ -273,14 +391,15 @@
       ]
     }
   },
-
   "education": {
     "degree": "Bachelor of Business Administration (Honours)",
     "minor": "Minor in Information Systems",
     "institution": "International Islamic University Malaysia (IIUM)",
     "location": "Gombak, Malaysia",
     "period": "2020 – 2025",
-    "honors": ["Dean's List Award Recipient"],
+    "honors": [
+      "Dean's List Award Recipient"
+    ],
     "coursework": [
       "Web Development",
       "Information Systems",
@@ -288,45 +407,63 @@
       "Project Management"
     ]
   },
-
   "certifications": [
     {
       "name": "MDEC Global Outsourcing Talent (GOT) Programme",
       "issuer": "Malaysia Digital Economy Corporation",
       "date": "Aug 2025",
-      "skills": ["Web Design", "Web Development", "SEO", "WordPress"],
+      "skills": [
+        "Web Design",
+        "Web Development",
+        "SEO",
+        "WordPress"
+      ],
       "featured": true
     },
     {
       "name": "Google Data Analytics Professional Certificate",
       "issuer": "Google / Coursera",
       "date": "Mar 2025",
-      "skills": ["Data Analytics", "SQL", "Visualization"],
+      "skills": [
+        "Data Analytics",
+        "SQL",
+        "Visualization"
+      ],
       "featured": true
     },
     {
       "name": "Responsive Web Design",
       "issuer": "freeCodeCamp",
       "date": "2024",
-      "skills": ["HTML", "CSS", "Responsive Design"],
+      "skills": [
+        "HTML",
+        "CSS",
+        "Responsive Design"
+      ],
       "featured": true
     },
     {
       "name": "JavaScript Algorithms and Data Structures",
       "issuer": "freeCodeCamp",
       "date": "2024",
-      "skills": ["JavaScript", "Algorithms", "ES6"],
+      "skills": [
+        "JavaScript",
+        "Algorithms",
+        "ES6"
+      ],
       "featured": true
     },
     {
       "name": "Career Essentials in Business Analysis",
       "issuer": "Microsoft & LinkedIn",
       "date": "Jul 2024",
-      "skills": ["Business Analysis", "Requirements"],
+      "skills": [
+        "Business Analysis",
+        "Requirements"
+      ],
       "featured": false
     }
   ],
-
   "testimonials": [
     {
       "quote": "Rashid built our e-commerce store in record time. Clean code, responsive design, and SEO-ready from day one.",
