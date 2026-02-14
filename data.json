@@ -21,7 +21,7 @@
       "role": "SEO & Web Specialist",
       "company": "Audience Intelligence",
       "location": "Kuala Lumpur",
-      "period": "Jun 2025 – Present",
+      "period": "Jun 2025 \u2013 Present",
       "type": "full-time",
       "description": "Build and optimize SEO-friendly websites for B2B clients with a strong focus on frontend performance and technical SEO. Improve Core Web Vitals, mobile responsiveness, and page load times. Work with cross-functional teams to implement cutting-edge web technologies.",
       "skills": [
@@ -62,7 +62,7 @@
       "role": "SEO Specialist Intern",
       "company": "Riwei Marketing",
       "location": "Kuala Lumpur",
-      "period": "Mar 2025 – May 2025",
+      "period": "Mar 2025 \u2013 May 2025",
       "type": "internship",
       "description": "Supported SEO operations and developed responsive frontend components. Performed SEO audits, keyword research, and content optimization. Collaborated with the team to implement on-page SEO strategies aligned with web standards.",
       "skills": [
@@ -90,7 +90,7 @@
       "role": "Junior Data Analyst",
       "company": "MA Insights",
       "location": "Remote",
-      "period": "Aug 2024 – Mar 2025",
+      "period": "Aug 2024 \u2013 Mar 2025",
       "type": "full-time",
       "description": "Built interactive dashboards and data visualizations using Power BI and Tableau. Streamlined reporting workflows and presented complex data in actionable formats. Automated reports to reduce manual effort and ensure timely delivery of business intelligence.",
       "skills": [
@@ -122,7 +122,7 @@
       "role": "SEO Specialist",
       "company": "Suave Designs",
       "location": "Kuala Lumpur",
-      "period": "Feb 2024 – Aug 2024",
+      "period": "Feb 2024 \u2013 Aug 2024",
       "type": "full-time",
       "description": "Implemented comprehensive SEO strategies including keyword research, on-page optimization, and backlink development. Monitored website performance, conducted SEO audits, and improved site rankings and organic traffic.",
       "skills": [
@@ -152,7 +152,7 @@
       "role": "Freelance Frontend Developer",
       "company": "Self-Employed",
       "location": "Remote",
-      "period": "Jan 2023 – Present",
+      "period": "Jan 2023 \u2013 Present",
       "type": "freelance",
       "description": "Design and develop responsive, high-performance websites optimized for speed and SEO. Create interactive frontends using modern JavaScript frameworks. Integrate APIs, optimize performance, and ensure cross-browser compatibility.",
       "skills": [
@@ -191,123 +191,154 @@
   "projects": [
     {
       "id": "proj-1",
-      "title": "Personal Portfolio Website",
-      "description": "Multi-page portfolio built from scratch with vanilla HTML, CSS, and JavaScript. Features smooth animations, dark/light mode, responsive design, and optimized performance.",
-      "period": "2025",
-      "category": "Frontend Development",
-      "tags": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Responsive",
-        "Animations"
+      "title": "Britannia Language Centre Website",
+      "description": "A custom SEO-optimized WordPress site designed to improve online presence. Focused on custom frontend components, mobile responsiveness, and targeted SEO strategies to increase student recruitment and engagement.",
+      "category": "Frontend + SEO",
+      "tools": [
+        "WordPress",
+        "Core Web Vitals",
+        "Google Search Console",
+        "PageSpeed Insights"
       ],
-      "highlights": [
-        "Custom CSS animations and transitions",
-        "Theme switching with localStorage",
-        "Mobile-first responsive design",
-        "Optimized for Core Web Vitals"
+      "skills": [
+        "WordPress Development",
+        "On-Page SEO",
+        "Frontend Development",
+        "SEO Strategy",
+        "Mobile Optimization"
       ],
-      "links": {
-        "live": "https://www.rasyidbejay.com",
-        "github": "https://github.com/rasyidbejay/rasyidbejay.github.io"
-      },
+      "link": "https://britannia.edu.my",
       "featured": true
     },
     {
       "id": "proj-2",
-      "title": "Britannia Language Centre Website",
-      "description": "SEO-optimized WordPress website with custom frontend components. Improved organic visibility and student recruitment.",
-      "period": "Jul 2025 – Present",
-      "category": "Frontend + SEO",
-      "tags": [
-        "WordPress",
+      "title": "ERP Webstore \u2013 Riwei Marketing",
+      "description": "Custom e-commerce website on SiteGiant with responsive frontend and enhanced UX. Implemented GA4 integration for tracking and insights. Delivered in 2-3 weeks.",
+      "category": "E-commerce",
+      "tools": [
+        "SiteGiant",
+        "GA4",
         "Custom CSS",
-        "Technical SEO",
-        "Core Web Vitals"
+        "Responsive Design"
       ],
-      "highlights": [
-        "Custom responsive layouts",
-        "Core Web Vitals optimization",
-        "On-page SEO implementation",
-        "Schema markup for local SEO"
+      "skills": [
+        "E-commerce Development",
+        "UX Design",
+        "Web Performance",
+        "Google Analytics",
+        "Custom CSS",
+        "Responsive Design"
       ],
-      "links": {
-        "live": null,
-        "github": null
-      },
+      "link": "https://riwei.com.my",
       "featured": true
     },
     {
       "id": "proj-3",
-      "title": "ERP Webstore – Riwei Marketing",
-      "description": "Custom e-commerce frontend on SiteGiant platform. Delivered in 2-3 weeks with responsive layouts and optimized UX.",
-      "period": "May 2025",
-      "category": "Frontend Development",
-      "tags": [
-        "E-commerce",
-        "Responsive Design",
-        "Custom CSS",
-        "UX"
+      "title": "HabitFlow \u2013 Task Tracker App",
+      "description": "Full-stack web application for task management using Python (Flask) and Bootstrap. Features user authentication, CRUD operations, and calendar visualization to help users organize workflow and track progress.",
+      "category": "Full-Stack",
+      "tools": [
+        "Python",
+        "Flask",
+        "Bootstrap",
+        "SQLAlchemy",
+        "Jinja2"
       ],
-      "highlights": [
-        "Custom page layouts and banners",
-        "Responsive product galleries",
-        "Optimized checkout flow",
-        "GA4 integration"
+      "skills": [
+        "Full-stack Development",
+        "Backend Development",
+        "Frontend Development",
+        "Authentication",
+        "Database Integration",
+        "CRUD Operations"
       ],
-      "links": {
-        "live": null,
-        "github": null
-      },
+      "link": null,
       "featured": true
     },
     {
       "id": "proj-4",
-      "title": "HabitFlow – Task Tracker App",
-      "description": "Full-stack web application with responsive Bootstrap frontend. Features authentication, CRUD operations, and calendar visualization.",
-      "period": "2024",
-      "category": "Full-Stack",
-      "tags": [
-        "Python",
-        "Flask",
-        "Bootstrap",
-        "JavaScript",
-        "SQLite"
+      "title": "Cyclistic Bike-Share Case Study",
+      "description": "Tableau project analyzing bike-share data to compare annual members vs. casual riders. Highlighted trip frequency, ride duration, and usage trends to inform marketing strategies for increasing memberships.",
+      "category": "Data Analytics",
+      "tools": [
+        "Tableau",
+        "Excel",
+        "CSV",
+        "Statistical Analysis"
       ],
-      "highlights": [
-        "Responsive UI with Bootstrap",
-        "Interactive calendar component",
-        "Real-time form validation",
-        "Mobile-friendly design"
+      "skills": [
+        "Data Analysis",
+        "Data Visualization",
+        "Tableau Dashboard",
+        "Data Cleaning",
+        "Statistical Analysis",
+        "Marketing Strategy"
       ],
-      "links": {
-        "live": null,
-        "github": null
-      },
+      "link": "https://public.tableau.com/app/profile/your-profile/viz/CyclisticBikeShare",
       "featured": true
     },
     {
       "id": "proj-5",
-      "title": "Interactive Data Dashboard",
-      "description": "Custom dashboard built for MA Insights with interactive charts and data visualizations.",
-      "period": "2024",
-      "category": "Data Visualization",
-      "tags": [
-        "Power BI",
+      "title": "Humanitarian Impact Assessment \u2013 Gaza & West Bank",
+      "description": "Tableau dashboard visualizing the impact of ongoing conflict, focusing on daily casualties. Uses real-time data to depict trends and patterns, providing insights for humanitarian organizations and policymakers.",
+      "category": "Data Analytics",
+      "tools": [
         "Tableau",
-        "Data Viz",
-        "UI Design"
+        "Data Integration",
+        "Interactive Visualizations"
       ],
-      "highlights": [
-        "Interactive filtering and drill-down",
-        "Custom visual components",
-        "Real-time data updates"
+      "skills": [
+        "Humanitarian Data Analysis",
+        "Dashboard Design",
+        "Data Interpretation",
+        "Real-time Data",
+        "Visual Storytelling"
       ],
-      "links": {
-        "live": null,
-        "github": null
-      },
+      "link": "https://public.tableau.com/app/profile/your-profile/viz/HumanitarianImpact",
+      "featured": true
+    },
+    {
+      "id": "proj-6",
+      "title": "CO2 Emissions Per Country",
+      "description": "Interactive Tableau dashboard visualizing global CO2 emissions by country, continent, and industrial sector. Provides insights into climate change contributors and supports mitigation strategies.",
+      "category": "Data Analytics",
+      "tools": [
+        "Tableau",
+        "Excel",
+        "Geo-Spatial Visualizations"
+      ],
+      "skills": [
+        "Environmental Data Viz",
+        "Geo-Spatial Analysis",
+        "Dashboard Interactivity",
+        "Data Cleaning",
+        "Climate Awareness"
+      ],
+      "link": "https://public.tableau.com/app/profile/your-profile/viz/CO2Emissions",
+      "featured": false
+    },
+    {
+      "id": "proj-7",
+      "title": "Apple Stock Analysis 2025",
+      "description": "In-depth stock analysis using historical data. Engineered features like moving averages and RSI, built ML models (Linear Regression, Random Forest, Gradient Boosting) to forecast stock prices with MAE and RMSE evaluation.",
+      "category": "Machine Learning",
+      "tools": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-Learn",
+        "Matplotlib",
+        "Seaborn",
+        "Kaggle"
+      ],
+      "skills": [
+        "Stock Market Analysis",
+        "Time Series Forecasting",
+        "Feature Engineering",
+        "Machine Learning",
+        "Financial Analysis"
+      ],
+      "link": "https://www.kaggle.com/your-profile/apple-stock-analysis-2025",
       "featured": false
     }
   ],
@@ -396,7 +427,7 @@
     "minor": "Minor in Information Systems",
     "institution": "International Islamic University Malaysia (IIUM)",
     "location": "Gombak, Malaysia",
-    "period": "2020 – 2025",
+    "period": "2020 \u2013 2025",
     "honors": [
       "Dean's List Award Recipient"
     ],
