@@ -26,7 +26,7 @@
 
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-  document.querySelectorAll('.nav-links a, .tab').forEach((link) => {
+  document.querySelectorAll('.nav-item, .dock-item').forEach((link) => {
     const href = link.getAttribute('href');
     if (href === currentPage) {
       link.classList.add('active');
@@ -36,4 +36,35 @@
       link.removeAttribute('aria-current');
     }
   });
+
+  document.querySelectorAll('a[href]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const href = link.getAttribute('href');
+
+      if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('#') || link.getAttribute('target') === '_blank') {
+        return;
+      }
+
+      event.preventDefault();
+      const pageWrapper = document.querySelector('.page-wrapper');
+
+      if (pageWrapper) {
+        pageWrapper.style.animation = 'pageExit 0.3s ease forwards';
+        setTimeout(() => {
+          window.location.href = href;
+        }, 250);
+      } else {
+        window.location.href = href;
+      }
+    });
+  });
+
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes pageExit {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+  `;
+  document.head.appendChild(style);
 })();
