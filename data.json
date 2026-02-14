@@ -21,7 +21,7 @@
       "role": "SEO & Web Specialist",
       "company": "Audience Intelligence",
       "location": "Kuala Lumpur",
-      "period": "Jun 2025 \u2013 Present",
+      "period": "Jun 2025 – Present",
       "type": "full-time",
       "description": "Build and optimize SEO-friendly websites for B2B clients with a strong focus on frontend performance and technical SEO. Improve Core Web Vitals, mobile responsiveness, and page load times. Work with cross-functional teams to implement cutting-edge web technologies.",
       "skills": [
@@ -62,7 +62,7 @@
       "role": "SEO Specialist Intern",
       "company": "Riwei Marketing",
       "location": "Kuala Lumpur",
-      "period": "Mar 2025 \u2013 May 2025",
+      "period": "Mar 2025 – May 2025",
       "type": "internship",
       "description": "Supported SEO operations and developed responsive frontend components. Performed SEO audits, keyword research, and content optimization. Collaborated with the team to implement on-page SEO strategies aligned with web standards.",
       "skills": [
@@ -90,7 +90,7 @@
       "role": "Junior Data Analyst",
       "company": "MA Insights",
       "location": "Remote",
-      "period": "Aug 2024 \u2013 Mar 2025",
+      "period": "Aug 2024 – Mar 2025",
       "type": "full-time",
       "description": "Built interactive dashboards and data visualizations using Power BI and Tableau. Streamlined reporting workflows and presented complex data in actionable formats. Automated reports to reduce manual effort and ensure timely delivery of business intelligence.",
       "skills": [
@@ -122,7 +122,7 @@
       "role": "SEO Specialist",
       "company": "Suave Designs",
       "location": "Kuala Lumpur",
-      "period": "Feb 2024 \u2013 Aug 2024",
+      "period": "Feb 2024 – Aug 2024",
       "type": "full-time",
       "description": "Implemented comprehensive SEO strategies including keyword research, on-page optimization, and backlink development. Monitored website performance, conducted SEO audits, and improved site rankings and organic traffic.",
       "skills": [
@@ -152,7 +152,7 @@
       "role": "Freelance Frontend Developer",
       "company": "Self-Employed",
       "location": "Remote",
-      "period": "Jan 2023 \u2013 Present",
+      "period": "Jan 2023 – Present",
       "type": "freelance",
       "description": "Design and develop responsive, high-performance websites optimized for speed and SEO. Create interactive frontends using modern JavaScript frameworks. Integrate APIs, optimize performance, and ensure cross-browser compatibility.",
       "skills": [
@@ -212,7 +212,7 @@
     },
     {
       "id": "proj-2",
-      "title": "ERP Webstore \u2013 Riwei Marketing",
+      "title": "ERP Webstore – Riwei Marketing",
       "description": "Custom e-commerce website on SiteGiant with responsive frontend and enhanced UX. Implemented GA4 integration for tracking and insights. Delivered in 2-3 weeks.",
       "category": "E-commerce",
       "tools": [
@@ -234,7 +234,7 @@
     },
     {
       "id": "proj-3",
-      "title": "HabitFlow \u2013 Task Tracker App",
+      "title": "HabitFlow – Task Tracker App",
       "description": "Full-stack web application for task management using Python (Flask) and Bootstrap. Features user authentication, CRUD operations, and calendar visualization to help users organize workflow and track progress.",
       "category": "Full-Stack",
       "tools": [
@@ -279,7 +279,7 @@
     },
     {
       "id": "proj-5",
-      "title": "Humanitarian Impact Assessment \u2013 Gaza & West Bank",
+      "title": "Humanitarian Impact Assessment – Gaza & West Bank",
       "description": "Tableau dashboard visualizing the impact of ongoing conflict, focusing on daily casualties. Uses real-time data to depict trends and patterns, providing insights for humanitarian organizations and policymakers.",
       "category": "Data Analytics",
       "tools": [
@@ -427,7 +427,7 @@
     "minor": "Minor in Information Systems",
     "institution": "International Islamic University Malaysia (IIUM)",
     "location": "Gombak, Malaysia",
-    "period": "2020 \u2013 2025",
+    "period": "2020 – 2025",
     "honors": [
       "Dean's List Award Recipient"
     ],
@@ -440,59 +440,91 @@
   },
   "certifications": [
     {
-      "name": "MDEC Global Outsourcing Talent (GOT) Programme",
-      "issuer": "Malaysia Digital Economy Corporation",
+      "id": "cert-1",
+      "name": "Google Data Analytics",
+      "issuer": "Google",
+      "platform": "Coursera",
+      "date": "Mar 2025",
+      "credentialId": "YM89MN1AS20X",
+      "credentialUrl": "https://www.coursera.org/account/accomplishments/specialization/YM89MN1AS20X",
+      "image": "assets/certs/google-data-analytics.png",
+      "skills": [
+        "Data Analysis",
+        "SQL",
+        "R",
+        "Tableau",
+        "Data Cleaning",
+        "Data Visualization"
+      ],
+      "featured": true
+    },
+    {
+      "id": "cert-2",
+      "name": "Career Essentials in Data Analysis",
+      "issuer": "Microsoft",
+      "platform": "LinkedIn Learning",
+      "date": "Jul 2024",
+      "credentialId": "b885b95ff5b02316ebd5127d3aca7f29ad9fe268fd2a6aeee36fbe5a79a5fcbc",
+      "credentialUrl": "https://www.linkedin.com/learning/certificates/b885b95ff5b02316ebd5127d3aca7f29ad9fe268fd2a6aeee36fbe5a79a5fcbc",
+      "image": "assets/certs/microsoft-data-analysis.png",
+      "skills": [
+        "Data Analytics",
+        "Data Analysis",
+        "Data Visualization"
+      ],
+      "featured": true
+    },
+    {
+      "id": "cert-3",
+      "name": "Google Data Analytics Professional Certificate",
+      "issuer": "Google",
+      "platform": "Credly",
+      "date": "Mar 2025",
+      "credentialId": "f7453f48-784d-4eae-95d1-149f93450cc4",
+      "credentialUrl": "https://www.credly.com/badges/f7453f48-784d-4eae-95d1-149f93450cc4/linked_in_profile",
+      "image": "assets/certs/google-data-analytics-badge.png",
+      "skills": [
+        "Data Analytics",
+        "SQL",
+        "Spreadsheets",
+        "Data Visualization"
+      ],
+      "featured": true
+    },
+    {
+      "id": "cert-4",
+      "name": "MOHE-MDEC Global Outsourcing Talent (GOT) Programme",
+      "issuer": "Malaysia Digital Economy Corporation (MDEC)",
+      "platform": "MDEC",
       "date": "Aug 2025",
+      "credentialId": "HVG005906",
+      "credentialUrl": null,
+      "image": "assets/certs/mdec-got.png",
       "skills": [
         "Web Design",
-        "Web Development",
+        "Web Marketing Strategy",
         "SEO",
         "WordPress"
       ],
       "featured": true
     },
     {
-      "name": "Google Data Analytics Professional Certificate",
-      "issuer": "Google / Coursera",
-      "date": "Mar 2025",
-      "skills": [
-        "Data Analytics",
-        "SQL",
-        "Visualization"
-      ],
-      "featured": true
-    },
-    {
-      "name": "Responsive Web Design",
+      "id": "cert-5",
+      "name": "Data Visualization",
       "issuer": "freeCodeCamp",
-      "date": "2024",
-      "skills": [
-        "HTML",
-        "CSS",
-        "Responsive Design"
-      ],
-      "featured": true
-    },
-    {
-      "name": "JavaScript Algorithms and Data Structures",
-      "issuer": "freeCodeCamp",
-      "date": "2024",
-      "skills": [
-        "JavaScript",
-        "Algorithms",
-        "ES6"
-      ],
-      "featured": true
-    },
-    {
-      "name": "Career Essentials in Business Analysis",
-      "issuer": "Microsoft & LinkedIn",
+      "platform": "freeCodeCamp",
       "date": "Jul 2024",
+      "credentialId": "rasyidbejay",
+      "credentialUrl": "https://www.freecodecamp.org/certification/rasyidbejay/data-visualization",
+      "image": "assets/certs/freecodecamp-data-viz.png",
       "skills": [
-        "Business Analysis",
-        "Requirements"
+        "D3.js",
+        "Data Visualization",
+        "JavaScript",
+        "HTML",
+        "CSS"
       ],
-      "featured": false
+      "featured": true
     }
   ],
   "testimonials": [
