@@ -50,6 +50,62 @@ body {
   min-height: 100dvh;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+  position: relative;
+  isolation: isolate;
+}
+
+body::before,
+body::after,
+.main-content::before {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(90px);
+  animation: aurora-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+body::before {
+  width: min(50vw, 620px);
+  height: min(50vw, 620px);
+  top: -14%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+body::after {
+  width: min(45vw, 520px);
+  height: min(45vw, 520px);
+  right: -10%;
+  bottom: -12%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, transparent 70%);
+  animation-duration: 28s;
+  animation-delay: -8s;
+}
+
+.main-content::before {
+  width: min(36vw, 430px);
+  height: min(36vw, 430px);
+  top: 40%;
+  left: 42%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+  animation-duration: 32s;
+  animation-delay: -16s;
+}
+
+[data-theme="light"] body::before {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, transparent 70%);
+}
+
+[data-theme="light"] body::after {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%);
+}
+
+[data-theme="light"] .main-content::before {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.14) 0%, transparent 70%);
 }
 
 a { color: inherit; text-decoration: none; }
@@ -1181,6 +1237,18 @@ p { font-size: 15px; color: var(--text-muted); }
   }
 }
 
+@keyframes aurora-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(36px, -28px) scale(1.08);
+  }
+  66% {
+    transform: translate(-24px, 24px) scale(0.94);
+  }
+}
+
 @media (max-width: 768px) {
   .nav-desktop { display: none; }
   .mobile-header { display: flex; }
@@ -1231,6 +1299,32 @@ p { font-size: 15px; color: var(--text-muted); }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  body::before,
+  body::after,
+  .main-content::before {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body::before {
+    width: min(70vw, 420px);
+    height: min(70vw, 420px);
+    filter: blur(70px);
+  }
+
+  body::after {
+    width: min(60vw, 340px);
+    height: min(60vw, 340px);
+    filter: blur(70px);
+  }
+
+  .main-content::before {
+    width: min(52vw, 280px);
+    height: min(52vw, 280px);
+    filter: blur(60px);
   }
 }
 
