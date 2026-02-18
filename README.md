@@ -1,41 +1,68 @@
 # Mohammad Rashid's Personal Portfolio 🌐
 
-Hi! I'm **Mohammad Rashid**, a data analyst, web developer, and SEO specialist based in Kuala Lumpur. This portfolio site showcases my work in data projects, dashboards, SEO implementations, and full-stack development.
+A personal portfolio website for **Mohammad Rashid**, highlighting experience in data analytics, web development, and SEO.
 
-### 🔗 Live Site  
-👉 [rasyidbejay.github.io](https://rasyidbejay.github.io)
+## 🔗 Live Site
 
----
+👉 [https://rasyidbejay.github.io](https://rasyidbejay.github.io)
+
+## ✨ Highlights
+
+- Clean, responsive portfolio layout
+- Dedicated pages for experience, education, projects, and skills
+- Project and certification assets included in-repo
+- Hosted with GitHub Pages
 
 ## 🧰 Tech Stack
 
-- **HTML5, CSS3 (Tailwind)**
-- **JavaScript**
-- **GitHub Pages (hosting)**
-- **Power BI, Tableau, SQL** (project context)
-- **Figma, Adobe XD** (UI/UX work shown)
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla)**
+- **GitHub Pages**
 
----
+## 📁 Project Structure
 
-## 📂 Sections
+```text
+.
+├── index.html
+├── projects.html
+├── experience.html
+├── education.html
+├── skills.html
+├── contact.html
+├── thank-you.html
+├── css/
+├── js/
+├── assets/
+└── data.json
+```
 
-- 💼 **About Me** – Snapshot of who I am and what I do
-- 🧠 **Resume** – Education, experience, certifications
-- 📊 **Projects** – Case studies in analytics, dashboards, SEO
-- 📩 **Contact** – Ways to reach or book a session with me
+## 🚀 Run Locally
 
----
+Since this is a static website, you can open `index.html` directly in your browser.
+
+For a better local dev experience, run a simple local server:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit:
+
+```text
+http://localhost:8000
+```
 
 ## 📸 Preview
 
-![screenshot](assets/preview.png) <!-- Replace this with your actual screenshot -->
+![Portfolio preview](assets/preview.png)
+
+## 🤝 Contact
+
+If you'd like to collaborate, feel free to reach out through the contact page on the site:
+
+- [Contact Form](https://rasyidbejay.github.io/contact.html)
 
 ---
 
-## 🧾 License
-
-This project is licensed under [MIT](LICENSE), feel free to fork and remix with credit.
-
----
-
-Thanks for checking out my portfolio! 🙌
+Thanks for visiting! 🙌
