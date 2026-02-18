@@ -4,7 +4,7 @@ A personal portfolio website for **Mohammad Rashid**, highlighting experience in
 
 ## 🔗 Live Site
 
-👉 [https://rasyidbejay.github.io](https://rasyidbejay.github.io)
+👉 [https://rasyidbejay.github.io](https://rasyidbejay.com)
 
 ## ✨ Highlights
 
@@ -37,25 +37,6 @@ A personal portfolio website for **Mohammad Rashid**, highlighting experience in
 └── data.json
 ```
 
-## 🚀 Run Locally
-
-Since this is a static website, you can open `index.html` directly in your browser.
-
-For a better local dev experience, run a simple local server:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit:
-
-```text
-http://localhost:8000
-```
-
-## 📸 Preview
-
-![Portfolio preview](assets/preview.png)
 
 ## 🤝 Contact
 
