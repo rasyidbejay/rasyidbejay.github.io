@@ -22,17 +22,19 @@ const projects = [
     label: 'BRØW',
     labelColor: '#c8a27a',
     labelFont: 'var(--font-mono)',
+    image: '/brow.png',
   },
   {
-    id: 'lumen',
-    category: 'Frontend',
-    title: 'Lumen Agency',
-    desc: 'Premium multi-page marketing agency website with smooth scroll animations.',
-    tools: ['Vue 3', 'Vue Router', 'CSS3'],
-    bg: 'linear-gradient(135deg, #06060f 0%, #10102a 100%)',
-    label: 'LUMEN',
-    labelColor: '#ffffff',
+    id: 'riwei',
+    category: 'E-Commerce',
+    title: 'ERP Webstore — Riwei',
+    desc: 'Custom e-commerce on SiteGiant with responsive frontend and GA4 integration.',
+    tools: ['SiteGiant', 'GA4', 'Custom CSS'],
+    bg: 'linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 100%)',
+    label: 'Riwei',
+    labelColor: '#4ade80',
     labelFont: 'var(--font-display)',
+    image: '/riwei.png',
   },
   {
     id: 'ripple',
@@ -44,6 +46,7 @@ const projects = [
     label: 'Ripple Habits',
     labelColor: '#10b981',
     labelFont: 'var(--font-display)',
+    image: '/ripple.png',
   },
 ]
 
@@ -100,7 +103,7 @@ export default function Home() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '64px 48px',
+          padding: '64px 56px 64px 64px',
           position: 'relative',
           zIndex: 2,
         }}>
@@ -350,7 +353,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
             style={{
-              padding: '24px 20px',
+              padding: '28px 32px',
               borderRight: i < 3 ? '1px solid var(--border2)' : 'none',
             }}
           >
@@ -383,7 +386,7 @@ export default function Home() {
       </motion.div>
 
       {/* SELECTED WORK */}
-      <section className="section-padding" style={{ padding: '72px 48px' }}>
+      <section className="section-padding" style={{ padding: '72px 64px' }}>
         <motion.div
           initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5 }}
@@ -393,7 +396,7 @@ export default function Home() {
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--accent)', letterSpacing: '2px', textTransform: 'uppercase' }}>Selected Work</span>
           </div>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)', fontWeight: '700', letterSpacing: '-0.8px', marginBottom: '40px' }}>
-            Projects I'm proud of.
+            Highlighted Projects.
           </h2>
         </motion.div>
 
@@ -416,8 +419,28 @@ export default function Home() {
                   cursor: 'pointer',
                   transition: 'border-color 0.25s, box-shadow 0.25s',
                 }}>
-                  <div style={{ height: '170px', background: p.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ fontFamily: p.labelFont, fontSize: '20px', fontWeight: '700', color: p.labelColor, letterSpacing: p.id === 'brow' ? '6px' : '2px' }}>{p.label}</span>
+                  <div style={{
+                    height: '170px',
+                    background: p.image ? `url(${p.image}) center/cover no-repeat` : p.bg,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}>
+                    {!p.image && (
+                      <span style={{
+                        fontFamily: p.labelFont,
+                        fontSize: '20px',
+                        fontWeight: '700',
+                        color: p.labelColor,
+                        letterSpacing: p.id === 'brow' ? '6px' : '2px',
+                      }}>{p.label}</span>
+                    )}
+                    <div style={{
+                      position: 'absolute', inset: 0,
+                      background: 'linear-gradient(to top, rgba(8,11,8,0.5) 0%, transparent 60%)',
+                    }} />
                   </div>
                   <div style={{ padding: '20px' }}>
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--accent)', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '6px' }}>{p.category}</div>
@@ -515,7 +538,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.5 }}
-        style={{ margin: '72px 48px' }}
+        style={{ margin: '0 64px 72px' }}
       >
         <div
           className="cta-banner-inner"
