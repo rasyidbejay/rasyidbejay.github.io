@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(printf 'y\\\\n')",
+      "Bash(npx create-vite@latest . --template react)",
+      "Bash(expect -c ':*)",
+      "Bash(npx create-vite@latest . --no-interactive --template react)",
+      "Read(//private/tmp/**)",
+      "Bash(npx create-vite@latest vite-temp --template react)",
+      "Bash(cp:*)",
+      "Bash(npm install:*)"
+    ]
+  }
+}
