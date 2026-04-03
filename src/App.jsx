@@ -32,7 +32,7 @@ export default function App() {
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
           <Background />
           <Navbar />
-          <main style={{ flex: 1, paddingTop: '62px', position: 'relative', zIndex: 1 }}>
+          <main style={{ flex: 1, paddingTop: '52px', position: 'relative', zIndex: 1 }}>
             <AnimatedRoutes />
           </main>
           <Footer style={{ position: 'relative', zIndex: 1 }} />

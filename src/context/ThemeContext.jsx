@@ -1,14 +1,22 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
-const ThemeContext = createContext()
+export const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
+
+  useEffect(() => {
+    // No attribute set on initial light load — [data-theme="dark"] only applied for dark
+  }, [])
 
   const toggleTheme = () => {
     setTheme(prev => {
       const next = prev === 'dark' ? 'light' : 'dark'
-      document.body.classList.toggle('light', next === 'light')
+      if (next === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark')
+      } else {
+        document.documentElement.removeAttribute('data-theme')
+      }
       return next
     })
   }

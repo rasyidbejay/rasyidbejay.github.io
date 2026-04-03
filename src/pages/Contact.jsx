@@ -3,12 +3,33 @@ import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send } from 'lucide-react'
 import PageTransition from '../components/PageTransition'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: 'easeOut' }
-  }),
+const ease = [0.25, 0.1, 0.25, 1]
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease, delay },
+})
+
+const fadeUpScroll = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.6, ease },
+}
+
+const inputBase = {
+  width: '100%',
+  background: 'var(--rb-bg-secondary)',
+  border: '1px solid var(--rb-border)',
+  borderRadius: '12px',
+  padding: '14px 18px',
+  fontSize: '15px',
+  fontFamily: 'Inter, -apple-system, sans-serif',
+  color: 'var(--rb-text-primary)',
+  outline: 'none',
+  transition: 'border-color 0.2s',
+  boxSizing: 'border-box',
 }
 
 export default function Contact() {
@@ -39,333 +60,221 @@ export default function Contact() {
   return (
     <PageTransition>
 
-      {/* PAGE HERO */}
-      <section className="contact-page-hero" style={{
-        padding: '80px 48px 64px',
-        borderBottom: '1px solid var(--border2)',
-        position: 'relative',
-        overflow: 'hidden',
+      {/* ── PAGE HERO ────────────────────────────────────────────────── */}
+      <section style={{
+        minHeight: '50vh',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        textAlign: 'center',
+        padding: '120px 24px 80px',
+        borderBottom: '1px solid var(--rb-border-subtle)',
       }}>
-        <div style={{
-          position: 'absolute', top: '-100px', right: '-100px',
-          width: '400px', height: '400px',
-          background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
-        <motion.div
-          variants={fadeUp} custom={0} initial="hidden" animate="show"
-          style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}
-        >
-          <div style={{ width: '16px', height: '1px', background: 'var(--accent)' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--accent)', letterSpacing: '2px', textTransform: 'uppercase' }}>Contact</span>
-        </motion.div>
-        <motion.h1
-          variants={fadeUp} custom={1} initial="hidden" animate="show"
-          style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 4.5vw, 4rem)', fontWeight: '700', letterSpacing: '-1.5px', lineHeight: '1.0', marginBottom: '16px' }}
-        >
-          Let's work<br />together.
+        <motion.p {...fadeUp(0)} style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--rb-text-secondary)', marginBottom: '16px' }}>
+          Contact
+        </motion.p>
+        <motion.h1 {...fadeUp(0.1)} style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.0, color: 'var(--rb-text-primary)' }}>
+          Let's work together.
         </motion.h1>
-        <motion.p
-          variants={fadeUp} custom={2} initial="hidden" animate="show"
-          style={{ fontSize: '15px', color: 'var(--text2)', maxWidth: '480px', lineHeight: '1.7' }}
-        >
-          Have a project in mind? I'd love to hear about it. Let's build something great together.
+        <motion.p {...fadeUp(0.2)} style={{ fontSize: '19px', color: 'var(--rb-text-secondary)', marginTop: '20px', lineHeight: 1.6, maxWidth: '480px' }}>
+          Have a project in mind? Get in touch.
         </motion.p>
       </section>
 
-      {/* MAIN GRID */}
-      <section className="contact-main-grid" style={{
-        display: 'grid',
-        gridTemplateColumns: '360px 1fr',
-        gap: '40px',
-        padding: '64px 48px',
-      }}>
+      {/* ── CONTACT LAYOUT ───────────────────────────────────────────── */}
+      <section style={{ padding: '120px 0', borderBottom: '1px solid var(--rb-border-subtle)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 48px' }}>
+          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '38% 62%', gap: '64px', alignItems: 'start' }}>
 
-        {/* INFO CARD */}
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          style={{
-            background: 'var(--surface)',
-            border: '1px solid var(--border2)',
-            borderRadius: '16px',
-            padding: '36px',
-            height: 'fit-content',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-            background: 'linear-gradient(90deg, transparent, var(--accent), transparent)',
-          }} />
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: '700', letterSpacing: '-0.3px', marginBottom: '8px', color: 'var(--text)' }}>
-            Get in touch
-          </h3>
-          <p style={{ fontSize: '13px', color: 'var(--text2)', lineHeight: '1.7', marginBottom: '28px' }}>
-            Open to freelance projects, collaborations, and full-time opportunities.
-          </p>
-
-          {[
-            { icon: <Mail size={15} />, label: 'Email', val: 'rasyidbejay@gmail.com' },
-            { icon: <MapPin size={15} />, label: 'Location', val: 'Kuala Lumpur, Malaysia' },
-            { icon: <Phone size={15} />, label: 'Phone', val: '+60 11-1530 1464' },
-          ].map(({ icon, label, val }) => (
-            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <div style={{
-                width: '38px', height: '38px',
-                background: 'var(--surface2)',
-                border: '1px solid var(--border2)',
-                borderRadius: '10px',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'var(--accent)', flexShrink: 0,
-              }}>{icon}</div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text2)', letterSpacing: '1px', textTransform: 'uppercase' }}>{label}</div>
-                <div style={{ fontSize: '13px', color: 'var(--text)', marginTop: '2px' }}>{val}</div>
-              </div>
-            </div>
-          ))}
-
-          {/* Socials */}
-          <div style={{
-            display: 'flex', gap: '10px',
-            marginTop: '28px', paddingTop: '28px',
-            borderTop: '1px solid var(--border2)',
-          }}>
-            {[
-              { label: 'GitHub', text: 'GH', href: 'https://github.com/rasyidbejay' },
-              { label: 'LinkedIn', text: 'in', href: 'https://linkedin.com/in/rasyidbejay' },
-              { label: 'Instagram', text: 'IG', href: 'https://instagram.com/rasyidbejay' },
-            ].map(({ label, text, href }) => (
-              <motion.a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ borderColor: 'var(--accent)', color: 'var(--accent)', y: -2 }}
-                style={{
-                  width: '38px', height: '38px',
-                  background: 'var(--surface2)',
-                  border: '1px solid var(--border2)',
-                  borderRadius: '10px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--text2)',
-                  textDecoration: 'none',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '10px',
-                  fontWeight: '600',
-                  transition: 'border-color 0.2s, color 0.2s',
-                }}
-              >
-                {text}
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* CONTACT FORM */}
-        <motion.form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-        >
-          {/* Name + Email row */}
-          <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            {[
-              { label: 'Name', name: 'name', type: 'text', placeholder: 'Your name' },
-              { label: 'Email', name: 'email', type: 'email', placeholder: 'your@email.com' },
-            ].map(({ label, name, type, placeholder }) => (
-              <div key={name} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <label style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text2)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>{label}</label>
-                <input
-                  name={name}
-                  type={type}
-                  placeholder={placeholder}
-                  required
-                  style={{
-                    background: 'var(--surface)',
-                    border: '1px solid var(--border2)',
-                    borderRadius: '8px',
-                    padding: '12px 14px',
-                    color: 'var(--text)',
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '13px',
-                    outline: 'none',
-                    transition: 'border-color 0.2s',
-                  }}
-                  onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-                  onBlur={e => e.target.style.borderColor = 'var(--border2)'}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Subject */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <label style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text2)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Subject</label>
-            <input
-              name="subject"
-              type="text"
-              placeholder="Project inquiry"
-              required
+            {/* ── INFO CARD ── */}
+            <motion.div
+              {...fadeUpScroll}
               style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border2)',
-                borderRadius: '8px',
-                padding: '12px 14px',
-                color: 'var(--text)',
-                fontFamily: 'var(--font-body)',
-                fontSize: '13px',
-                outline: 'none',
-                transition: 'border-color 0.2s',
-              }}
-              onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-              onBlur={e => e.target.style.borderColor = 'var(--border2)'}
-            />
-          </div>
-
-          {/* Message */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <label style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text2)', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Message</label>
-            <textarea
-              name="message"
-              placeholder="Tell me about your project..."
-              required
-              rows={6}
-              style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border2)',
-                borderRadius: '8px',
-                padding: '12px 14px',
-                color: 'var(--text)',
-                fontFamily: 'var(--font-body)',
-                fontSize: '13px',
-                outline: 'none',
-                resize: 'vertical',
-                transition: 'border-color 0.2s',
-              }}
-              onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-              onBlur={e => e.target.style.borderColor = 'var(--border2)'}
-            />
-          </div>
-
-          {/* Submit */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <motion.button
-              type="submit"
-              disabled={status === 'sending'}
-              whileHover={{ y: -2, boxShadow: '0 8px 28px rgba(16,185,129,0.35)' }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                padding: '12px 28px',
-                background: status === 'sending' ? 'var(--accent2)' : 'var(--accent)',
-                color: '#fff',
-                fontFamily: 'var(--font-display)',
-                fontSize: '13px',
-                fontWeight: '600',
-                borderRadius: '8px',
-                border: 'none',
-                cursor: status === 'sending' ? 'not-allowed' : 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                transition: 'background 0.2s',
+                background: 'var(--rb-bg-secondary)',
+                border: '1px solid var(--rb-border-subtle)',
+                borderRadius: '20px',
+                padding: '48px',
               }}
             >
-              <Send size={13} />
-              {status === 'sending' ? 'Sending...' : 'Send Message'}
-            </motion.button>
+              <h3 style={{ fontSize: '22px', fontWeight: 600, letterSpacing: '-0.02em', color: 'var(--rb-text-primary)', marginBottom: '8px' }}>Get in touch</h3>
+              <p style={{ fontSize: '15px', color: 'var(--rb-text-secondary)', lineHeight: 1.6, marginBottom: '40px' }}>
+                Open to freelance projects, collaborations, and full-time opportunities.
+              </p>
 
-            {status === 'sent' && (
-              <motion.span
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--accent)' }}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                {[
+                  { icon: <Mail size={16} />, label: 'Email', val: 'rasyidbejay@gmail.com' },
+                  { icon: <MapPin size={16} />, label: 'Location', val: 'Kuala Lumpur, Malaysia' },
+                  { icon: <Phone size={16} />, label: 'Phone', val: '+60 11-1530 1464' },
+                ].map(({ icon, label, val }) => (
+                  <div key={label} style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                    <div style={{
+                      width: '40px', height: '40px', borderRadius: '12px',
+                      background: 'var(--rb-bg-tertiary)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: 'var(--rb-text-secondary)', flexShrink: 0, fontSize: '16px',
+                    }}>{icon}</div>
+                    <div>
+                      <p style={{ fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--rb-text-tertiary)' }}>{label}</p>
+                      <p style={{ fontSize: '15px', color: 'var(--rb-text-primary)', marginTop: '2px' }}>{val}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ height: '1px', background: 'var(--rb-border-subtle)', margin: '40px 0' }} />
+
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                {[
+                  { label: 'GitHub', href: 'https://github.com/rasyidbejay' },
+                  { label: 'LinkedIn', href: 'https://linkedin.com/in/rasyidbejay' },
+                  { label: 'Instagram', href: 'https://instagram.com/rasyidbejay' },
+                ].map(({ label, href }) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ color: 'var(--rb-text-primary)', borderColor: 'var(--rb-text-primary)' }}
+                    style={{
+                      padding: '8px 18px', fontSize: '13px', fontWeight: 500,
+                      border: '1px solid var(--rb-border)', borderRadius: '999px',
+                      color: 'var(--rb-text-secondary)', background: 'transparent',
+                      textDecoration: 'none', transition: 'color 0.2s, border-color 0.2s',
+                      display: 'inline-block',
+                    }}
+                  >
+                    {label}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* ── FORM ── */}
+            <motion.form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              {...fadeUpScroll}
+              style={{ display: 'flex', flexDirection: 'column' }}
+            >
+              {/* Name + Email row */}
+              <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+                {[
+                  { label: 'Name', name: 'name', type: 'text', placeholder: 'Your name' },
+                  { label: 'Email', name: 'email', type: 'email', placeholder: 'your@email.com' },
+                ].map(({ label, name, type, placeholder }) => (
+                  <div key={name}>
+                    <label style={{ display: 'block', fontSize: '12px', fontWeight: 500, color: 'var(--rb-text-secondary)', marginBottom: '8px' }}>{label}</label>
+                    <input
+                      name={name} type={type} placeholder={placeholder} required
+                      style={inputBase}
+                      onFocus={e => e.target.style.borderColor = 'var(--rb-text-primary)'}
+                      onBlur={e => e.target.style.borderColor = 'var(--rb-border)'}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Subject */}
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 500, color: 'var(--rb-text-secondary)', marginBottom: '8px' }}>Subject</label>
+                <input
+                  name="subject" type="text" placeholder="Project inquiry" required
+                  style={inputBase}
+                  onFocus={e => e.target.style.borderColor = 'var(--rb-text-primary)'}
+                  onBlur={e => e.target.style.borderColor = 'var(--rb-border)'}
+                />
+              </div>
+
+              {/* Message */}
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 500, color: 'var(--rb-text-secondary)', marginBottom: '8px' }}>Message</label>
+                <textarea
+                  name="message" placeholder="Tell me about your project..." required rows={7}
+                  style={{ ...inputBase, resize: 'vertical', minHeight: '180px' }}
+                  onFocus={e => e.target.style.borderColor = 'var(--rb-text-primary)'}
+                  onBlur={e => e.target.style.borderColor = 'var(--rb-border)'}
+                />
+              </div>
+
+              {/* Submit */}
+              <motion.button
+                type="submit"
+                disabled={status === 'sending'}
+                whileHover={{ opacity: 0.8 }} whileTap={{ scale: 0.98 }}
+                style={{
+                  width: '100%', padding: '15px',
+                  background: 'var(--rb-text-primary)', color: 'var(--rb-bg)',
+                  fontSize: '15px', fontWeight: 500,
+                  border: 'none', borderRadius: '999px', cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                  transition: 'opacity 0.2s',
+                  opacity: status === 'sending' ? 0.6 : 1,
+                  marginBottom: '16px',
+                }}
               >
-                ✓ Message sent successfully!
-              </motion.span>
-            )}
-            {status === 'error' && (
-              <motion.span
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#f87171' }}
-              >
-                Something went wrong. Try emailing directly.
-              </motion.span>
-            )}
+                <Send size={14} />
+                {status === 'sending' ? 'Sending…' : 'Send Message'}
+              </motion.button>
+
+              {status === 'sent' && (
+                <motion.p initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} style={{ fontSize: '14px', color: 'var(--rb-text-secondary)', textAlign: 'center' }}>
+                  ✓ Message sent successfully!
+                </motion.p>
+              )}
+              {status === 'error' && (
+                <motion.p initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} style={{ fontSize: '14px', color: '#f87171', textAlign: 'center' }}>
+                  Something went wrong. Try emailing directly.
+                </motion.p>
+              )}
+            </motion.form>
           </div>
-        </motion.form>
+        </div>
       </section>
 
-      {/* CTA BANNER */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.5 }}
-        style={{ margin: '0 48px 72px' }}
-      >
-        <div className="contact-cta-wrap" style={{
-          background: 'var(--surface)',
-          border: '1px solid var(--border2)',
-          borderRadius: '12px',
-          padding: '44px',
-          textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-        }}>
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'radial-gradient(ellipse at center, var(--accent-glow), transparent 70%)',
-          }} />
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--accent)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>
+      {/* ── EMAIL BANNER ─────────────────────────────────────────────── */}
+      <section style={{ padding: '0 0 120px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 48px' }}>
+          <motion.div
+            {...fadeUpScroll}
+            style={{
+              background: 'var(--rb-bg-secondary)',
+              border: '1px solid var(--rb-border-subtle)',
+              borderRadius: '24px',
+              padding: '80px 64px',
+              textAlign: 'center',
+              marginTop: '80px',
+            }}
+          >
+            <p style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--rb-text-secondary)' }}>
               Or reach out directly
-            </div>
+            </p>
             <a
               href="mailto:rasyidbejay@gmail.com"
               style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(1.2rem, 2vw, 1.6rem)',
-                fontWeight: '700',
-                letterSpacing: '-0.3px',
-                color: 'var(--text)',
-                textDecoration: 'none',
-                transition: 'color 0.2s',
+                display: 'block', marginTop: '16px',
+                fontSize: 'clamp(24px, 4vw, 48px)', fontWeight: 700, letterSpacing: '-0.025em',
+                color: 'var(--rb-text-primary)', textDecoration: 'none',
+                transition: 'opacity 0.2s',
               }}
-              onMouseEnter={e => e.target.style.color = 'var(--accent)'}
-              onMouseLeave={e => e.target.style.color = 'var(--text)'}
+              onMouseEnter={e => e.target.style.opacity = '0.7'}
+              onMouseLeave={e => e.target.style.opacity = '1'}
             >
               rasyidbejay@gmail.com
             </a>
-          </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </section>
 
       <style>{`
-        @media (max-width: 768px) {
-          .contact-page-hero {
-            padding: 48px 24px 40px !important;
-          }
-          .contact-main-grid {
-            grid-template-columns: 1fr !important;
-            padding: 40px 24px !important;
-            gap: 32px !important;
-          }
-          .contact-form-row {
-            grid-template-columns: 1fr !important;
-          }
-          .contact-cta-wrap {
-            margin: 0 24px 48px !important;
-            padding: 32px 24px !important;
-          }
+        input::placeholder, textarea::placeholder { color: var(--rb-text-tertiary); }
+        @media (max-width: 900px) {
+          .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .form-row { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 600px) {
+          section > div { padding-left: 24px !important; padding-right: 24px !important; }
         }
       `}</style>
-
     </PageTransition>
   )
 }

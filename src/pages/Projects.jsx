@@ -3,6 +3,21 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageTransition from '../components/PageTransition'
 
+const ease = [0.25, 0.1, 0.25, 1]
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease, delay },
+})
+
+const fadeUpScroll = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.6, ease },
+}
+
 const filters = ['All', 'Frontend', 'Full-Stack', 'E-Commerce']
 
 const projects = [
@@ -14,12 +29,10 @@ const projects = [
     tools: ['Vue 3', 'Pinia', 'Vue Router', 'Vite', 'CSS3'],
     live: 'https://rasyidbejay.github.io/brow-store/',
     github: 'https://github.com/rasyidbejay/brow-store',
+    image: '/brow.png',
     bg: 'linear-gradient(135deg, #1a0d00 0%, #2d1500 100%)',
     label: 'BRØW',
     labelColor: '#c8a27a',
-    labelFont: 'var(--font-mono)',
-    labelSpacing: '6px',
-    image: '/brow.png',
   },
   {
     id: 'lumen',
@@ -29,12 +42,10 @@ const projects = [
     tools: ['Vue 3', 'Vite', 'Vue Router', 'CSS3'],
     live: 'https://rasyidbejay.github.io/lumen-agency/',
     github: 'https://github.com/rasyidbejay/lumen-agency',
+    image: '/lumen.png',
     bg: 'linear-gradient(135deg, #06060f 0%, #10102a 100%)',
     label: 'LUMEN',
     labelColor: '#ffffff',
-    labelFont: 'var(--font-display)',
-    labelSpacing: '4px',
-    image: '/lumen.png',
   },
   {
     id: 'britannia',
@@ -44,12 +55,10 @@ const projects = [
     tools: ['WordPress', 'Core Web Vitals', 'Google Search Console', 'PageSpeed Insights'],
     live: 'https://britannia.edu.my',
     github: null,
+    image: null,
     bg: 'linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%)',
     label: 'Britannia',
     labelColor: '#ffffff',
-    labelFont: 'var(--font-display)',
-    labelSpacing: '2px',
-    image: null,
   },
   {
     id: 'riwei',
@@ -59,12 +68,10 @@ const projects = [
     tools: ['SiteGiant', 'GA4', 'Custom CSS', 'Responsive Design'],
     live: 'https://riwei.com.my',
     github: null,
+    image: '/riwei.png',
     bg: 'linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 100%)',
     label: 'Riwei',
     labelColor: '#4ade80',
-    labelFont: 'var(--font-display)',
-    labelSpacing: '2px',
-    image: '/riwei.png',
   },
   {
     id: 'habitflow',
@@ -74,12 +81,10 @@ const projects = [
     tools: ['Python', 'Flask', 'Bootstrap', 'SQLAlchemy', 'Jinja2'],
     live: null,
     github: null,
+    image: null,
     bg: 'linear-gradient(135deg, #1a0a1a 0%, #2a1a3a 100%)',
     label: 'HabitFlow',
     labelColor: '#a78bfa',
-    labelFont: 'var(--font-display)',
-    labelSpacing: '2px',
-    image: null,
   },
   {
     id: 'ripple',
@@ -89,257 +94,149 @@ const projects = [
     tools: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
     live: 'https://www.rasyidbejay.com/ripplehabits',
     github: 'https://github.com/rasyidbejay/ripplehabits',
+    image: '/ripple.png',
     bg: 'linear-gradient(135deg, #00120e 0%, #00261e 100%)',
     label: 'Ripple Habits',
     labelColor: '#10b981',
-    labelFont: 'var(--font-display)',
-    labelSpacing: '2px',
-    image: '/ripple.png',
   },
 ]
 
 export default function Projects() {
   const [active, setActive] = useState('All')
-
-  const filtered = active === 'All'
-    ? projects
-    : projects.filter(p => p.category === active)
+  const filtered = active === 'All' ? projects : projects.filter(p => p.category === active)
 
   return (
     <PageTransition>
 
-      {/* PAGE HERO */}
-      <section className="projects-page-hero" style={{
-        padding: '80px 48px 64px',
-        borderBottom: '1px solid var(--border2)',
-        position: 'relative',
-        overflow: 'hidden',
+      {/* ── PAGE HERO ────────────────────────────────────────────────── */}
+      <section style={{
+        minHeight: '50vh',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        textAlign: 'center',
+        padding: '120px 24px 80px',
+        borderBottom: '1px solid var(--rb-border-subtle)',
       }}>
-        <div style={{
-          position: 'absolute', top: '-100px', right: '-100px',
-          width: '400px', height: '400px',
-          background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
-        <motion.div
-          initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-            <div style={{ width: '16px', height: '1px', background: 'var(--accent)' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--accent)', letterSpacing: '2px', textTransform: 'uppercase' }}>Portfolio</span>
-          </div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 4.5vw, 4rem)', fontWeight: '700', letterSpacing: '-1.5px', lineHeight: '1.0', marginBottom: '16px' }}>
-            Projects<br />& Work.
-          </h1>
-          <p style={{ fontSize: '15px', color: 'var(--text2)', maxWidth: '480px', lineHeight: '1.7' }}>
-            A collection of frontend, full-stack, and e-commerce projects.
-          </p>
-        </motion.div>
+        <motion.p {...fadeUp(0)} style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--rb-text-secondary)', marginBottom: '16px' }}>
+          Portfolio
+        </motion.p>
+        <motion.h1 {...fadeUp(0.1)} style={{ fontSize: 'clamp(48px, 8vw, 96px)', fontWeight: 700, letterSpacing: '-0.04em', lineHeight: 1.0, color: 'var(--rb-text-primary)' }}>
+          Projects &amp; work.
+        </motion.h1>
+        <motion.p {...fadeUp(0.2)} style={{ fontSize: '17px', color: 'var(--rb-text-secondary)', marginTop: '20px', lineHeight: 1.6, maxWidth: '560px' }}>
+          A collection of frontend, full-stack, and e-commerce projects.
+        </motion.p>
       </section>
 
-      {/* FILTER BAR */}
-      <div className="filter-bar-wrap" style={{
-        display: 'flex', gap: '8px',
-        padding: '24px 48px',
-        borderBottom: '1px solid var(--border2)',
-      }}>
-        {filters.map(f => (
-          <button
-            key={f}
-            onClick={() => setActive(f)}
-            style={{
-              padding: '7px 18px',
-              borderRadius: '100px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '10px',
-              letterSpacing: '1px',
-              textTransform: 'uppercase',
-              cursor: 'pointer',
-              border: '1px solid',
-              borderColor: active === f ? 'var(--accent)' : 'var(--border2)',
-              background: active === f ? 'var(--accent)' : 'transparent',
-              color: active === f ? '#fff' : 'var(--text2)',
-              transition: 'all 0.2s',
-            }}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
-
-      {/* PROJECTS GRID */}
-      <div className="projects-full-wrap" style={{ padding: '48px 48px 0' }}>
-        <motion.div
-          layout
-          className="projects-full-grid"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}
-        >
-          <AnimatePresence mode="popLayout">
-            {filtered.map((p, i) => (
-              <motion.div
-                key={p.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                whileHover={{ y: -4 }}
-              >
-                <Link to={`/projects/${p.id}`} style={{ textDecoration: 'none' }}>
-                  <div style={{
-                    background: 'var(--surface)',
-                    border: '1px solid var(--border2)',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    transition: 'border-color 0.25s, box-shadow 0.25s',
-                    height: '100%',
-                  }}
-                  onMouseMove={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect()
-                    const x = e.clientX - rect.left
-                    const y = e.clientY - rect.top
-                    const centerX = rect.width / 2
-                    const centerY = rect.height / 2
-                    const rotateX = (y - centerY) / 20
-                    const rotateY = (centerX - x) / 20
-                    e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = 'var(--border)'
-                    e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,0.25)'
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
-                    e.currentTarget.style.borderColor = 'var(--border2)'
-                    e.currentTarget.style.boxShadow = 'none'
-                  }}
-                  >
-                    {/* Card image */}
-                    <div className="project-card-img" style={{
-                      height: '200px',
-                      background: p.image ? `url(${p.image}) center/cover no-repeat` : p.bg,
-                      position: 'relative',
-                      overflow: 'hidden',
-                    }}>
-                      {!p.image && (
-                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <span style={{ fontFamily: p.labelFont, fontSize: '22px', fontWeight: '700', color: p.labelColor, letterSpacing: p.labelSpacing }}>{p.label}</span>
-                        </div>
-                      )}
-                      {/* Overlay gradient */}
-                      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,11,8,0.6) 0%, transparent 60%)' }} />
-                      {/* Category badge */}
-                      <div style={{
-                        position: 'absolute', top: '14px', left: '14px',
-                        fontFamily: 'var(--font-mono)', fontSize: '8px',
-                        color: 'var(--accent)',
-                        background: 'rgba(8,11,8,0.7)',
-                        border: '1px solid var(--border)',
-                        padding: '2px 8px', borderRadius: '100px',
-                        backdropFilter: 'blur(4px)',
-                        letterSpacing: '1px', textTransform: 'uppercase',
-                      }}>{p.category}</div>
-                    </div>
-
-                    {/* Card body */}
-                    <div className="project-card-body" style={{ padding: '22px' }}>
-                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: '600', marginBottom: '8px', color: 'var(--text)', lineHeight: '1.3' }}>{p.title}</div>
-                      <div style={{ fontSize: '12px', color: 'var(--text2)', lineHeight: '1.7', marginBottom: '16px' }}>{p.desc}</div>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '16px' }}>
-                        {p.tools.map(t => (
-                          <span key={t} style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'var(--text2)', background: 'var(--surface2)', border: '1px solid var(--border2)', padding: '3px 8px', borderRadius: '4px' }}>{t}</span>
-                        ))}
-                      </div>
-                      <div style={{ display: 'flex', gap: '12px' }}>
-                        {p.live && (
-                          <a href={p.live} target="_blank" rel="noreferrer"
-                            onClick={e => e.stopPropagation()}
-                            style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--accent)', textDecoration: 'none', letterSpacing: '0.5px' }}>
-                            Live ↗
-                          </a>
-                        )}
-                        {p.github && (
-                          <a href={p.github} target="_blank" rel="noreferrer"
-                            onClick={e => e.stopPropagation()}
-                            style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text2)', textDecoration: 'none', letterSpacing: '0.5px' }}>
-                            GitHub →
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
-
-      {/* CURRENTLY BUILDING */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.5 }}
-        style={{ margin: '40px 48px 72px' }}
-      >
-        <div className="building-card-wrap" style={{
-          background: 'var(--surface)',
-          border: '1px solid rgba(16,185,129,0.15)',
-          borderRadius: '12px',
-          padding: '28px 32px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-          <div>
-            <div style={{
-              fontFamily: 'var(--font-mono)', fontSize: '9px',
-              color: 'var(--accent)',
-              background: 'rgba(16,185,129,0.08)',
-              border: '1px solid rgba(16,185,129,0.2)',
-              padding: '3px 10px', borderRadius: '100px',
-              display: 'inline-block',
-              marginBottom: '10px',
-              letterSpacing: '1px', textTransform: 'uppercase',
-            }}>🚧 In Development</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', fontWeight: '700', marginBottom: '6px', color: 'var(--text)' }}>SaaS Admin Dashboard</div>
-            <div style={{ fontSize: '12px', color: 'var(--text2)', maxWidth: '500px' }}>A modern SaaS admin dashboard — currently in active development. Details coming soon.</div>
-          </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--accent)', opacity: 0.6 }}>Coming Soon →</div>
+      {/* ── FILTER BAR ───────────────────────────────────────────────── */}
+      <div style={{ borderBottom: '1px solid var(--rb-border-subtle)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 48px', display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          {filters.map(f => (
+            <button
+              key={f}
+              onClick={() => setActive(f)}
+              style={{
+                padding: '9px 22px', fontSize: '13px', fontWeight: 500,
+                borderRadius: '999px', cursor: 'pointer',
+                border: '1px solid',
+                borderColor: active === f ? 'var(--rb-text-primary)' : 'var(--rb-border)',
+                background: active === f ? 'var(--rb-text-primary)' : 'transparent',
+                color: active === f ? 'var(--rb-bg)' : 'var(--rb-text-secondary)',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => { if (active !== f) { e.currentTarget.style.borderColor = 'var(--rb-text-primary)'; e.currentTarget.style.color = 'var(--rb-text-primary)' } }}
+              onMouseLeave={e => { if (active !== f) { e.currentTarget.style.borderColor = 'var(--rb-border)'; e.currentTarget.style.color = 'var(--rb-text-secondary)' } }}
+            >
+              {f}
+            </button>
+          ))}
         </div>
-      </motion.div>
+      </div>
+
+      {/* ── PROJECTS GRID ────────────────────────────────────────────── */}
+      <section style={{ padding: '64px 0 120px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 48px' }}>
+          <motion.div layout className="projects-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+            <AnimatePresence mode="popLayout">
+              {filtered.map((p, i) => (
+                <motion.div
+                  key={p.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                  whileHover={{ y: -6, boxShadow: '0 20px 48px rgba(0,0,0,0.1)' }}
+                  style={{ transition: 'box-shadow 0.4s ease' }}
+                >
+                  <Link to={`/projects/${p.id}`} style={{ textDecoration: 'none', display: 'block' }}>
+                    <div style={{
+                      background: 'var(--rb-bg-secondary)',
+                      border: '1px solid var(--rb-border-subtle)',
+                      borderRadius: '18px', overflow: 'hidden',
+                      height: '100%',
+                      transition: 'border-color 0.25s',
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--rb-border)'}
+                    onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--rb-border-subtle)'}
+                    >
+                      <div style={{
+                        aspectRatio: '16/9',
+                        background: p.image ? `url(${p.image}) center/cover no-repeat` : p.bg,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        position: 'relative', overflow: 'hidden',
+                      }}>
+                        {!p.image && <span style={{ fontSize: '22px', fontWeight: 700, color: p.labelColor, letterSpacing: '4px' }}>{p.label}</span>}
+                        <div style={{ position: 'absolute', top: '14px', left: '14px', fontSize: '8px', letterSpacing: '1px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.15)', padding: '3px 10px', borderRadius: '999px', backdropFilter: 'blur(4px)' }}>{p.category}</div>
+                      </div>
+                      <div style={{ padding: '24px' }}>
+                        <h3 style={{ fontSize: '18px', fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--rb-text-primary)', marginBottom: '8px', lineHeight: 1.3 }}>{p.title}</h3>
+                        <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--rb-text-secondary)', marginBottom: '16px' }}>{p.desc}</p>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
+                          {p.tools.map(t => (
+                            <span key={t} style={{ fontSize: '12px', color: 'var(--rb-text-secondary)', background: 'var(--rb-bg-tertiary)', border: '1px solid var(--rb-border-subtle)', borderRadius: '999px', padding: '4px 12px' }}>{t}</span>
+                          ))}
+                        </div>
+                        <div style={{ display: 'flex', gap: '16px' }}>
+                          {p.live && <a href={p.live} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} style={{ fontSize: '13px', color: 'var(--rb-text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = 'var(--rb-text-primary)'} onMouseLeave={e => e.target.style.color = 'var(--rb-text-secondary)'}>Live ↗</a>}
+                          {p.github && <a href={p.github} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} style={{ fontSize: '13px', color: 'var(--rb-text-tertiary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = 'var(--rb-text-secondary)'} onMouseLeave={e => e.target.style.color = 'var(--rb-text-tertiary)'}>GitHub →</a>}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* In Development card — full width */}
+          <motion.div {...fadeUpScroll} style={{ gridColumn: '1 / -1', marginTop: '8px' }}>
+            <div style={{
+              background: 'var(--rb-bg-secondary)',
+              border: '1px solid var(--rb-border-subtle)',
+              borderRadius: '18px', padding: '40px 48px',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              gap: '24px',
+            }}>
+              <div>
+                <span style={{ fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--rb-text-secondary)', background: 'var(--rb-bg-tertiary)', border: '1px solid var(--rb-border)', borderRadius: '999px', padding: '4px 14px', display: 'inline-block', marginBottom: '16px' }}>🚧 In Development</span>
+                <h3 style={{ fontSize: '22px', fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--rb-text-primary)', marginBottom: '8px' }}>SaaS Admin Dashboard</h3>
+                <p style={{ fontSize: '14px', color: 'var(--rb-text-secondary)', lineHeight: 1.6, maxWidth: '560px' }}>A modern SaaS admin dashboard — currently in active development. Details coming soon.</p>
+              </div>
+              <span style={{ fontSize: '13px', color: 'var(--rb-text-tertiary)', flexShrink: 0 }}>Coming Soon →</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       <style>{`
         @media (max-width: 768px) {
-          .projects-page-hero {
-            padding: 48px 24px 40px !important;
-          }
-          .filter-bar-wrap {
-            padding: 16px 24px !important;
-            gap: 6px !important;
-            flex-wrap: wrap !important;
-          }
-          .projects-full-wrap {
-            padding: 24px 24px 0 !important;
-          }
-          .projects-full-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .project-card-img {
-            height: 160px !important;
-          }
-          .project-card-body {
-            padding: 16px !important;
-          }
-          .building-card-wrap {
-            margin: 20px 24px 48px !important;
-            flex-direction: column !important;
-            gap: 16px !important;
-            align-items: flex-start !important;
-          }
+          .projects-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 600px) {
+          section > div { padding-left: 24px !important; padding-right: 24px !important; }
         }
       `}</style>
-
     </PageTransition>
   )
 }
