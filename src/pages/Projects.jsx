@@ -1,3 +1,4 @@
+// NOTE: ensure socontent.png is present in /public folder
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -18,7 +19,7 @@ const fadeUpScroll = {
   transition: { duration: 0.6, ease },
 }
 
-const filters = ['All', 'Frontend', 'Full-Stack', 'E-Commerce']
+const filters = ['All', 'Frontend', 'Full-Stack', 'E-Commerce', 'CMS']
 
 const projects = [
   {
@@ -49,7 +50,7 @@ const projects = [
   },
   {
     id: 'britannia',
-    category: 'Frontend',
+    category: 'CMS',
     title: 'Britannia Language Centre',
     desc: 'A custom WordPress site designed to improve online presence. Focused on custom frontend components, mobile responsiveness, and performance optimisation.',
     tools: ['WordPress', 'Core Web Vitals', 'Google Search Console', 'PageSpeed Insights'],
@@ -62,7 +63,7 @@ const projects = [
   },
   {
     id: 'riwei',
-    category: 'E-Commerce',
+    category: 'CMS',
     title: 'ERP Webstore — Riwei Marketing',
     desc: 'Custom e-commerce website on SiteGiant with responsive frontend and enhanced UX. Implemented GA4 integration for tracking and insights. Delivered in 2-3 weeks.',
     tools: ['SiteGiant', 'GA4', 'Custom CSS', 'Responsive Design'],
@@ -72,6 +73,19 @@ const projects = [
     bg: 'linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 100%)',
     label: 'Riwei',
     labelColor: '#4ade80',
+  },
+  {
+    id: 'so-content-studio',
+    category: 'CMS',
+    title: 'So Content Studio',
+    desc: 'Photography studio website with online booking, gift cards, and Stripe payment integration.',
+    tools: ['WordPress', 'Elementor', 'Amelia', 'Stripe', 'Astra'],
+    live: 'https://creativestudiosni.co.uk/',
+    github: null,
+    image: '/socontent.png',
+    bg: 'linear-gradient(135deg, #1a0a14 0%, #2d1525 100%)',
+    label: 'So Content',
+    labelColor: '#f4c2d8',
   },
   {
     id: 'habitflow',
